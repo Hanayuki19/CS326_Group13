@@ -6,7 +6,7 @@
 | Minh Le    | Hanayuki19     |
 | Long Tran Duy    | ltranduy-boop     |
 | Mahish Mistry    | mahishmistry     |
-| Chloe Le    | -     |
+| Chloe Le    | its-cle    |
 
 - **Day-to-day communication:** We have decided to use discord for our quick questions, blockers, and status updates. We will be aiming to try to respond within 24 hours on weekdays. However anything related to specific code (design decisions, review feedback, bug details) goes in the relevant GitHub issue or pull request so it stays with the work instead of scrolling away in chat. However if we need help with some stuff we can always discuss and edit code on discord before pushing to github.
 

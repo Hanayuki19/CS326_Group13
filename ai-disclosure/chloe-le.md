@@ -1,0 +1,1 @@
+I did not use any AI for my commits on this sprint.
