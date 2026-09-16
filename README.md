@@ -1,4 +1,4 @@
-# CS326_Group13 (In Progress, awaiting other members)
+# CS326_Group13 
 
 # Team
 | Name | Github Username |
