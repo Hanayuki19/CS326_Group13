@@ -17,3 +17,9 @@
 - **Resolving disagreements:** We first discuss about what is the disagreement, make a list of pros and cons of why we should do or not do it and then decide with that.
 
 - **Availability and handoffs:**  We have decided not to hold fixed working hours. Everyone's schedule is different, so people work when it suits their situation, as long as they keep the team updated in a timely manner, such as letting us know if they'll be unavailable for a stretch, or if something is blocking them, so work can be reassigned instead of stalling.
+
+## Project Domain
+
+Our project aims to support UMass students in managing their academic life more easily. Things such as planning a semester today means bouncing between SPIRE, which is slow and hard to read, and word of mouth or scattered sites to find out how heavy or difficult a course actually is, because none of that information lives in one place.
+We want to build a student centered site to try fix part of this, whether that means a cleaner way to view and plan a semester schedule, or a space where students share course workload information and helpful resources with each other.
+This benefits students who don't have easy access to advising or friends  who have alredy taken the class, such as first year, transfer, and first generation students. We will narrow this to a specific set of features in the next sprint, but the goal is the same, which is to help reduce the difficulty that students face just trying to figure out their classes.
