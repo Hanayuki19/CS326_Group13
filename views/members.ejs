@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css">
+    <title><%= title %></title>
+    <style>
+    table, th, td {
+      border: 1px solid;
+    }
+</style>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><%= title %></h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/members">Members</a>
+        <a href="/projects">Projects</a>
+      </nav>
+    </header>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+      </tr>
+      <% Members.forEach(entry => { %>
+        <tr>
+          <td><%= entry.name %></td>
+          <td><%= entry.Username %></td>
+        </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>

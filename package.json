@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Hanayuki19/CS326_Group13#readme",
   "type": "module",
   "dependencies": {
+    "ejs": "^6.0.1",
     "express": "^5.2.1"
   }
 }
