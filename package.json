@@ -1,0 +1,24 @@
+{
+  "name": "cs326_group13",
+  "version": "1.0.0",
+  "description": "| Name | Github Username | | -------- | -------- | | Minh Le    | Hanayuki19     | | Long Tran Duy    | ltranduy-boop     | | Mahish Mistry    | mahishmistry     | | Chloe Le    | its-cle    |",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hanayuki19/CS326_Group13.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hanayuki19/CS326_Group13/issues"
+  },
+  "homepage": "https://github.com/Hanayuki19/CS326_Group13#readme",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
