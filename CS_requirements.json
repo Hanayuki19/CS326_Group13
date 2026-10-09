@@ -1,0 +1,1247 @@
+{
+  "courses": {
+    "BIOLOGY 151": {
+      "aliases": [
+        "BIOL 151"
+      ],
+      "credits": null,
+      "id": "BIOLOGY 151",
+      "name": "Introductory Biology I",
+      "number": "151",
+      "sources": [
+        {
+          "sourceText": "BIOL 151",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/undergraduate-faqs/cs-lab-science-requirement-biology"
+        },
+        {
+          "sourceText": "BIOL 151 Introductory Biology I",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/undergraduate-faqs/cs-lab-science-requirement-biology"
+        }
+      ],
+      "subject": "BIOLOGY"
+    },
+    "BIOLOGY 152": {
+      "aliases": [
+        "BIOL 152"
+      ],
+      "credits": null,
+      "id": "BIOLOGY 152",
+      "name": "Introductory Biology II",
+      "number": "152",
+      "sources": [
+        {
+          "sourceText": "BIOL 152",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/undergraduate-faqs/cs-lab-science-requirement-biology"
+        },
+        {
+          "sourceText": "BIOL 152 Introductory Biology II",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/undergraduate-faqs/cs-lab-science-requirement-biology"
+        }
+      ],
+      "subject": "BIOLOGY"
+    },
+    "BIOLOGY 153": {
+      "aliases": [
+        "BIOL 153"
+      ],
+      "credits": null,
+      "id": "BIOLOGY 153",
+      "name": null,
+      "number": "153",
+      "sources": [
+        {
+          "sourceText": "BIOL 153",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/undergraduate-faqs/cs-lab-science-requirement-biology"
+        }
+      ],
+      "subject": "BIOLOGY"
+    },
+    "CHEM 111": {
+      "aliases": [],
+      "credits": null,
+      "id": "CHEM 111",
+      "name": "General Chem - Science Majors",
+      "number": "111",
+      "sources": [
+        {
+          "sourceText": "CHEM 111",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "CHEM"
+    },
+    "CHEM 112": {
+      "aliases": [],
+      "credits": null,
+      "id": "CHEM 112",
+      "name": "General Chem - Science Majors",
+      "number": "112",
+      "sources": [
+        {
+          "sourceText": "CHEM 112 General Chem - Science Majors",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "CHEM"
+    },
+    "CHEM 121": {
+      "aliases": [],
+      "credits": null,
+      "id": "CHEM 121",
+      "name": "General Chem - Science Majors",
+      "number": "121",
+      "sources": [
+        {
+          "sourceText": "121 General Chem - Science Majors",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "CHEM"
+    },
+    "CHEM 122": {
+      "aliases": [],
+      "credits": null,
+      "id": "CHEM 122",
+      "name": "General Chemistry",
+      "number": "122",
+      "sources": [
+        {
+          "sourceText": "122 General Chemistry",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "CHEM"
+    },
+    "CICS 110": {
+      "aliases": [],
+      "credits": 4,
+      "id": "CICS 110",
+      "name": "Foundations of Programming",
+      "number": "110",
+      "sources": [
+        {
+          "sourceText": "CICS 110: Foundations of Programming (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "CICS"
+    },
+    "CICS 160": {
+      "aliases": [],
+      "credits": 4,
+      "id": "CICS 160",
+      "name": "Object Oriented Programming",
+      "number": "160",
+      "sources": [
+        {
+          "sourceText": "CICS 160: Object Oriented Programming (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "CICS"
+    },
+    "CICS 210": {
+      "aliases": [],
+      "credits": 4,
+      "id": "CICS 210",
+      "name": "Data Structures",
+      "number": "210",
+      "sources": [
+        {
+          "sourceText": "CICS 210: Data Structures (4cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "CICS"
+    },
+    "CICS 256": {
+      "aliases": [],
+      "credits": null,
+      "id": "CICS 256",
+      "name": "Make: A Hands-on Introduction to Physical Computing",
+      "number": "256",
+      "sources": [
+        {
+          "sourceText": "CICS 256 Make: A Hands-on Introduction to Physical Computing",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "CICS"
+    },
+    "CICS 305": {
+      "aliases": [],
+      "credits": null,
+      "id": "CICS 305",
+      "name": "Social Issues in Computing",
+      "number": "305",
+      "sources": [
+        {
+          "sourceText": "CICS 305 Social Issues in Computing",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "CICS"
+    },
+    "COMPSCI 198C": {
+      "aliases": [],
+      "credits": 1,
+      "id": "COMPSCI 198C",
+      "name": "Introduction to the C Programming Language",
+      "number": "198C",
+      "sources": [
+        {
+          "sourceText": "COMPSCI 198C Introduction to the C Programming Language (a 1cr practicum course)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "COMPSCI"
+    },
+    "COMPSCI 220": {
+      "aliases": [],
+      "credits": 4,
+      "id": "COMPSCI 220",
+      "name": "Programming Methodology",
+      "number": "220",
+      "sources": [
+        {
+          "sourceText": "COMPSCI 220 Programming Methodology (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "COMPSCI"
+    },
+    "COMPSCI 230": {
+      "aliases": [],
+      "credits": 4,
+      "id": "COMPSCI 230",
+      "name": "Computer Systems Principles",
+      "number": "230",
+      "sources": [
+        {
+          "sourceText": "COMPSCI 230 Computer Systems Principles (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "COMPSCI"
+    },
+    "COMPSCI 240": {
+      "aliases": [],
+      "credits": 4,
+      "id": "COMPSCI 240",
+      "name": "Reasoning About Uncertainty",
+      "number": "240",
+      "sources": [
+        {
+          "sourceText": "COMPSCI 240 Reasoning About Uncertainty (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "COMPSCI"
+    },
+    "COMPSCI 250": {
+      "aliases": [],
+      "credits": 4,
+      "id": "COMPSCI 250",
+      "name": "Introduction to Computation",
+      "number": "250",
+      "sources": [
+        {
+          "sourceText": "COMPSCI 250 Introduction to Computation (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "COMPSCI"
+    },
+    "COMPSCI 311": {
+      "aliases": [],
+      "credits": 4,
+      "id": "COMPSCI 311",
+      "name": "Introduction to Algorithms",
+      "number": "311",
+      "sources": [
+        {
+          "sourceText": "311 Introduction to Algorithms (4 cr) (prereq: 250)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "COMPSCI"
+    },
+    "COMPSCI 320": {
+      "aliases": [],
+      "credits": null,
+      "id": "COMPSCI 320",
+      "name": "Software Engineering",
+      "number": "320",
+      "sources": [
+        {
+          "sourceText": "COMPSCI 320 Software Engineering",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "COMPSCI"
+    },
+    "COMPSCI 326": {
+      "aliases": [],
+      "credits": null,
+      "id": "COMPSCI 326",
+      "name": "Web Programming",
+      "number": "326",
+      "sources": [
+        {
+          "sourceText": "COMPSCI 326 Web Programming",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "COMPSCI"
+    },
+    "ECE 353": {
+      "aliases": [],
+      "credits": null,
+      "id": "ECE 353",
+      "name": "Computer Systems Lab I",
+      "number": "353",
+      "sources": [
+        {
+          "sourceText": "ECE 353 Computer Systems Lab I",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "ECE"
+    },
+    "ECE 547": {
+      "aliases": [],
+      "credits": 3,
+      "id": "ECE 547",
+      "name": "Security Engineering",
+      "number": "547",
+      "sources": [
+        {
+          "sourceText": "ECE 547 Security Engineering (3 cr) (formerly ECE 597AB)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "ECE"
+    },
+    "ECE 668": {
+      "aliases": [],
+      "credits": 3,
+      "id": "ECE 668",
+      "name": "Computer Architecture",
+      "number": "668",
+      "sources": [
+        {
+          "sourceText": "ECE 668 Computer Architecture (3 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "ECE"
+    },
+    "GEOLOGY 101": {
+      "aliases": [
+        "GEOL 101"
+      ],
+      "credits": null,
+      "id": "GEOLOGY 101",
+      "name": "The Earth",
+      "number": "101",
+      "sources": [
+        {
+          "sourceText": "GEOL 101 The Earth",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "GEOLOGY"
+    },
+    "GEOLOGY 103": {
+      "aliases": [
+        "GEOL 103"
+      ],
+      "credits": null,
+      "id": "GEOLOGY 103",
+      "name": "Oceanography",
+      "number": "103",
+      "sources": [
+        {
+          "sourceText": "GEOL 103 Oceanography",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "GEOLOGY"
+    },
+    "GEOLOGY 105": {
+      "aliases": [
+        "GEOL 105"
+      ],
+      "credits": null,
+      "id": "GEOLOGY 105",
+      "name": "The Dynamic Earth",
+      "number": "105",
+      "sources": [
+        {
+          "sourceText": "GEOL 105 The Dynamic Earth",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "GEOLOGY"
+    },
+    "GEOLOGY 131": {
+      "aliases": [
+        "GEOL 131"
+      ],
+      "credits": null,
+      "id": "GEOLOGY 131",
+      "name": "Experiencing Geology",
+      "number": "131",
+      "sources": [
+        {
+          "sourceText": "GEOL 131 Experiencing Geology",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        },
+        {
+          "sourceText": "GEOL 131",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "GEOLOGY"
+    },
+    "INFO 324": {
+      "aliases": [],
+      "credits": 4,
+      "id": "INFO 324",
+      "name": "Introduction to Clinical Health Data Science",
+      "number": "324",
+      "sources": [
+        {
+          "sourceText": "INFO 324 Introduction to Clinical Health Data Science (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "INFO"
+    },
+    "LINGUIST 401": {
+      "aliases": [],
+      "credits": 3,
+      "id": "LINGUIST 401",
+      "name": "Intro to Syntax",
+      "number": "401",
+      "sources": [
+        {
+          "sourceText": "LINGUIST 401 Intro to Syntax (3 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "LINGUIST"
+    },
+    "MATH 131": {
+      "aliases": [],
+      "credits": 4,
+      "id": "MATH 131",
+      "name": "Calculus I",
+      "number": "131",
+      "sources": [
+        {
+          "sourceText": "MATH 131 Calculus I (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "MATH"
+    },
+    "MATH 132": {
+      "aliases": [],
+      "credits": 4,
+      "id": "MATH 132",
+      "name": "Calculus II",
+      "number": "132",
+      "sources": [
+        {
+          "sourceText": "MATH 132 Calculus II (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "MATH"
+    },
+    "MATH 233": {
+      "aliases": [],
+      "credits": 4,
+      "id": "MATH 233",
+      "name": "Multivariate Calculus",
+      "number": "233",
+      "sources": [
+        {
+          "sourceText": "MATH 233 Multivariate Calculus (4 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "MATH"
+    },
+    "MATH 235": {
+      "aliases": [],
+      "credits": null,
+      "id": "MATH 235",
+      "name": "Introduction to Linear Algebra",
+      "number": "235",
+      "sources": [
+        {
+          "sourceText": "MATH 235 Introduction to Linear Algebra",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "MATH"
+    },
+    "MATH 411": {
+      "aliases": [],
+      "credits": 3,
+      "id": "MATH 411",
+      "name": "Intro to Abstract Algebra I",
+      "number": "411",
+      "sources": [
+        {
+          "sourceText": "MATH 411 Intro to Abstract Algebra I (3 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "MATH"
+    },
+    "MATH 545": {
+      "aliases": [],
+      "credits": 3,
+      "id": "MATH 545",
+      "name": "Linear Algebra for Applied Mathematics",
+      "number": "545",
+      "sources": [
+        {
+          "sourceText": "MATH 545 Linear Algebra for Applied Mathematics (3 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "MATH"
+    },
+    "MATH 551": {
+      "aliases": [],
+      "credits": 3,
+      "id": "MATH 551",
+      "name": "Intro to Scientific Computing",
+      "number": "551",
+      "sources": [
+        {
+          "sourceText": "MATH 551 Intro to Scientific Computing (3 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "MATH"
+    },
+    "MATH 552": {
+      "aliases": [],
+      "credits": 3,
+      "id": "MATH 552",
+      "name": "Applications for Scientific Computing",
+      "number": "552",
+      "sources": [
+        {
+          "sourceText": "MATH 552 Applications for Scientific Computing (3 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "MATH"
+    },
+    "MATH 571": {
+      "aliases": [],
+      "credits": 3,
+      "id": "MATH 571",
+      "name": "Introduction to Mathematical Cryptography",
+      "number": "571",
+      "sources": [
+        {
+          "sourceText": "MATH 571 Introduction to Mathematical Cryptography (3 cr)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "MATH"
+    },
+    "PHYSICS 151": {
+      "aliases": [],
+      "credits": null,
+      "id": "PHYSICS 151",
+      "name": "General Physics I",
+      "number": "151",
+      "sources": [
+        {
+          "sourceText": "PHYSICS 151 General Physics I",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "PHYSICS"
+    },
+    "PHYSICS 152": {
+      "aliases": [],
+      "credits": null,
+      "id": "PHYSICS 152",
+      "name": "General Physics II",
+      "number": "152",
+      "sources": [
+        {
+          "sourceText": "PHYSICS 152 General Physics II",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "PHYSICS"
+    },
+    "PHYSICS 181": {
+      "aliases": [],
+      "credits": null,
+      "id": "PHYSICS 181",
+      "name": "Physics I - Mechanics",
+      "number": "181",
+      "sources": [
+        {
+          "sourceText": "PHYSICS 181 Physics I - Mechanics",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "PHYSICS"
+    },
+    "PHYSICS 182": {
+      "aliases": [],
+      "credits": null,
+      "id": "PHYSICS 182",
+      "name": "Physics II - Electricity and Magnetism",
+      "number": "182",
+      "sources": [
+        {
+          "sourceText": "PHYSICS 182 Physics II - Electricity and Magnetism",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "PHYSICS"
+    },
+    "STATISTC 315": {
+      "aliases": [],
+      "credits": null,
+      "id": "STATISTC 315",
+      "name": "Statistics I",
+      "number": "315",
+      "sources": [
+        {
+          "sourceText": "STATISTC 315 Statistics I (not a replacement for MATH 132)",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        }
+      ],
+      "subject": "STATISTC"
+    }
+  },
+  "limitations": [
+    "Requirements data, not a student degree-audit engine.",
+    "Conditional policies and exceptions require review of source text and the student's applicable ARR.",
+    "Null names or credits mean they are not explicitly provided by the fetched sources."
+  ],
+  "policies": {
+    "electiveEligibility": {
+      "sourceText": "Any regularly numbered COMPSCI course at the 300-level or above may be used as an elective, excluding COMPSCI 305, or if it is specifically barred as an elective in its course description.\nThe following elective options require ARR Fixes that are generally applied after grades are finalized following your last semester:\nExperimental courses (x90), seminar courses (x91-x95), and special topics (x97) may only be used as CS electives at the 300- or 400-level if specifically stated in the course description . ONLY fill out this form if you want to EXCLUDE one of these courses. At most 3 credits of CS honors research courses (499T/P) can be used as a CS elective 400+. ONLY fill out this form if you want to EXCLUDE one of these courses. Independent studies (x96) at the 300-level (or above) are reviewed for CS elective credit via the independent study approval process during registration. If the CS UPD approves, at most 3 credits of independent study can be used as a CS elective. ONLY fill out this form if you want to EXCLUDE one of these courses. A maximum of 3 credits of either COMPSCI 499P/T or COMPSCI 396/496/596 may be used toward CS Major requirements. Additional credits earned will count toward graduation credit requirements, but will not count toward major requirements.",
+      "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+    },
+    "grading": {
+      "sourceText": "A computer science major may not use any course taken on a pass/fail basis to fulfill the computer science program requirements (including mathematics, lab science, and computer science introductory, core, and upper-level elective courses). Students must maintain an average grade of at least C (2.0) in all courses used to satisfy the major degree requirement (see major GPA on the ARR). While courses with grades of C-, D+, or D may be counted toward the degree, students normally repeat these courses so that the new grade will replace the old in their GPA calculation (see Academic Regulations for rules about repeating courses). A grade below C will normally not suffice as a prerequisite for a later course. For example, enrolling in COMPSCI 220 requires a grade of \"C or better\" in CICS 210.",
+      "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+    },
+    "minimumMajorGpa": 2.0,
+    "overview": {
+      "sourceText": "The computer science undergraduate program provides a solid foundation in the science of computing. To earn a bachelor's degree, the University requires that a student successfully complete a minimum of 120 credits with a minimum cumulative grade point average of 2.0 (A=4.0). The program is built around seven core lower-division computer science courses (total credits = 28), eight upper-level computer science electives (total credits = 26-28), four mathematics courses (total credits = 14), and two approved laboratory science courses (total credits = 8). These courses supply the essential theory, concepts, and techniques in the major areas of computer science and related disciplines.\nThe degree includes courses required by the major program, college, and university. Students may have satisfied some of these requirements before entering the University (see Credit for Prior Coursework ). Others may need additional preparation, such as a math review course before they begin this program.\nEach set of requirements is administered by a different authority. Requirements for the major are administered by the Computer Science Undergraduate Program, and the Computer Science Undergraduate Program Director is the final authority on whether these are fulfilled. College and University requirements are administered by the College of Information and Computer Sciences Academic Deans Office and the University Registrar's Office. Students should check their \"Academic Requirements Report\" (also referred to as the ARR) on SPIRE to determine which requirements have been satisfied.",
+      "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+    },
+    "passFailAllowed": false
+  },
+  "prerequisites": [
+    {
+      "courseId": "COMPSCI 230",
+      "evidence": {
+        "sourceText": "* Note: COMPSCI 198C Introduction to the C Programming Language (a 1cr practicum course) is a prerequisite for COMPSCI 230.",
+        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+      },
+      "requiresCourseId": "COMPSCI 198C"
+    }
+  ],
+  "program": {
+    "cohort": {
+      "andLater": true,
+      "majorStartTerm": "Fall 2023"
+    },
+    "degree": "BS",
+    "institution": "UMass Amherst",
+    "major": "Computer Science",
+    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+  },
+  "requirements": [
+    {
+      "evidence": {
+        "sourceText": "CICS 110: Foundations of Programming (4 cr) CICS 160: Object Oriented Programming (4 cr) CICS 210: Data Structures (4cr)",
+        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+      },
+      "id": "introductory",
+      "items": [
+        {
+          "courseId": "CICS 110",
+          "evidence": {
+            "sourceText": "CICS 110: Foundations of Programming (4 cr)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        },
+        {
+          "courseId": "CICS 160",
+          "evidence": {
+            "sourceText": "CICS 160: Object Oriented Programming (4 cr)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        },
+        {
+          "courseId": "CICS 210",
+          "evidence": {
+            "sourceText": "CICS 210: Data Structures (4cr)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        }
+      ],
+      "label": "Three Introductory Computer Science Courses",
+      "notes": [],
+      "type": "all_of"
+    },
+    {
+      "evidence": {
+        "sourceText": "COMPSCI 220 Programming Methodology (4 cr) COMPSCI 230 Computer Systems Principles (4 cr) * COMPSCI 240 Reasoning About Uncertainty (4 cr) COMPSCI 250 Introduction to Computation (4 cr)\n* Note: COMPSCI 198C Introduction to the C Programming Language (a 1cr practicum course) is a prerequisite for COMPSCI 230.",
+        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+      },
+      "id": "core",
+      "items": [
+        {
+          "courseId": "COMPSCI 220",
+          "evidence": {
+            "sourceText": "COMPSCI 220 Programming Methodology (4 cr)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        },
+        {
+          "courseId": "COMPSCI 230",
+          "evidence": {
+            "sourceText": "COMPSCI 230 Computer Systems Principles (4 cr) *",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        },
+        {
+          "courseId": "COMPSCI 240",
+          "evidence": {
+            "sourceText": "COMPSCI 240 Reasoning About Uncertainty (4 cr)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        },
+        {
+          "courseId": "COMPSCI 250",
+          "evidence": {
+            "sourceText": "COMPSCI 250 Introduction to Computation (4 cr)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        }
+      ],
+      "label": "Four Core Computer Science Courses",
+      "notes": [
+        "* Note: COMPSCI 198C Introduction to the C Programming Language (a 1cr practicum course) is a prerequisite for COMPSCI 230."
+      ],
+      "type": "all_of"
+    },
+    {
+      "evidence": {
+        "sourceText": "MATH 131 Calculus I (4 cr) MATH 132 Calculus II (4 cr) MATH 233 Multivariate Calculus (4 cr) or STATISTC 315 Statistics I (not a replacement for MATH 132) MATH 235 Introduction to Linear Algebra",
+        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+      },
+      "id": "mathematics",
+      "items": [
+        {
+          "courseId": "MATH 131",
+          "evidence": {
+            "sourceText": "MATH 131 Calculus I (4 cr)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        },
+        {
+          "courseId": "MATH 132",
+          "evidence": {
+            "sourceText": "MATH 132 Calculus II (4 cr)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        },
+        {
+          "evidence": {
+            "sourceText": "MATH 233 Multivariate Calculus (4 cr) or STATISTC 315 Statistics I (not a replacement for MATH 132)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "minOptions": 1,
+          "options": [
+            {
+              "courseId": "MATH 233",
+              "evidence": {
+                "sourceText": "MATH 233 Multivariate Calculus (4 cr)",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "type": "course"
+            },
+            {
+              "courseId": "STATISTC 315",
+              "evidence": {
+                "sourceText": "STATISTC 315 Statistics I (not a replacement for MATH 132)",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "type": "course"
+            }
+          ],
+          "type": "any_of"
+        },
+        {
+          "courseId": "MATH 235",
+          "evidence": {
+            "sourceText": "MATH 235 Introduction to Linear Algebra",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        }
+      ],
+      "label": "Four Mathematics Courses",
+      "notes": [],
+      "type": "all_of"
+    },
+    {
+      "distinctCourseSlots": true,
+      "evidence": {
+        "sourceText": "311 Introduction to Algorithms (4 cr) (prereq: 250) 3 additional CS electives numbered 300 or above (may include one to satisfy the IE Req) 3 additional CS electives numbered 400 or above 1 additional CS elective numbered 300 or above, or an outside elective from an approved list ECE 353 Computer Systems Lab I ECE 547 Security Engineering (3 cr) (formerly ECE 597AB) ECE 668 Computer Architecture (3 cr) INFO 324 Introduction to Clinical Health Data Science (4 cr) LINGUIST 401 Intro to Syntax (3 cr) MATH 411 Intro to Abstract Algebra I (3 cr) MATH 545 Linear Algebra for Applied Mathematics (3 cr) MATH 551 Intro to Scientific Computing (3 cr) MATH 552 Applications for Scientific Computing (3 cr) MATH 571 Introduction to Mathematical Cryptography (3 cr)",
+        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+      },
+      "id": "upperLevel",
+      "items": [
+        {
+          "courseId": "COMPSCI 311",
+          "evidence": {
+            "sourceText": "311 Introduction to Algorithms (4 cr) (prereq: 250)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "type": "course"
+        },
+        {
+          "evidence": {
+            "sourceText": "3 additional CS electives numbered 300 or above (may include one to satisfy the IE Req)",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "excludedCourseIds": [
+            "CICS 305",
+            "COMPSCI 305"
+          ],
+          "label": "CS300+",
+          "minCourseNumber": 300,
+          "minCourses": 3,
+          "minCredits": null,
+          "policyRef": "electiveEligibility",
+          "subject": "COMPSCI",
+          "type": "course_pool"
+        },
+        {
+          "evidence": {
+            "sourceText": "3 additional CS electives numbered 400 or above",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "excludedCourseIds": [
+            "CICS 305",
+            "COMPSCI 305"
+          ],
+          "label": "CS400+",
+          "minCourseNumber": 400,
+          "minCourses": 3,
+          "minCredits": null,
+          "policyRef": "electiveEligibility",
+          "subject": "COMPSCI",
+          "type": "course_pool"
+        },
+        {
+          "evidence": {
+            "sourceText": "1 additional CS elective numbered 300 or above, or an outside elective from an approved list",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "label": "Additional CS300+ or approved outside elective",
+          "minOptions": 1,
+          "options": [
+            {
+              "evidence": {
+                "sourceText": "1 additional CS elective numbered 300 or above, or an outside elective from an approved list",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "excludedCourseIds": [
+                "CICS 305",
+                "COMPSCI 305"
+              ],
+              "label": "CS300+",
+              "minCourseNumber": 300,
+              "minCourses": 1,
+              "minCredits": null,
+              "policyRef": "electiveEligibility",
+              "subject": "COMPSCI",
+              "type": "course_pool"
+            },
+            {
+              "courseIds": [
+                "ECE 353",
+                "ECE 547",
+                "ECE 668",
+                "INFO 324",
+                "LINGUIST 401",
+                "MATH 411",
+                "MATH 545",
+                "MATH 551",
+                "MATH 552",
+                "MATH 571"
+              ],
+              "evidence": {
+                "sourceText": "1 additional CS elective numbered 300 or above, or an outside elective from an approved list",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "label": "Approved outside elective",
+              "minCourses": 1,
+              "minCredits": null,
+              "type": "course_pool"
+            }
+          ],
+          "type": "any_of"
+        }
+      ],
+      "label": "Eight Upper-Level Elective Computer Science Courses",
+      "minCourses": 8,
+      "type": "all_of"
+    },
+    {
+      "conditionNotes": "Computer science majors take CICS 305 Social Issues in Computing in their junior or senior years to satisfy this requirement. The Junior Year Writing course must be taken at UMass Amherst. Double majors and dual degree students for whom Computer Science is the primary major must take CICS 305 Social Issues in Computing to satisfy the Junior Year Writing requirement. Double majors and dual degree students for whom Computer Science is the secondary major use the Junior Year Writing requirement course from their primary major to fulfill this requirement. A Junior Year Writing course in another major substitutes for CICS 305 only if it was completed during the Fall of 2025 or earlier.",
+      "evidence": {
+        "sourceText": "Computer science majors take CICS 305 Social Issues in Computing in their junior or senior years to satisfy this requirement. The Junior Year Writing course must be taken at UMass Amherst. Double majors and dual degree students for whom Computer Science is the primary major must take CICS 305 Social Issues in Computing to satisfy the Junior Year Writing requirement. Double majors and dual degree students for whom Computer Science is the secondary major use the Junior Year Writing requirement course from their primary major to fulfill this requirement. A Junior Year Writing course in another major substitutes for CICS 305 only if it was completed during the Fall of 2025 or earlier.",
+        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+      },
+      "id": "writing",
+      "label": "Junior Year Writing (JYW) Requirement",
+      "requirement": {
+        "courseId": "CICS 305",
+        "evidence": {
+          "sourceText": "CICS 305 Social Issues in Computing",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        },
+        "type": "course"
+      },
+      "type": "conditional"
+    },
+    {
+      "conditionNotes": "Students satisfy the University's IE Requirement by taking an approved IE course in their primary major at UMass Amherst. COMPSCI 320 Software Engineering and COMPSCI 326 Web Programming are currently the designated IE courses for CS and also count as a CS Elective.",
+      "evidence": {
+        "sourceText": "Students satisfy the University's IE Requirement by taking an approved IE course in their primary major at UMass Amherst. COMPSCI 320 Software Engineering and COMPSCI 326 Web Programming are currently the designated IE courses for CS and also count as a CS Elective.",
+        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+      },
+      "id": "integrativeExperience",
+      "label": "Integrative Experience (IE) Requirement",
+      "mayOverlap": [
+        "upperLevel"
+      ],
+      "requirement": {
+        "evidence": {
+          "sourceText": "Students satisfy the University's IE Requirement by taking an approved IE course in their primary major at UMass Amherst. COMPSCI 320 Software Engineering and COMPSCI 326 Web Programming are currently the designated IE courses for CS and also count as a CS Elective.",
+          "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+        },
+        "minOptions": 1,
+        "options": [
+          {
+            "courseId": "COMPSCI 320",
+            "evidence": {
+              "sourceText": "COMPSCI 320 Software Engineering",
+              "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+            },
+            "type": "course"
+          },
+          {
+            "courseId": "COMPSCI 326",
+            "evidence": {
+              "sourceText": "COMPSCI 326 Web Programming",
+              "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+            },
+            "type": "course"
+          }
+        ],
+        "type": "any_of"
+      },
+      "type": "conditional"
+    },
+    {
+      "additionalCourses": false,
+      "appliesTo": "upperLevel",
+      "evidence": {
+        "sourceText": "Five of the eight required upper-level (300+) courses must be taken at UMass Amherst.",
+        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+      },
+      "id": "residency",
+      "institution": "UMass Amherst",
+      "label": "Residency Requirements",
+      "minCourses": 5,
+      "type": "residency"
+    },
+    {
+      "evidence": {
+        "sourceText": "Satisfy laboratory science requirements by taking two majors-level science courses in the College of Natural Sciences* that include a lab component (8 total credits). See your Academic Requirements Report (ARR) for specific program requirements. Students select two courses from the following list---mixing departments is acceptable:\nCICS 256 (formerly 290M) Make: A Hands-on Introduction to Physical Computing * CHEM 111 or 121 General Chem - Science Majors CHEM 112 General Chem - Science Majors or 122 General Chemistry GEOL 101 The Earth (with lab) or GEOL 103 Oceanography and GEOL 131 Experiencing Geology (lab) or GEOL 105 The Dynamic Earth and GEOL 131 (lab)** PHYSICS 151 General Physics I or PHYSICS 181 Physics I - Mechanics PHYSICS 152 General Physics II or PHYSICS 182 Physics II - Electricity and Magnetism Options in Biology for the CS Lab Science Requirement\n* CICS 256 (formerly 290M) is currently open to Freshmen/Sophomore BS-CS Majors only (Juniors may be considered if available seats). The ARR does not list the course as an option. Therefore, an ARR Exception will be completed closer to graduation. We will fix your ARR, and you do not need to tell us. Only fill out this form if you do not want to use this course.\n**GEO-SCI 103/131 and GEO-SCI 105/131 require an ARR Exception. In general, if your grades are lower in courses that need an ARR Fix than in other courses for this requirement, we will not update your ARR. We will fix your ARR, and you do not need to tell us. Only fill out this form if you do not want to use these courses.",
+        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+      },
+      "id": "labScience",
+      "label": "Two Lab Science Courses (8 credits)",
+      "minOptions": 1,
+      "notes": [
+        "Satisfy laboratory science requirements by taking two majors-level science courses in the College of Natural Sciences* that include a lab component (8 total credits). See your Academic Requirements Report (ARR) for specific program requirements. Students select two courses from the following list---mixing departments is acceptable:",
+        "* CICS 256 (formerly 290M) is currently open to Freshmen/Sophomore BS-CS Majors only (Juniors may be considered if available seats). The ARR does not list the course as an option. Therefore, an ARR Exception will be completed closer to graduation. We will fix your ARR, and you do not need to tell us. Only fill out this form if you do not want to use this course.",
+        "**GEO-SCI 103/131 and GEO-SCI 105/131 require an ARR Exception. In general, if your grades are lower in courses that need an ARR Fix than in other courses for this requirement, we will not update your ARR. We will fix your ARR, and you do not need to tell us. Only fill out this form if you do not want to use these courses."
+      ],
+      "options": [
+        {
+          "evidence": {
+            "sourceText": "Satisfy laboratory science requirements by taking two majors-level science courses in the College of Natural Sciences* that include a lab component (8 total credits). See your Academic Requirements Report (ARR) for specific program requirements. Students select two courses from the following list---mixing departments is acceptable:\nCICS 256 (formerly 290M) Make: A Hands-on Introduction to Physical Computing * CHEM 111 or 121 General Chem - Science Majors CHEM 112 General Chem - Science Majors or 122 General Chemistry GEOL 101 The Earth (with lab) or GEOL 103 Oceanography and GEOL 131 Experiencing Geology (lab) or GEOL 105 The Dynamic Earth and GEOL 131 (lab)** PHYSICS 151 General Physics I or PHYSICS 181 Physics I - Mechanics PHYSICS 152 General Physics II or PHYSICS 182 Physics II - Electricity and Magnetism Options in Biology for the CS Lab Science Requirement\n* CICS 256 (formerly 290M) is currently open to Freshmen/Sophomore BS-CS Majors only (Juniors may be considered if available seats). The ARR does not list the course as an option. Therefore, an ARR Exception will be completed closer to graduation. We will fix your ARR, and you do not need to tell us. Only fill out this form if you do not want to use this course.\n**GEO-SCI 103/131 and GEO-SCI 105/131 require an ARR Exception. In general, if your grades are lower in courses that need an ARR Fix than in other courses for this requirement, we will not update your ARR. We will fix your ARR, and you do not need to tell us. Only fill out this form if you do not want to use these courses.",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+          },
+          "minCredits": 8,
+          "minOptions": 2,
+          "options": [
+            {
+              "courseId": "CICS 256",
+              "evidence": {
+                "sourceText": "CICS 256  Make: A Hands-on Introduction to Physical Computing *",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "type": "course"
+            },
+            {
+              "evidence": {
+                "sourceText": "CHEM 111 or 121 General Chem - Science Majors",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "minOptions": 1,
+              "options": [
+                {
+                  "courseId": "CHEM 111",
+                  "evidence": {
+                    "sourceText": "CHEM 111",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "type": "course"
+                },
+                {
+                  "courseId": "CHEM 121",
+                  "evidence": {
+                    "sourceText": "121 General Chem - Science Majors",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "type": "course"
+                }
+              ],
+              "type": "any_of"
+            },
+            {
+              "evidence": {
+                "sourceText": "CHEM 112 General Chem - Science Majors or 122 General Chemistry",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "minOptions": 1,
+              "options": [
+                {
+                  "courseId": "CHEM 112",
+                  "evidence": {
+                    "sourceText": "CHEM 112 General Chem - Science Majors",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "type": "course"
+                },
+                {
+                  "courseId": "CHEM 122",
+                  "evidence": {
+                    "sourceText": "122 General Chemistry",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "type": "course"
+                }
+              ],
+              "type": "any_of"
+            },
+            {
+              "evidence": {
+                "sourceText": "GEOL 101 The Earth (with lab) or GEOL 103 Oceanography and GEOL 131 Experiencing Geology (lab) or GEOL 105 The Dynamic Earth and GEOL 131 (lab)**",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "minOptions": 1,
+              "options": [
+                {
+                  "courseId": "GEOLOGY 101",
+                  "evidence": {
+                    "sourceText": "GEOL 101 The Earth",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "type": "course"
+                },
+                {
+                  "countsAsScienceOptions": 1,
+                  "evidence": {
+                    "sourceText": "GEOL 103 Oceanography and GEOL 131 Experiencing Geology",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "items": [
+                    {
+                      "courseId": "GEOLOGY 103",
+                      "evidence": {
+                        "sourceText": "GEOL 103 Oceanography",
+                        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                      },
+                      "type": "course"
+                    },
+                    {
+                      "courseId": "GEOLOGY 131",
+                      "evidence": {
+                        "sourceText": "GEOL 131 Experiencing Geology",
+                        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                      },
+                      "type": "course"
+                    }
+                  ],
+                  "type": "all_of"
+                },
+                {
+                  "countsAsScienceOptions": 1,
+                  "evidence": {
+                    "sourceText": "GEOL 105 The Dynamic Earth and GEOL 131 **",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "items": [
+                    {
+                      "courseId": "GEOLOGY 105",
+                      "evidence": {
+                        "sourceText": "GEOL 105 The Dynamic Earth",
+                        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                      },
+                      "type": "course"
+                    },
+                    {
+                      "courseId": "GEOLOGY 131",
+                      "evidence": {
+                        "sourceText": "GEOL 131",
+                        "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                      },
+                      "type": "course"
+                    }
+                  ],
+                  "type": "all_of"
+                }
+              ],
+              "type": "any_of"
+            },
+            {
+              "evidence": {
+                "sourceText": "PHYSICS 151 General Physics I or PHYSICS 181 Physics I - Mechanics",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "minOptions": 1,
+              "options": [
+                {
+                  "courseId": "PHYSICS 151",
+                  "evidence": {
+                    "sourceText": "PHYSICS 151 General Physics I",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "type": "course"
+                },
+                {
+                  "courseId": "PHYSICS 181",
+                  "evidence": {
+                    "sourceText": "PHYSICS 181 Physics I - Mechanics",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "type": "course"
+                }
+              ],
+              "type": "any_of"
+            },
+            {
+              "evidence": {
+                "sourceText": "PHYSICS 152 General Physics II or PHYSICS 182 Physics II - Electricity and Magnetism",
+                "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+              },
+              "minOptions": 1,
+              "options": [
+                {
+                  "courseId": "PHYSICS 152",
+                  "evidence": {
+                    "sourceText": "PHYSICS 152 General Physics II",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "type": "course"
+                },
+                {
+                  "courseId": "PHYSICS 182",
+                  "evidence": {
+                    "sourceText": "PHYSICS 182 Physics II - Electricity and Magnetism",
+                    "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+                  },
+                  "type": "course"
+                }
+              ],
+              "type": "any_of"
+            }
+          ],
+          "type": "choose_n"
+        },
+        {
+          "conditionNotes": "A student may use all three Introductory Biology courses (BIOL 151, BIOL 152, and BIOL 153; a total of 10 credits) to satisfy the 8 credits required for the CS Lab Science Requirement (CSLSR). The ARR will need to be fixed by Program Staff to accept these 3 courses for the CSLSR. Once all 3 courses are completed, you may fill out this form (not required), and we will note that you are opting for the Biology Variance and fix your ARR prior to your major clearance for graduation.",
+          "courseIds": [
+            "BIOLOGY 151",
+            "BIOLOGY 152",
+            "BIOLOGY 153"
+          ],
+          "evidence": {
+            "sourceText": "A student may use all three Introductory Biology courses (BIOL 151, BIOL 152, and BIOL 153; a total of 10 credits) to satisfy the 8 credits required for the CS Lab Science Requirement (CSLSR). The ARR will need to be fixed by Program Staff to accept these 3 courses for the CSLSR. Once all 3 courses are completed, you may fill out this form (not required), and we will note that you are opting for the Biology Variance and fix your ARR prior to your major clearance for graduation.",
+            "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/undergraduate-faqs/cs-lab-science-requirement-biology"
+          },
+          "label": "Biology variance — replaces the entire lab-science requirement",
+          "requiresArrAdjustment": true,
+          "totalCredits": 10,
+          "type": "all_of"
+        }
+      ],
+      "type": "any_of"
+    }
+  ],
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "role": "biology",
+      "sha256": "fa3c6ed3f2defe03fb6af30cb2ad03e4a3957e91ff4a60bd80bd3d0285ade33f",
+      "url": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/undergraduate-faqs/cs-lab-science-requirement-biology"
+    },
+    {
+      "role": "index",
+      "sha256": "e9852b6e94eb70518d145fe519053e7d8c3e4739517b4553a8033e21f91e0700",
+      "url": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements"
+    },
+    {
+      "role": "revision",
+      "sha256": "5bf10620ce39a39c1ee0e1542056b9c1b3a49d5b4247b7055d5ba4c4c385ab2c",
+      "url": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+    }
+  ],
+  "universityContext": {
+    "completeUniversityAudit": false,
+    "generalEducation": {
+      "sourceText": "Computer science majors complete general education requirements as specified by the University. Information on general education requirements is available here . Current students can also verify their requirements using their Academic Requirements Report (ARR) on SPIRE.",
+      "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+    },
+    "minimumCredits": 120,
+    "minimumCumulativeGpa": 2.0
+  }
+}
