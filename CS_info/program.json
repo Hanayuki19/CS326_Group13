@@ -1,0 +1,14 @@
+{
+  "catalogScope": "All CICS, COMPSCI, and INFO entries on the semester page, including graduate and restricted courses. Inclusion does not imply a course counts toward the BS CS major.",
+  "catalogSourceUrl": "https://content.cs.umass.edu/content/fall-2026-course-description",
+  "catalogTerm": "Fall 2026",
+  "cohort": {
+    "andLater": true,
+    "majorStartTerm": "Fall 2023"
+  },
+  "degree": "BS",
+  "institution": "UMass Amherst",
+  "major": "Computer Science",
+  "minimumUniversityCredits": 120,
+  "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+}
