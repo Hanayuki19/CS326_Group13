@@ -23,3 +23,19 @@
 Our project aims to support UMass students in managing their academic life more easily. Things such as planning a semester today means bouncing between SPIRE, which is slow and hard to read, and word of mouth or scattered sites to find out how heavy or difficult a course actually is, because none of that information lives in one place.
 We want to build a student centered site to try fix part of this, whether that means a cleaner way to view and plan a semester schedule, or a space where students share course workload information and helpful resources with each other.
 This benefits students who don't have easy access to advising or friends  who have alredy taken the class, such as first year, transfer, and first generation students. We will narrow this to a specific set of features in the next sprint, but the goal is the same, which is to help reduce the difficulty that students face just trying to figure out their classes.
+
+# Getting Started
+
+## Prerequisites
+Ensure you have Node.js installed.
+
+## Installation
+Clone the repository
+- "git clone https://github.com/Hanayuki19/CS326_Group13.git"
+Install dependencies
+- "npm install"
+
+## Running the Server
+Start the server
+- "npm start"
+Open your browser and go to "http://localhost:3000"

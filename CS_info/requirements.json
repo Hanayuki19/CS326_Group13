@@ -1,0 +1,347 @@
+{
+  "note": "Prerequisite wording preserves alternatives, minimum grades, permissions, and concurrent enrollment. Null means not stated; it does not mean no prerequisites. These are course prerequisites, not degree completion requirements.",
+  "requirements": {
+    "CICS 110": {
+      "prerequisites": "R1 (or a score of 15 or higher on the math placement test Part A), or one of the following courses: MATH 101&102 or MATH 104 or MATH 127 or MATH 128 or MATH 131 or MATH 132.",
+      "status": "stated"
+    },
+    "CICS 127": {
+      "prerequisites": "No programming or prerequisites are required.",
+      "status": "none"
+    },
+    "CICS 160": {
+      "prerequisites": "CICS 110 (previously INFO 190S) or COMPSCI 121 with a grade of C or better.",
+      "status": "stated"
+    },
+    "CICS 190A": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "CICS 208": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "CICS 210": {
+      "prerequisites": "CICS 160 (previously INFO 190T) with a grade of C or better.",
+      "status": "stated"
+    },
+    "CICS 237": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "CICS 256": {
+      "prerequisites": "CICS 210 (or COMPSCI 187) with a grade of C or better and completion of the R1 (Basic Math Skills) Gen. Ed.",
+      "status": "stated"
+    },
+    "CICS 291C": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "CICS 291T": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "CICS 298A": {
+      "prerequisites": "a grade of C or better in CICS 160, COMPSCI 186, COMPSCI 187, or CICS 210.",
+      "status": "stated"
+    },
+    "CICS 305": {
+      "prerequisites": "CS Majors: ENGLWRIT 112 with a grade of C or better (or English Writing waiver), COMPSCI 220, COMPSCI 230 and COMPSCI 240 (or 250); INFORM Majors: ENGLWRIT 112 with a grade of C or better (or English Writing waiver) and INFO 248.",
+      "status": "stated"
+    },
+    "CICS 496L": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 119": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 198C": {
+      "prerequisites": "CICS 160 (previously INFO 190T or COMPSCI 186 or CICS 210) with a grade of C or better, or COMPSCI 121 with a grade of B or better.",
+      "status": "stated"
+    },
+    "COMPSCI 220": {
+      "prerequisites": "CICS 210 (or COMPSCI 187) with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 230": {
+      "prerequisites": "CICS 210 (or COMPSCI 187) with a grade of C or better and COMPSCI 198C.",
+      "status": "stated"
+    },
+    "COMPSCI 240": {
+      "prerequisites": "CICS 160 (previously INFO 190T or COMPSCI 187) or CICS 210 and MATH 132, all with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 250": {
+      "prerequisites": "CICS 160 (previously INFO 190T or COMPSCI 187 or E&C-ENG 241, or CICS 210) and MATH 132, all with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 311": {
+      "prerequisites": "CICS 210 (OR COMPSCI 187) , and either COMPSCI 250 or MATH 455, all with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 320": {
+      "prerequisites": "COMPSCI 220 with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 325": {
+      "prerequisites": "COMPSCI 187 (or CICS 210) with a grade of C or better OR INFO 248 and COMPSCI 186 (or 187 or CICS 160;INFO 190T) with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 326": {
+      "prerequisites": "CS Majors: COMPSCI 220 with a grade of C or better; INFORM Majors: INFO 248 and CICS 210, both with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 328": {
+      "prerequisites": "CS MAJORS: CICS 210 (or COMPSCI 187) with a grade of C or better; INFORM MAJORS: INFO 248 and CICS 160 (previously INFO 190T or COMPSCI 186 or COMPSCI 187), all with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 335": {
+      "prerequisites": "COMPSCI 220 or 230 with a grade of 'C' or better.",
+      "status": "stated"
+    },
+    "COMPSCI 345": {
+      "prerequisites": "CS MAJORS: CICS 210 (or COMPSCI 187) with a grade of C or better. INFORM MAJORS: INFO 248 and CICS 160 (previously INFO 190T or COMPSCI 186 or COMPSCI 187), all with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 360": {
+      "prerequisites": "COMPSCI 230 with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 363": {
+      "prerequisites": "COMPSCI 230 with a grade of 'C' or better AND either ENGLWRIT 112 (with a grade of 'C' or better) or the completion of the 'CW' General Education requirement.",
+      "status": "stated"
+    },
+    "COMPSCI 367": {
+      "prerequisites": "COMPSCI 230 (or E&C-ENG 322) with a grade of C or better, or permission of instructor.",
+      "status": "stated"
+    },
+    "COMPSCI 377": {
+      "prerequisites": "COMPSCI 230 with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 383": {
+      "prerequisites": "CS MAJORS: (CICS 210 or COMPSCI 187) and COMPSCI 240 (or STATISTC 315), both with a grade of C or better; INFORM MAJORS: INFO 348 and STATISTC 315, both with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 389": {
+      "prerequisites": "a grade of C or better in CICS 210 and COMPSCI 240 (or STATISTC 315 or STATISTC 240 or PSYCH 240 or OIM 240 or RES-ECON 212 or SOCIOL 212), and MATH 132.",
+      "status": "stated"
+    },
+    "COMPSCI 420": {
+      "prerequisites": "COMPSCi 320 (or COMPSCI 326) with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 429": {
+      "prerequisites": "Enrollment in this course is only by permission of the instructor, and is restricted to students who have previously taken COMPSCI 320, and received a grade of B or better.",
+      "status": "stated"
+    },
+    "COMPSCI 445": {
+      "prerequisites": "COMPSCI 220 (or 230) and COMPSCI 311 and COMPSCI 345 with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 453": {
+      "prerequisites": "Experience programming; COMPSCI 230 (or COMPSCI 377) with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 461": {
+      "prerequisites": "COMPSCI 326, COMPSCI 345, COMPSCI 377, COMPSCI 453, or COMPSCI 497P with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 485": {
+      "prerequisites": "COMPSCI 220 and COMPSCI 240 with a grade of C or better, or LINGUIST 429B (previously LINGUIST 492B) with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 491P": {
+      "prerequisites": "COMPSCI 250 and COMPSCI 383 (or 389) with a grade of C or better in each.",
+      "status": "stated"
+    },
+    "COMPSCI 514": {
+      "prerequisites": "COMPSCI 240 (or STATISTCS 315/515) and COMPSCI 311 both with a grade of B+ or better, or (COMPSCI 240 and STATISTCS 315/515 and COMPSCI 311 and MATH 233 and MATH 235, all with a C or better).",
+      "status": "stated"
+    },
+    "COMPSCI 515": {
+      "prerequisites": "COMPSI 240 and 250 with a grade of C or better in both.",
+      "status": "stated"
+    },
+    "COMPSCI 520": {
+      "prerequisites": "COMPSCI 320 (or COMPSCI 220 and COMPSCI 326) with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 532": {
+      "prerequisites": "COMPSCI 377 and COMPSCI 445 both with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 550": {
+      "prerequisites": "CICS 210 (or COMPSCI 187) and STATISTC 315 (previously STATISTC 515).",
+      "status": "stated"
+    },
+    "COMPSCI 565": {
+      "prerequisites": "COMPSCI 365 or COMPSCI 377 with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 571": {
+      "prerequisites": "COMPSCI 220, or COMPSCI 230, or COMPSCI 326 with a grade of C or better. No prior knowledge of data visualization or exploration is assumed.",
+      "status": "stated"
+    },
+    "COMPSCI 575": {
+      "prerequisites": "either COMPSCI 250 or MATH 455 with a grade of B or better. Modern Algebra - MATH 411 - is helpful but not required.",
+      "status": "stated"
+    },
+    "COMPSCI 589": {
+      "prerequisites": "MATH 545 and COMPSCI 240 and STATISTC 315/515 all with a grade of C or better. (MATH 545 can be skipped by students who have taken MATH 235 and MATH 233 both with B+ or better. STATISTC 315/515 can be skipped by students who have taken COMPSCI 240 with a B+ or better).3 credits.",
+      "status": "stated"
+    },
+    "COMPSCI 590AF": {
+      "prerequisites": "COMPSCI 230 (or E&C-ENG 322) with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 590OP": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 590Q": {
+      "prerequisites": "MATH 235 with a grade of C or better.",
+      "status": "stated"
+    },
+    "COMPSCI 590RM": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 602": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 611": {
+      "prerequisites": "The mathematical maturity expected of incoming Computer Science graduate students, knowledge of algorithms at the level of COMPSCI 311.",
+      "status": "stated"
+    },
+    "COMPSCI 621": {
+      "prerequisites": "COMPSCI 320, Introduction to Software Engineering (or equivalent course).",
+      "status": "stated"
+    },
+    "COMPSCI 646": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 648": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 660": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 661": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 666": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 670": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 682": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 684": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 687": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 689": {
+      "prerequisites": "undergraduate level probability and statistics, linear algebra, calculus, AI; computer programming in some high level language. Open to graduate Computer Science students only",
+      "status": "stated"
+    },
+    "COMPSCI 690K": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 690S": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 691WM": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 692FD": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 692S": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 698W": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 701": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 701Y": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 879": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI 891M": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI H230": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "COMPSCI H250": {
+      "prerequisites": "Students must be enrolled in or have completed COMPSCI 250.",
+      "status": "stated"
+    },
+    "COMPSCI H335": {
+      "prerequisites": "Students must be enrolled in COMPSCI 335.",
+      "status": "stated"
+    },
+    "COMPSCI H360": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "INFO 101": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "INFO 150": {
+      "prerequisites": "R1 math skills recommended. Not intended for Computer Science majors students interested in a majors-level treatment of this material should see COMPSCI 240 and 250 (or MATH 455).",
+      "status": "stated"
+    },
+    "INFO 203": {
+      "prerequisites": null,
+      "status": "not_stated"
+    },
+    "INFO 248": {
+      "prerequisites": "a grade of C or or above in the following courses: CICS 110 (or CICS 160 or COMPSCI 119 or COMPSCI 121) with a grade of C or above and either: PSYCH 240, OIM 240, STATISTC 240, RES-ECON 212, SOCIOL 212, OR STATISTC 315/515, OR COMPSCI 240, with a grade of C or above.",
+      "status": "stated"
+    },
+    "INFO 324": {
+      "prerequisites": "INFO 248 (or STATISTIC 315;515 or COMPSCI 240) with a grade of C or better.",
+      "status": "stated"
+    },
+    "INFO 348": {
+      "prerequisites": "INFO 248 and CICS 160 (or INFO 190T or COMPSCI 186 or 187), both with a grade of C or better.",
+      "status": "stated"
+    }
+  },
+  "sourceUrl": "https://content.cs.umass.edu/content/fall-2026-course-description",
+  "term": "Fall 2026"
+}
