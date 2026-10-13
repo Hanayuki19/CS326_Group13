@@ -1,0 +1,7 @@
+{
+  "minimumCumulativeGpa": 2.0,
+  "minimumMajorGpa": 2.0,
+  "passFailAllowedForMajor": false,
+  "policyText": "A computer science major may not use any course taken on a pass/fail basis to fulfill the computer science program requirements (including mathematics, lab science, and computer science introductory, core, and upper-level elective courses). Students must maintain an average grade of at least C (2.0) in all courses used to satisfy the major degree requirement (see major GPA on the ARR). While courses with grades of C-, D+, or D may be counted toward the degree, students normally repeat these courses so that the new grade will replace the old in their GPA calculation (see Academic Regulations for rules about repeating courses). A grade below C will normally not suffice as a prerequisite for a later course. For example, enrolling in COMPSCI 220 requires a grade of \"C or better\" in CICS 210.",
+  "sourceUrl": "https://www.cics.umass.edu/academics/academic-policies/undergraduate-programs-policies/bs-computer-science-degree-requirements/bs-cs-degree-requirements-2023-revision"
+}
