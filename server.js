@@ -1,25 +1,35 @@
 import express from "express";
-import { join } from "path";
+import morgan from 'morgan';
+import mainRouter from './routes/main.js';
 
 const app = express();
-const PORT = 3000;
-const Members = [
-  { name: "Minh Le", Username: "Hanayuki19" },
-  { name: "Long Tran Duy", Username: "ltranduy-boop" },
-  { name: "Mahish Mistry", Username: "mahishmistry" },
-  { name: "Chloe Le", Username: "its-cle" },
-];
-app.use(express.static("public"));
+const PORT = process.env.PORT || 3000;
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-app.get("/", (req, res) => {
-  res.sendFile(join(import.meta.dirname, "public", "about.html"));
+app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
 });
-app.get("/members", (req, res) => {
-  res.render("members", { title: "Members", Members });
+
+app.use(morgan('dev'));
+
+app.use('/', mainRouter);
+
+app.use((req, res) => {
+  res.status(404).send('Page not found.');
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send('Something went wrong.');
 });
 
 app.listen(PORT, () => {
-  console.log(`Listening on http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
