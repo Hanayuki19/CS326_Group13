@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><%= title %></h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/students">Students</a>
+        <a href="/projects">Projects</a>
+      </nav>
+    </header>
+    <main>
+      <form id="entry-form">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="major" placeholder="Major">
+        <button type="submit">Add student</button>
+      </form>
+      <ul id="entries">
+        <% Students.forEach((entry) => { %>
+          <li data-id="<%= entry.id %>" data-title="<%= entry.name %>" data-body="<%= entry.major %>">
+            <span class="entry-display"><strong><%= entry.name %>:</strong> <%= entry.major %></span>
+            <button class="edit-btn" type="button">Edit</button>
+            <button class="delete-btn" type="button">Delete</button>
+          </li>
+        <% }); %>
+      </ul>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
