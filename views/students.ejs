@@ -22,7 +22,10 @@
       </form>
       <ul id="entries">
         <% Students.forEach((entry) => { %>
-          <li data-id="<%= entry.id %>" data-title="<%= entry.name %>" data-body="<%= entry.major %>">
+          <li data-id="<%= entry.id %>" data-title="%= entry.name %>" data-body="<%= entry.major %>">
+            <nav>
+              <a href="/students/student/<%= entry.id %>">View</a>
+            </nav>
             <span class="entry-display"><strong><%= entry.name %>:</strong> <%= entry.major %></span>
             <button class="edit-btn" type="button">Edit</button>
             <button class="delete-btn" type="button">Delete</button>
