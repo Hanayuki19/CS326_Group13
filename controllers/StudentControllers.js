@@ -5,6 +5,19 @@ export const students = async (req, res) => {
   const Students = await mainService.get_student();
   res.render("students", { title: "Students", Students });
 };
+export const student = async (req, res) => {
+  const id = parseInt(req.params.id);
+  if (Number.isNaN(id)) {
+    res.status(400).json({ error: "id must be a number" });
+    return;
+  }
+  const result = await mainService.get_student_by_id(id);
+  if (!result.ok) {
+    res.status(result.error.status).json({ error: result.error.message });
+    return;
+  }
+  res.render("student", { title: "Student", student: result.value });
+};
 
 export const create = async (req, res) => {
   const result = await mainService.createStudent(req.body);
