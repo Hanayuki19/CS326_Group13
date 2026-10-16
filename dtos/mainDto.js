@@ -8,3 +8,11 @@ export const toStudentDto = (user) => ({
   major: user.major,
   id: user.id,
 });
+
+export const NewUser = (user) => ({
+  name: user.FullName,
+  Username: user.Username,
+  Password: user.Password,
+  major: user.Major,
+  id: user.id,
+});

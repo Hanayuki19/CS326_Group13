@@ -18,5 +18,10 @@
     "name": "LOL",
     "major": "Math",
     "id": 4
+  },
+  {
+    "name": "Lmao",
+    "major": "CS",
+    "id": 5
   }
 ]

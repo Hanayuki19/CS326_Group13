@@ -60,3 +60,7 @@ export const deleteStudent = async (id) => {
   await save(students);
   return Ok(null);
 };
+
+// export const get_student_by_id = async (id) => {
+//   const cur = await
+// };
