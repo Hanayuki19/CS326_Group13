@@ -1,4 +1,4 @@
-# CS326_Group13 
+# CS326_Group13
 
 # Team
 | Name | Github Username |
@@ -39,3 +39,6 @@ Install dependencies
 Start the server
 - "npm start"
 Open your browser and go to "http://localhost:3000"
+
+## Design choice
+I chose .JSON instead of MongoDB because I want to iterate fast (build features fast, test fast, and then we switched to a database later). Switching is not the hard part, building one that work is. JSON allows me to inspect the errors fairly quickly and it's easier to get started with. (Minh)
