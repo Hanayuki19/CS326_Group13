@@ -39,3 +39,12 @@ Install dependencies
 Start the server
 - "npm start"
 Open your browser and go to "http://localhost:3000"
+
+
+## Course Reviews
+
+Go to `/reviews`. The form takes a course code, a workload rating from 1 to 5, and a comment. Submitting sends a POST to `/reviews`; the service validates the fields, the repository saves the review to `reviews.json`, and the new review appears in the list below the form. If a field is missing or the rating is out of range, the server returns a 400 and the message is shown under the form.
+
+## Design Decisions
+
+**Central error middleware (Mahish Mistry).** Every async route handler is wrapped in `asyncHandler`, and all failures end in one error handling middleware in `server.js` that returns JSON with a status code; controllers never catch errors themselves. The credible alternative was a try/catch in each controller function. We shipped the middleware version because `app.js` and `reviews.js` read `{ error }` from every failed response, and one middleware is the only way to guarantee that shape for errors nobody anticipated, such as malformed JSON rejected by `express.json()` or a missing data file. Per controller try/catch would have duplicated the same error to JSON code in every controller, and any controller that forgot it would crash the server on a failed `await`.
