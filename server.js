@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import mainRouter from "./routes/main.js";
 import studentRouter from "./routes/StudentRoute.js";
+import reviewRouter from "./routes/ReviewRoute.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +24,8 @@ app.use(morgan("dev"));
 app.use("/", mainRouter);
 
 app.use("/students", studentRouter);
+
+app.use("/reviews", reviewRouter);
 
 app.use((req, res) => {
   res.status(404).send("Page not found.");

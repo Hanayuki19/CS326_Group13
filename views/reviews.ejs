@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><%= title %></h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/members">Members</a>
+        <a href="/students">Students</a>
+        <a href="/reviews">Reviews</a>
+      </nav>
+    </header>
+    <main>
+      <form id="entry-form">
+        <input type="text" name="course" placeholder="Course (e.g. CS326)">
+        <input type="number" name="rating" min="1" max="5" placeholder="Workload 1-5">
+        <input type="text" name="comment" placeholder="Comment">
+        <button type="submit">Add review</button>
+      </form>
+      <p id="form-error" class="form-error" role="alert"></p>
+      <ul id="entries">
+        <% Reviews.forEach((entry) => { %>
+          <li data-id="<%= entry.id %>">
+            <span class="entry-display"><strong><%= entry.course %> (<%= entry.rating %>/5):</strong> <%= entry.comment %></span>
+          </li>
+        <% }); %>
+      </ul>
+    </main>
+    <script src="/reviews.js" defer></script>
+  </body>
+</html>

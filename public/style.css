@@ -146,3 +146,8 @@ td {
 .edit-form .cancel-btn {
   background-color: #888;
 }
+
+.form-error {
+  color: #d33;
+  margin: -1rem 0 1rem;
+}
