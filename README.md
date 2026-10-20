@@ -34,6 +34,10 @@ Clone the repository
 - "git clone https://github.com/Hanayuki19/CS326_Group13.git"
 Install dependencies
 - "npm install"
+Configure Environment Variables
+- "touch .env"
+- Open the .env file and add your session key.
+- ``` SECRET_SESSION="your-session-key"```
 
 ## Running the Server
 Start the server
