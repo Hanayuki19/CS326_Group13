@@ -37,6 +37,7 @@ Install dependencies
 Configure Environment Variables
 - "touch .env"
 - Open the .env file and add your session key.
+- ``` SECRET_SESSION="your-session-key"```
 
 ## Running the Server
 Start the server
