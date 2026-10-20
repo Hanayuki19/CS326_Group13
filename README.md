@@ -44,6 +44,41 @@ Start the server
 - "npm start"
 Open your browser and go to "http://localhost:3000"
 
+## System Diagram
+
+```text
++------------------------------------+
+|          Browser (Client)          |
+|     - Submits forms & requests     |
++------------------------------------+
+           |                 ^
+      HTTP Request     HTTP Response
+           v                 |
++------------------------------------+
+|           Routes Layer             |
+|  - Maps URL paths to controllers   |
++------------------------------------+
+           |                 ^
+           v                 |
++------------------------------------+
+|         Controllers Layer          |
+|  - Handles req/res & session user  |
++------------------------------------+
+           |                 ^
+           v                 |
++------------------------------------+
+|            Service Layer           |
+| - StudentService (Students & RBAC) |
+| - ReviewService (Review logic)     |
+| - MainService (Auth & Login)       |
++------------------------------------+
+           |                 ^
+           v                 |
++------------------------------------+
+|     Repository / Storage Layer     |
+|    - Reads/writes to JSON files    |
++------------------------------------+
+```
 
 ## Course Reviews
 
@@ -72,3 +107,5 @@ Submitting
 **Layered architecture design (Minh Le).** I use the layered architecture design taught in class to separate the purposes of responsibility of each layer: what to see, what to handle, and what to return. The purpose of this is to makes the codebase easier to maintain, scale, and trace back errors, which follows the single-responsibility principle. The alternative to this would be to put all of the method like GET, POST, PUT, and everything else within server.js. For a smaller project or a smaller codebase, it would usually be faster to get started. However, when there are more routes and methods, it's hard for developers like us to keep track and applies changes consistently for every routes and trace back errors for debugging. Thus, a layered design allows us to make targeted changes (e.g: updating authentication & information should be separated) and keep track of new issues easily.
 
 **Storing data inside JSON instead of database (MongoDB) (Minh Le).** I and my team use .json files to store and manage data like student information and credentials. Even though storing password in plain text is not great from a security perspective, .JSON allows us to iterate, debug faster because we can easily look into these and find out the errors. One alternative would be to store it inside a database. It would be better if we have more data, but I figure that JSON allows us to iterating faster, make feature works, and migrating will take less time than putting messy work (work in progress) into a real database. We'll migrate to database when we're fully confident that all features are working as intended.
+
+**Role-based access permissions (Chloe Le)** I implemented role-based permission checks directly within the service layer (`StudentService.js`). Such checks include restricting student access to their own profiles while granting admins full access to the entire student roster. The alternative option would be to handle the permission checks inline inside each controller function. We shipped the service-layer version because it keeps security logic centralized and independent of Express objects. However, it would have cost code duplication across multiple files and made access boundaries more difficult to maintain as the application grew.
