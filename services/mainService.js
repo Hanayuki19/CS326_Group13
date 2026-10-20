@@ -23,7 +23,7 @@ export const get_login = async (data) => {
   const cur = all_credentials.find((ele) => (ele.Username === Username && ele.Password === Password));
   if (!cur) {return Err({status: 401, message: "Incorrect username or password."});
   }
-  return Ok({ Username: cur.Username });
+  return Ok({ Username: cur.Username, id: cur.id });
 };
 
 export const get_register = async (data) => {

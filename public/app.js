@@ -47,7 +47,7 @@ const makeInput = (name, value) => {
   return input;
 };
 
-form.addEventListener("submit", async (event) => {
+form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const data = new FormData(form);
