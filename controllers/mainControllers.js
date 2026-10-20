@@ -19,7 +19,7 @@ export const login = async (req, res) => {
     res.status(result.error.status).json({error: result.error.message });
     return;
   }
-  res.json({ redirect: "/students" });
+  res.json({ redirect: `/students/student/${result.value.id}` });
 };
 
 export const register = async (req, res) => {
@@ -28,7 +28,7 @@ export const register = async (req, res) => {
     res.status(result.error.status).json({error: result.error.message });
     return;
   }
-  res.json({ redirect: "/students" });
+  res.json({ redirect: `/students/student/${result.value.id}` });
 };
 
 export const members = async (req, res) => {

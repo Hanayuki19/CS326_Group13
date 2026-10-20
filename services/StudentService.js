@@ -61,6 +61,8 @@ export const deleteStudent = async (id) => {
   return Ok(null);
 };
 
-// export const get_student_by_id = async (id) => {
-//   const cur = await
-// };
+export const get_student_by_id = async (id) => {
+  const cur = await findStudentByID(id);
+  if (!cur.some) return Err({ status: 404, message: "Student not found" });
+  return Ok(toStudentDto(cur.value));
+};
