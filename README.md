@@ -55,26 +55,28 @@ Open your browser and go to "http://localhost:3000"
       HTTP Request     HTTP Response
            v                 |
 +------------------------------------+
-|      Routes (StudentRoute.js)      |
+|           Routes Layer             |
 |  - Maps URL paths to controllers   |
 +------------------------------------+
            |                 ^
            v                 |
 +------------------------------------+
-| Controller (StudentControllers.js) |
+|         Controllers Layer          |
 |  - Handles req/res & session user  |
 +------------------------------------+
            |                 ^
            v                 |
 +------------------------------------+
-|     Service (StudentService.js)    |
-|  - Business logic, RBAC, validate  |
+|            Service Layer           |
+| - StudentService (Students & RBAC) |
+| - ReviewService (Review logic)     |
+| - MainService (Auth & Login)       |
 +------------------------------------+
            |                 ^
            v                 |
 +------------------------------------+
 |     Repository / Storage Layer     |
-|  - Reads/writes to `student.json`  |
+|    - Reads/writes to JSON files    |
 +------------------------------------+
 ```
 
