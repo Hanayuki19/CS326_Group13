@@ -40,6 +40,39 @@ Start the server
 - "npm start"
 Open your browser and go to "http://localhost:3000"
 
+## System Diagram
+
+```text
++------------------------------------+
+|          Browser (Client)          |
+|  - Submits forms & requests        |
++------------------------------------+
+           |                  ^
+      HTTP Request       HTTP Response
+           v                  |
++------------------------------------+
+|      Routes (StudentRoute.js)      |
+|  - Maps URL paths to controllers   |
++------------------------------------+
+           |                  ^
+           v                  |
++------------------------------------+
+| Controller (StudentControllers.js) |
+|  - Translates req/res objects      |
++------------------------------------+
+           |                  ^
+           v                  |
++------------------------------------+
+|    Service (StudentService.js)     |
+|  - Business logic & validation     |
++------------------------------------+
+           |                  ^
+           v                  |
++------------------------------------+
+| Repository / Storage Layer         |
+|  - Reads/writes to `student.json`  |
++------------------------------------+
+```
 
 ## Course Reviews
 
