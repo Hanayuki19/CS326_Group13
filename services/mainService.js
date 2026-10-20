@@ -21,7 +21,7 @@ export const get_login = async (data) => {
   const { Username, Password } = result.value;
 
   const cur = all_credentials.find((ele) => (ele.Username === Username && ele.Password === Password));
-  if (!cur) {return Err({status: 401, message: "Incorrect username or password."});
+  if (!cur) {return Err({status: 401, message: "Incorrect username or password. Please register if you don't have an account."});
   }
   return Ok({ Username: cur.Username, id: cur.id });
 };
