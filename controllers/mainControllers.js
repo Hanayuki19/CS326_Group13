@@ -33,5 +33,9 @@ export const register = async (req, res) => {
 
 export const members = async (req, res) => {
   const Members = await mainService.get_member();
+  if (!result.ok) {
+    res.status(result.error.status).json({ error: result.error.message });
+    return;
+  }
   res.render("members", { title: "Members", Members });
 };
