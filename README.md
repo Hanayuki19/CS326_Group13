@@ -45,6 +45,22 @@ Open your browser and go to "http://localhost:3000"
 
 Go to `/reviews`. The form takes a course code, a workload rating from 1 to 5, and a comment. Submitting sends a POST to `/reviews`; the service validates the fields, the repository saves the review to `reviews.json`, and the new review appears in the list below the form. If a field is missing or the rating is out of range, the server returns a 400 and the message is shown under the form.
 
+## Sprint 2 Feature
+We added a Student Profile feature which allows students to access, view, and edit their profile details, such as Name and Major.
+
+### Exercising the Feature
+Route/Navigation
+- Successful login (`POST /login`) or registration (`POST /register`) should direct you to your profile page: `/students/student/:id`
+- Navigate to `/students` to view all students or `/students/student/:id` to view a specific one
+
+UI
+- Header: Displays student's name and navigation links
+- Profile Card: Display's student's name and major
+- Editing: Clicking 'Edit' changes text fields into editable inputs
+
+Submitting
+- Submitting the edit form creates a `PUT /students/:id` request with an updated Name and Major. The backend will validate the request and update `student.json`. Then, the page will update to show the new information.
+
 ## Design Decisions
 
 **Central error middleware (Mahish Mistry).** Every async route handler is wrapped in `asyncHandler`, and all failures end in one error handling middleware in `server.js` that returns JSON with a status code; controllers never catch errors themselves. The credible alternative was a try/catch in each controller function. We shipped the middleware version because `app.js` and `reviews.js` read `{ error }` from every failed response, and one middleware is the only way to guarantee that shape for errors nobody anticipated, such as malformed JSON rejected by `express.json()` or a missing data file. Per controller try/catch would have duplicated the same error to JSON code in every controller, and any controller that forgot it would crash the server on a failed `await`.
