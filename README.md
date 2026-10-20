@@ -1,4 +1,4 @@
-# CS326_Group13 
+# CS326_Group13
 
 # Team
 | Name | Github Username |
@@ -64,3 +64,7 @@ Submitting
 ## Design Decisions
 
 **Central error middleware (Mahish Mistry).** Every async route handler is wrapped in `asyncHandler`, and all failures end in one error handling middleware in `server.js` that returns JSON with a status code; controllers never catch errors themselves. The credible alternative was a try/catch in each controller function. We shipped the middleware version because `app.js` and `reviews.js` read `{ error }` from every failed response, and one middleware is the only way to guarantee that shape for errors nobody anticipated, such as malformed JSON rejected by `express.json()` or a missing data file. Per controller try/catch would have duplicated the same error to JSON code in every controller, and any controller that forgot it would crash the server on a failed `await`.
+
+**Layered architecture design (Minh Le).** I use the layered architecture design taught in class to separate the purposes of responsibility of each layer: what to see, what to handle, and what to return. The purpose of this is to makes the codebase easier to maintain, scale, and trace back errors, which follows the single-responsibility principle. The alternative to this would be to put all of the method like GET, POST, PUT, and everything else within server.js. For a smaller project or a smaller codebase, it would usually be faster to get started. However, when there are more routes and methods, it's hard for developers like us to keep track and applies changes consistently for every routes and trace back errors for debugging. Thus, a layered design allows us to make targeted changes (e.g: updating authentication & information should be separated) and keep track of new issues easily.
+
+**Storing data inside JSON instead of database (MongoDB) (Minh Le).** I and my team use .json files to store and manage data like student information and credentials. Even though storing password in plain text is not great from a security perspective, .JSON allows us to iterate, debug faster because we can easily look into these and find out the errors. One alternative would be to store it inside a database. It would be better if we have more data, but I figure that JSON allows us to iterating faster, make feature works, and migrating will take less time than putting messy work (work in progress) into a real database. We'll migrate to database when we're fully confident that all features are working as intended.
