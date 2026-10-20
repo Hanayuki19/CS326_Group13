@@ -23,7 +23,8 @@ export const get_login = async (data) => {
   const cur = all_credentials.find((ele) => (ele.Username === Username && ele.Password === Password));
   if (!cur) {return Err({status: 401, message: "Incorrect username or password. Please register if you don't have an account."});
   }
-  return Ok({ Username: cur.Username, id: cur.id });
+
+  return Ok({ Username: cur.Username, id: cur.id, role: cur.role || "student" });
 };
 
 export const get_register = async (data) => {
@@ -40,11 +41,11 @@ export const get_register = async (data) => {
   if (!new_student.ok) return new_student;
 
   const get_id = new_student.value.id;
-  const full_results = { Username, Password, FullName, Major, id: get_id };
+  const full_results = { Username, Password, FullName, Major, role: "student", id: get_id };
 
   all_users.push(full_results);
   await saveCredential(all_users);
-  return Ok(NewUser(full_results));
+  return Ok({ ...NewUser(full_results), role: "student" });
 };
 
 export const get_member = async () => {

@@ -1,4 +1,6 @@
+import "dotenv/config";
 import express from "express";
+import session from "express-session";
 import morgan from "morgan";
 import mainRouter from "./routes/main.js";
 import studentRouter from "./routes/StudentRoute.js";
@@ -18,6 +20,18 @@ app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
 });
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,                               
+    saveUninitialized: false,                   
+    cookie: { 
+      secure: false,  // Set to true if using HTTPS in production
+      maxAge: 1000 * 60 * 60 * 24   // Session expires in 1 day
+    }
+  })
+);
 
 app.use(morgan("dev"));
 

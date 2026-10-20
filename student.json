@@ -20,7 +20,7 @@
     "id": 4
   },
   {
-    "name": "Lmao",
+    "name": "Remi FullName",
     "major": "CS",
     "id": 5
   },
@@ -31,7 +31,12 @@
   },
   {
     "name": "Minh L",
-    "major": "CS",
+    "major": "Computer Science",
     "id": 7
+  },
+  {
+    "name": "Test User 1",
+    "major": "Computer Science",
+    "id": 8
   }
 ]
