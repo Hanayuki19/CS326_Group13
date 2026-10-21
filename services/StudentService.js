@@ -8,9 +8,27 @@ const validateInput = ({ name, major }) => {
   return Ok({ name, major });
 };
 
-export const get_student = async () => {
+export const checkPermission = (currUser, targetStudentId) => {
+  if (currUser && currUser.role === "admin") {
+    return Ok(true);
+  }
+
+  if (currUser && currUser.id === targetStudentId) {
+    return Ok(true);
+  }
+
+  return Err({
+    status: 403,
+    message: "You do not have permission to access this profile."
+  });
+};
+
+export const get_student = async (currUser) => {
+  if (!currUser || currUser.role !== "admin") {
+    return Err({ status: 403, message: "Only admins can view all students."})
+  }
   const students = await getAll();
-  return students.map(toStudentDto);
+  return Ok(students.map(toStudentDto));
 };
 
 const findStudentByID = async (id) => {
@@ -23,7 +41,7 @@ export const createStudent = async (data) => {
   const result = validateInput(data);
   if (!result.ok) return result;
 
-  const students = await get_student();
+  const students = await getAll();
   if (students.some((s) => s.name === result.value.name)) {
     return Err({ status: 409, message: "Student already exists" });
   }
@@ -35,8 +53,11 @@ export const createStudent = async (data) => {
   return Ok(toStudentDto(result.value));
 };
 
-export const updateStudent = async (id, data) => {
-  const students = await get_student();
+export const updateStudent = async (id, data, currUser) => {
+  const permission = checkPermission(currUser, id);
+  if (!permission.ok) return permission;
+
+  const students = await getAll();
   const found = await findStudentByID(id);
   if (!found.some) return Err({ status: 404, message: "Student ID not found" });
 
@@ -44,14 +65,20 @@ export const updateStudent = async (id, data) => {
   if (!result.ok) return result;
 
   const index = students.findIndex((s) => s.id === id);
+
   students[index].name = result.value.name;
   students[index].major = result.value.major;
+
   await save(students);
   return Ok(toStudentDto(result.value));
 };
 
-export const deleteStudent = async (id) => {
-  const students = await get_student();
+export const deleteStudent = async (id, currUser) => {
+  if (!currUser || currUser.role !== "admin") {
+    return Err({ status: 403, message: "Only admins can delete student records."})
+  }
+  
+  const students = await getAll();
   const found = await findStudentByID(id);
   if (!found.some) return Err({ status: 404, message: "Student not found" });
 
@@ -59,4 +86,13 @@ export const deleteStudent = async (id) => {
   students.splice(index, 1);
   await save(students);
   return Ok(null);
+};
+
+export const get_student_by_id = async (id, currUser) => {
+  const permission = checkPermission(currUser, id);
+  if (!permission.ok) return permission;
+
+  const cur = await findStudentByID(id);
+  if (!cur.some) return Err({ status: 404, message: "Student not found" });
+  return Ok(toStudentDto(cur.value));
 };

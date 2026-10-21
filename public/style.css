@@ -35,6 +35,29 @@ nav a {
   cursor: pointer;
 }
 
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#login-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#login-form button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #0b6e99;
+  color: white;
+  cursor: pointer;
+}
+
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -122,4 +145,9 @@ td {
 
 .edit-form .cancel-btn {
   background-color: #888;
+}
+
+.form-error {
+  color: #d33;
+  margin: -1rem 0 1rem;
 }

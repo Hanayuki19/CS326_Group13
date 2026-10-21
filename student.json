@@ -18,5 +18,25 @@
     "name": "LOL",
     "major": "Math",
     "id": 4
+  },
+  {
+    "name": "Remi FullName",
+    "major": "CS",
+    "id": 5
+  },
+  {
+    "name": "Lmao1",
+    "major": "CS",
+    "id": 6
+  },
+  {
+    "name": "Minh L",
+    "major": "Computer Science",
+    "id": 7
+  },
+  {
+    "name": "Test User 1",
+    "major": "Computer Science",
+    "id": 8
   }
 ]

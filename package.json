@@ -4,6 +4,7 @@
   "description": "| Name | Github Username | | -------- | -------- | | Minh Le    | Hanayuki19     | | Long Tran Duy    | ltranduy-boop     | | Mahish Mistry    | mahishmistry     | | Chloe Le    | its-cle    |",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,8 +20,10 @@
   "homepage": "https://github.com/Hanayuki19/CS326_Group13#readme",
   "type": "module",
   "dependencies": {
+    "dotenv": "^18.0.8",
     "ejs": "^6.0.1",
     "express": "^5.3.0",
+    "express-session": "^1.19.0",
     "morgan": "^1.12.1"
   }
 }

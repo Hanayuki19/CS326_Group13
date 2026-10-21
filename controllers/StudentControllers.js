@@ -2,8 +2,12 @@ import * as mainService from "../services/StudentService.js";
 import { join } from "path";
 
 export const students = async (req, res) => {
-  const Students = await mainService.get_student();
-  res.render("students", { title: "Students", Students });
+  const result = await mainService.get_student(req.session?.user);
+  if (!result.ok) {
+    res.status(result.error.status).json({ error: result.error.message });
+    return
+  }
+  res.render("students", { title: "Students", Students: result.value });
 };
 export const student = async (req, res) => {
   const id = parseInt(req.params.id);
@@ -11,7 +15,7 @@ export const student = async (req, res) => {
     res.status(400).json({ error: "id must be a number" });
     return;
   }
-  const result = await mainService.get_student_by_id(id);
+  const result = await mainService.get_student_by_id(id, req.session?.user);
   if (!result.ok) {
     res.status(result.error.status).json({ error: result.error.message });
     return;
@@ -34,7 +38,7 @@ export const update = async (req, res) => {
     res.status(400).json({ error: "id must be a number" });
     return;
   }
-  const result = await mainService.updateStudent(id, req.body);
+  const result = await mainService.updateStudent(id, req.body, req.session?.user);
   if (!result.ok) {
     res.status(result.error.status).json({ error: result.error.message });
     return;
@@ -48,7 +52,7 @@ export const deleteStudent = async (req, res) => {
     res.status(400).json({ error: "id must be a number" });
     return;
   }
-  const result = await mainService.deleteStudent(id);
+  const result = await mainService.deleteStudent(id, req.session?.user);
   if (!result.ok) {
     res.status(result.error.status).json({ error: result.error.message });
     return;
