@@ -8,14 +8,7 @@
   <body>
     <main>
       <h1 id="welcome"> Login </h1>
-      <header class="site-header">
-      <nav>
-        <a href="/">Home</a>
-        <a href="/reviews">Reviews</a>
-        <a href="/login">Login</a>
-        <a href="/register">Create Account</a>
-      </nav>
-    </header>
+    <%- include('partials/header_auth') %> <!-- To be replaced -->
       <form id="login-form">
         <input type="text" name="Username" placeholder="Username">
         <input type="password" name="Password" placeholder="Password">
