@@ -16,10 +16,9 @@ const credential_schema = new mongoose.Schema(
   {
     Username: { type: String, required: true },
     Password: { type: String, required: true },
-    Fullname: { type: String, required: true },
+    FullName: { type: String, required: true },
     Major: { type: String, required: true },
     role: { type: String, required: true },
-    id: { type: Number, required: true },
   },
   { timestamps: true },
 );

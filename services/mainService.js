@@ -72,7 +72,7 @@ export const get_register = async (data) => {
     Password,
     FullName,
     Major,
-    role: "student",
+    role: "admin",
     id: get_id,
   };
   /*
