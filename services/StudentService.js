@@ -58,12 +58,16 @@ export const updateStudent = async (id, data, currUser) => {
   const permission = checkPermission(currUser, id);
   if (!permission.ok) return permission;
 
-  const students = (await getAll()).map(toStudentDto);
   const found = await findById(id);
   if (!found) return Err({ status: 404, message: "Student ID not found" });
 
   const result = validateInput(data);
   if (!result.ok) return result;
+  const students = (await getAll()).map(toStudentDto);
+
+  if (students.some((s) => s.name === result.value.name && s._id !== id)) {
+    return Err({ status: 404, message: "Student already exists" });
+  }
   const result2 = await updateById(id, data);
   return Ok(result2);
 };

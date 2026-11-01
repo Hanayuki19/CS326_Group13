@@ -1,15 +1,5 @@
 import { Ok, Err } from "../result.js";
-import {
-  getAll,
-  findMember,
-  create,
-  deleteMember,
-  getAllCredential,
-  findCredentialById,
-  createCredential,
-  updateCredentialById,
-  removeCredentialById,
-} from "../repositories/mainRepository.js";
+import * as mainRepository from "../repositories/mainRepository.js";
 import { createStudent, updateStudent } from "./StudentService.js";
 import { toMemberDto, NewUser } from "../dtos/mainDto.js";
 
@@ -32,7 +22,9 @@ export const get_login = async (data) => {
   const result = validateInput_login(data);
   if (!result.ok) return result;
 
-  const all_credentials = (await getAllCredential()).map(NewUser);
+  const all_credentials = (await mainRepository.getAllCredential()).map(
+    NewUser,
+  );
   const { Username, Password } = result.value;
 
   const cur = all_credentials.find(
@@ -56,37 +48,43 @@ export const get_login = async (data) => {
 export const get_register = async (data) => {
   const result = validateInput_register(data);
   if (!result.ok) return result;
-
-  const all_users = (await getAllCredential()).map(NewUser);
   const { Username, Password, FullName, Major } = result.value;
+
+  const all_users = (await mainRepository.getAllCredential()).map(NewUser);
   if (all_users.some((ele) => ele.Username === Username)) {
     return Err({ status: 409, message: "Username already exists." });
   }
 
-  const new_student = await createStudent({ name: FullName, major: Major });
+  const new_student = await createStudent({
+    name: FullName,
+    major: Major,
+  });
   if (!new_student.ok) return new_student;
+  console.log(new_student.value._id);
 
-  const get_id = new_student.value.id;
   const full_results = {
     Username,
     Password,
     FullName,
     Major,
     role: "admin",
-    id: get_id,
+    _id: new_student.value._id,
   };
   /*
   all_users.push(full_results);
   await saveCredential(all_users);
   */
-  return Ok(NewUser(await createCredential(full_results)));
+  const Newuser = NewUser(await mainRepository.createCredential(full_results));
+  console.log(Newuser._id);
+  return Ok(Newuser);
 };
 
-export const get_member = async () => (await getAll()).map(toMemberDto);
+export const get_member = async () =>
+  (await mainRepository.getAll()).map(toMemberDto);
 
 export const create_member = async (data) => {
   console.log("MainService");
-  const Member = await findMember(data.name);
+  const Member = await mainRepository.findMember(data.name);
   if (Member) {
     return Err({ status: 400, message: "The name already existed" });
   }
