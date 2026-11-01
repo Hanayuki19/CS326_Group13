@@ -1,18 +1,19 @@
 import * as mainService from "../services/StudentService.js";
+import { isValidId } from "../repositories/StudentRepository.js";
 import { join } from "path";
 
 export const students = async (req, res) => {
   const result = await mainService.get_student(req.session?.user);
   if (!result.ok) {
     res.status(result.error.status).json({ error: result.error.message });
-    return
+    return;
   }
   res.render("students", { title: "Students", Students: result.value });
 };
 export const student = async (req, res) => {
-  const id = parseInt(req.params.id);
-  if (Number.isNaN(id)) {
-    res.status(400).json({ error: "id must be a number" });
+  const id = req.params.id;
+  if (!isValidId(id)) {
+    res.status(400).json({ error: "Invalid ID" });
     return;
   }
   const result = await mainService.get_student_by_id(id, req.session?.user);
@@ -33,12 +34,16 @@ export const create = async (req, res) => {
 };
 
 export const update = async (req, res) => {
-  const id = parseInt(req.params.id);
-  if (Number.isNaN(id)) {
-    res.status(400).json({ error: "id must be a number" });
+  const id = req.params.id;
+  if (!isValidId(id)) {
+    res.status(400).json({ error: "Invalid ID" });
     return;
   }
-  const result = await mainService.updateStudent(id, req.body, req.session?.user);
+  const result = await mainService.updateStudent(
+    id,
+    req.body,
+    req.session?.user,
+  );
   if (!result.ok) {
     res.status(result.error.status).json({ error: result.error.message });
     return;
@@ -47,9 +52,9 @@ export const update = async (req, res) => {
 };
 
 export const deleteStudent = async (req, res) => {
-  const id = parseInt(req.params.id);
-  if (Number.isNaN(id)) {
-    res.status(400).json({ error: "id must be a number" });
+  const id = req.params.id;
+  if (!isValidId(id)) {
+    res.status(400).json({ error: "Invalid ID" });
     return;
   }
   const result = await mainService.deleteStudent(id, req.session?.user);

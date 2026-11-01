@@ -6,7 +6,7 @@ export const toMemberDto = (user) => ({
 export const toStudentDto = (user) => ({
   name: user.name,
   major: user.major,
-  id: user.id,
+  id: user._id,
 });
 
 export const NewUser = (user) => ({
@@ -14,5 +14,5 @@ export const NewUser = (user) => ({
   Username: user.Username,
   Password: user.Password,
   major: user.Major,
-  id: user.id,
+  id: user._id,
 });
