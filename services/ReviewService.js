@@ -10,15 +10,14 @@ const validateInput = ({ course, rating, comment }) => {
   return Ok({ course: course.trim().toUpperCase(), rating: r, comment: comment.trim() });
 };
 
-export const getReviews = () => getAll();
+export const getReviews = async () => await getAll();
 
 export const createReview = async (data) => {
   const result = validateInput(data);
   if (!result.ok) return result;
-  const reviews = await getAll();
-  const id = reviews.length ? Math.max(...reviews.map((r) => r.id)) + 1 : 1;
-  const review = { id, ...result.value };
-  reviews.push(review);
-  await save(reviews);
+  // const reviews = await getAll();
+  // const id = reviews.length ? Math.max(...reviews.map((r) => r.id)) + 1 : 1;
+  // reviews.push(review);
+  const review = await save(result.value);
   return Ok(review);
 };
