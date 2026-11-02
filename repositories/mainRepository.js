@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "fs/promises";
+// import { readFile, writeFile } from "fs/promises";
 import mongoose from "mongoose";
 /*
 const DATA_FILE = "member.json";
@@ -61,13 +61,15 @@ export const getAllCredential = async () =>
 export const findCredentialById = async (id) => {
   Credentials.findById(id).lean();
 };
+
 export const createCredential = async (data) =>
   (await Credentials.create(data)).toObject();
 export const updateCredentialById = async (id, data) =>
   Credentials.findByIdAndUpdate(id, data, { new: true }).lean();
-export const removeCredentialById = async (id) => {
-  await Credentials.findByIdAndDelete(id);
-};
+
+// export const removeCredentialById = async (id) => {
+//   await Credentials.findByIdAndDelete(id);
+// };
 /*
 export const saveCredential = async (data) => {
   await writeFile(CREDENTIAL, JSON.stringify(data, null, 2));
