@@ -1,6 +1,6 @@
 import { Ok, Err } from "../result.js";
 import * as mainRepository from "../repositories/mainRepository.js";
-import { createStudent, updateStudent } from "./StudentService.js";
+import { createStudent } from "./StudentService.js";
 import { toMemberDto, NewUser } from "../dtos/mainDto.js";
 
 const validateInput_login = ({ Username, Password }) => {
@@ -19,6 +19,7 @@ const validateInput_register = ({ Username, Password, FullName, Major }) => {
 };
 
 export const get_login = async (data) => {
+  if (!data) return Err({ status: 400, message: "Invalid Object" });
   const result = validateInput_login(data);
   if (!result.ok) return result;
 
@@ -46,6 +47,7 @@ export const get_login = async (data) => {
 };
 
 export const get_register = async (data) => {
+  if (!data) return Err({ status: 400, message: "Invalid Object" });
   const result = validateInput_register(data);
   if (!result.ok) return result;
   const { Username, Password, FullName, Major } = result.value;
@@ -60,7 +62,6 @@ export const get_register = async (data) => {
     major: Major,
   });
   if (!new_student.ok) return new_student;
-  console.log(new_student.value._id);
 
   const full_results = {
     Username,
@@ -75,7 +76,6 @@ export const get_register = async (data) => {
   await saveCredential(all_users);
   */
   const Newuser = NewUser(await mainRepository.createCredential(full_results));
-  console.log(Newuser._id);
   return Ok(Newuser);
 };
 
@@ -83,7 +83,9 @@ export const get_member = async () =>
   (await mainRepository.getAll()).map(toMemberDto);
 
 export const create_member = async (data) => {
-  console.log("MainService");
+  if (!data || !data.name || !data.username) {
+    return Err({ status: 400, message: "Invalid object" });
+  }
   const Member = await mainRepository.findMember(data.name);
   if (Member) {
     return Err({ status: 400, message: "The name already existed" });
