@@ -88,6 +88,6 @@ export const create_member = async (data) => {
   if (Member) {
     return Err({ status: 400, message: "The name already existed" });
   }
-  await create(data);
+  await mainRepository.create(data);
   return Ok();
 };
