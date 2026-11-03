@@ -15,4 +15,5 @@ export const NewUser = (user) => ({
   Password: user.Password,
   major: user.Major,
   id: user._id,
+  role: user.role
 });

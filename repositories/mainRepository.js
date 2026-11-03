@@ -58,9 +58,8 @@ export const getAllCredential = async () =>
   */
   Credentials.find().lean();
 
-export const findCredentialById = async (id) => {
+export const findCredentialById = async (id) =>
   Credentials.findById(id).lean();
-};
 
 export const createCredential = async (data) =>
   (await Credentials.create(data)).toObject();

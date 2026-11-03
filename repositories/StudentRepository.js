@@ -1,6 +1,6 @@
-import { readFile, writeFile } from "fs/promises";
+//import { readFile, writeFile } from "fs/promises";
 import mongoose from "mongoose";
-/* from "mongoose";
+/*
 const DATA_FILE = "student.json";
 */
 const StudentSchema = new mongoose.Schema(
@@ -20,4 +20,3 @@ export const updateById = async (id, data) =>
 export const removeById = async (id) => {
   await Student.findByIdAndDelete(id);
 };
-
