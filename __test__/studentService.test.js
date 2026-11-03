@@ -9,19 +9,13 @@ jest.unstable_mockModule("../repositories/StudentRepository.js", () => ({
   removeById: jest.fn()
 }));
 
-// jest.unstable_mockModule("../services/StudentService.js", () => ({
-//   createStudent: jest.fn((data) => ({
-//     ok: true,
-//     value: { _id: "fake-id", name: data.name, username: data.username },
-//   })),
-// }));
-
 const repo = await import("../repositories/StudentRepository.js");
-const { validateInput, checkPermission, get_student, createStudent } = await import("../services/StudentService.js");
+const { validateInput, checkPermission, get_student, createStudent, updateStudent, deleteStudent, get_student_by_id } = await import("../services/StudentService.js");
 
 afterEach(() => {
   repo.getAll.mockReset();
   repo.getAll.mockReturnValue([]);
+  repo.findById.mockReset();
 });
 
 //start of test validateInput
@@ -158,3 +152,165 @@ test('createStudent should accept if there is no duplicate', async () => {
 });
 
 //end of createStudent
+
+//test for updateStudent
+
+test('updateStudent should accept changes if admin is doing it', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id", role: "admin" };
+  const res = await updateStudent("fake-id2", { name: "abc", major: "Math" }, test_user);
+
+  expect(res.ok).toBe(true);
+});
+
+test('updateStudent should accept changes if that student is changing it', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id2", role: "student" };
+  const res = await updateStudent("fake-id2", { name: "abc", major: "Math" }, test_user);
+
+  expect(res.ok).toBe(true);
+});
+
+test('updateStudent should not accept changes if that student is changing it', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id1", role: "student" };
+  const res = await updateStudent("fake-id2", { name: "abc", major: "CS" }, test_user);
+
+  expect(res.ok).toBe(false);
+});
+//end of test for updateStudent
+
+//start of deleteStudent test
+
+test('deleteStudent accept delete from admin', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id", role: "admin" };
+  const res = await deleteStudent("fake-id1", test_user);
+
+  expect(res.ok).toBe(true);
+});
+
+test('deleteStudent accept delete from the same student', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id1", role: "student" };
+  const res = await deleteStudent("fake-id1", test_user);
+  const res_1 = await deleteStudent("fake-id2", test_user);
+
+  expect(res.ok).toBe(false);
+  expect(res_1.ok).toBe(false);
+});
+//end of deleteStudent test
+
+//start of get_student_by_id test
+
+test('get_student_by_id should return true if id exists (only the student assigned to it can see)', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  const test_user = { id: "fake-id1", role: "student" };
+  const res = await get_student_by_id("fake-id1", test_user);
+  expect(res.ok).toBe(true);
+});
+
+test('get_student_by_id should return false even if id exists when logged as a different user', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  const test_user = { id: "fake-id2", role: "student" };
+  const res = await get_student_by_id("fake-id1", test_user);
+  expect(res.ok).toBe(false);
+});
+
+test('get_student_by_id should return true if they existed & being an admin', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  const test_user = { id: "fake-id", role: "admin" };
+  const res = await get_student_by_id("fake-id1", test_user);
+  expect(res.ok).toBe(true);
+});
+
+test('get_student_by_id should return false if they do not exist & being an admin', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce(null);
+  const test_user = { id: "fake-id", role: "admin" };
+  const res = await get_student_by_id("fake-id2", test_user);
+  expect(res.ok).toBe(false);
+});
+
+//end of get_student_by_id test

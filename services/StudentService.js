@@ -73,7 +73,7 @@ export const updateStudent = async (id, data, currUser) => {
   if (!result.ok) return result;
   const students = (await getAll()).map(toStudentDto);
 
-  if (students.some((s) => s.name === result.value.name && !s.id.equals(id))) {
+  if (students.some((s) => s.name === result.value.name && String(s.id) !== String(id))) {
     return Err({ status: 404, message: "Student already exists" });
   }
   const result2 = await updateById(id, data);
@@ -88,7 +88,7 @@ export const deleteStudent = async (id, currUser) => {
     });
   }
 
-  const students = await getAll();
+  //const students = await getAll();
   const found = await findById(id);
   if (!found) return Err({ status: 404, message: "Student not found" });
 
