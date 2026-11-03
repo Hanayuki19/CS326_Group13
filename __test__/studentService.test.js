@@ -10,83 +10,84 @@ jest.unstable_mockModule("../repositories/StudentRepository.js", () => ({
 }));
 
 const repo = await import("../repositories/StudentRepository.js");
-const { validateInput, checkPermission, get_student, createStudent, updateStudent, deleteStudent, get_student_by_id } = await import("../services/StudentService.js");
+const { get_student, createStudent, updateStudent, deleteStudent, get_student_by_id } = await import("../services/StudentService.js");
 
 afterEach(() => {
   repo.getAll.mockReset();
   repo.getAll.mockReturnValue([]);
   repo.findById.mockReset();
+  repo.updateById.mockReset();
 });
 
-//start of test validateInput
-test('validateInput accepts those with name and major', async () => {
-  const result = await validateInput({ name: 'A', major: 'something' });
-  expect(result.ok).toBe(true);
-  //expect(result.error.status).toBe(400);
-});
+// //start of test validateInput
+// test('validateInput accepts those with name and major', async () => {
+//   const result = await validateInput({ name: 'A', major: 'something' });
+//   expect(result.ok).toBe(true);
+//   //expect(result.error.status).toBe(400);
+// });
 
-test('validateInput rejects those with only major', async () => {
-  const result = await validateInput({ name: '', major: 'something' });
-  expect(result.error.status).toBe(400);
-});
+// test('validateInput rejects those with only major', async () => {
+//   const result = await validateInput({ name: '', major: 'something' });
+//   expect(result.error.status).toBe(400);
+// });
 
-test('validateInput rejects those with only name', async () => {
-  const result = await validateInput({ name: 'B', major: '' });
-  expect(result.error.status).toBe(400);
-});
+// test('validateInput rejects those with only name', async () => {
+//   const result = await validateInput({ name: 'B', major: '' });
+//   expect(result.error.status).toBe(400);
+// });
 
-test('validateInput rejects those with no input name and major', async () => {
-  const result = await validateInput({ name: '', major: '' });
-  expect(result.error.status).toBe(400);
-});
+// test('validateInput rejects those with no input name and major', async () => {
+//   const result = await validateInput({ name: '', major: '' });
+//   expect(result.error.status).toBe(400);
+// });
 
-//end of test ValidateInput
+// //end of test ValidateInput
 
-//start of test checkPermission
-test('checkPermission accepts all admins', async () => {
-  const result = await checkPermission({ id: 10, role: 'admin' }, 10);
-  const result_2 = await checkPermission({ id: 11, role: 'admin' }, 11);
-  const result_3 = await checkPermission({ id: 12, role: 'admin' }, 12);
-  const result_4 = await checkPermission({ id: "abc123", role: 'admin' }, "cde456");
+// //start of test checkPermission
+// test('checkPermission accepts all admins', async () => {
+//   const result = await checkPermission({ id: 10, role: 'admin' }, 10);
+//   const result_2 = await checkPermission({ id: 11, role: 'admin' }, 11);
+//   const result_3 = await checkPermission({ id: 12, role: 'admin' }, 12);
+//   const result_4 = await checkPermission({ id: "abc123", role: 'admin' }, "cde456");
 
-  expect(result.ok).toBe(true);
-  expect(result_2.ok).toBe(true);
-  expect(result_3.ok).toBe(true);
-  expect(result_4.ok).toBe(true);
-});
+//   expect(result.ok).toBe(true);
+//   expect(result_2.ok).toBe(true);
+//   expect(result_3.ok).toBe(true);
+//   expect(result_4.ok).toBe(true);
+// });
 
-test('checkPermission only accepts students with valid id', async () => {
-  const res = await checkPermission({ id: 10, role: 'student' }, 10);
-  const res_2 = await checkPermission({ id: 1000000, role: 'student' }, 1000000);
-  const res_3 = await checkPermission({ id: "abc456", role: 'student' }, "abc456");
-  const res_4 = await checkPermission({ id: "cde.456_", role: 'student' }, "cde.456_");
+// test('checkPermission only accepts students with valid id', async () => {
+//   const res = await checkPermission({ id: 10, role: 'student' }, 10);
+//   const res_2 = await checkPermission({ id: 1000000, role: 'student' }, 1000000);
+//   const res_3 = await checkPermission({ id: "abc456", role: 'student' }, "abc456");
+//   const res_4 = await checkPermission({ id: "cde.456_", role: 'student' }, "cde.456_");
 
-  expect(res.ok).toBe(true);
-  expect(res_2.ok).toBe(true);
-  expect(res_3.ok).toBe(true);
-  expect(res_4.ok).toBe(true);
-});
+//   expect(res.ok).toBe(true);
+//   expect(res_2.ok).toBe(true);
+//   expect(res_3.ok).toBe(true);
+//   expect(res_4.ok).toBe(true);
+// });
 
-test('checkPermission rejects students without valid id', async () => {
-  const res = await checkPermission({ id: 10, role: 'student' }, "10");
-  const res_2 = await checkPermission({ id: 1000000, role: 'student' }, 100000);
-  const res_3 = await checkPermission({ id: "abc456", role: 'student' }, "abc456 ");
-  const res_4 = await checkPermission({ id: "cde__456", role: 'student' }, "cde.456_");
-  const res_5 = await checkPermission({ id: "cde__456", role: 'a' }, "cde__456");
+// test('checkPermission rejects students without valid id', async () => {
+//   const res = await checkPermission({ id: 10, role: 'student' }, "10");
+//   const res_2 = await checkPermission({ id: 1000000, role: 'student' }, 100000);
+//   const res_3 = await checkPermission({ id: "abc456", role: 'student' }, "abc456 ");
+//   const res_4 = await checkPermission({ id: "cde__456", role: 'student' }, "cde.456_");
+//   const res_5 = await checkPermission({ id: "cde__456", role: 'a' }, "cde__456");
 
-  expect(res.ok).toBe(false);
-  expect(res_2.ok).toBe(false);
-  expect(res_3.ok).toBe(false);
-  expect(res_4.ok).toBe(false);
-  expect(res_5.ok).toBe(false);
-});
+//   expect(res.ok).toBe(false);
+//   expect(res_2.ok).toBe(false);
+//   expect(res_3.ok).toBe(false);
+//   expect(res_4.ok).toBe(false);
+//   expect(res_5.ok).toBe(false);
+// });
 
 //end of check Permission
 
 //start of get_student test
 test('get_student should be available for those with admin', async () => {
-  const result = await get_student({ id: 10, role: 'admin' }, 10);
-  const result_2 = await get_student({ id: 11, role: 'admin' }, 11);
+  const result = await get_student({ id: "abc", role: 'admin' }, "abc");
+  const result_2 = await get_student({ id: "abcd", role: 'admin' }, "abcd");
 
   expect(result.ok).toBe(true);
   expect(result_2.ok).toBe(true);
@@ -94,10 +95,10 @@ test('get_student should be available for those with admin', async () => {
 
 test('get_student should not be available for those without admin', async () => {
   const result = await get_student({ id: 10, role: 'student' }, 10);
-  const result_2 = await get_student({ id: 11, role: 'student' }, 12);
+  const result_2 = await get_student({ id: "cde12_", role: 'student' }, "cde12_");
   const result_3 = await get_student(null);
-  const result_4 = await get_student({ id: 11, role: 'student' }, 11);
-  const result_5 = await get_student({ id: 11, role: 'admi' }, 11);
+  const result_4 = await get_student({ id: "cde", role: 'student' }, "cde");
+  const result_5 = await get_student({ id: "abc", role: 'admi' }, "abc");
 
   expect(result.ok).toBe(false);
   expect(result_2.ok).toBe(false);
@@ -136,8 +137,11 @@ test('createStudent should accept if the input is valid', async () => {
   const result_3 = await createStudent({ name: 'Isomap', major: 'CS' });
 
   expect(result_1.ok).toBe(true);
+  expect(result_1.value).toEqual({ id: 'fake-id', name: 'PCA', major: 'CS' });
   expect(result_2.ok).toBe(true);
+  expect(result_2.value).toEqual({ id: 'fake-id', name: 'BCA', major: 'Math' });
   expect(result_3.ok).toBe(true);
+  expect(result_3.value).toEqual({ id: 'fake-id', name: 'Isomap', major: 'CS' });
 });
 
 test('createStudent should accept if there is no duplicate', async () => {
@@ -149,6 +153,7 @@ test('createStudent should accept if there is no duplicate', async () => {
   const test_a = await createStudent({ name: 'bca', major: 'CS' });
 
   expect(test_a.ok).toBe(true);
+  expect(test_a.value).toEqual({ id: 'fake-id', name: 'bca', major: 'CS' });
 });
 
 //end of createStudent
@@ -166,11 +171,49 @@ test('updateStudent should accept changes if admin is doing it', async () => {
     name: "abc",
     major: "CS",
   });
+  repo.updateById.mockResolvedValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "Math",
+  });
 
   const test_user = { id: "fake-id", role: "admin" };
   const res = await updateStudent("fake-id2", { name: "abc", major: "Math" }, test_user);
 
   expect(res.ok).toBe(true);
+  expect(res.value).toEqual({
+    id: "fake-id2",
+    name: "abc",
+    major: "Math",
+  });
+});
+
+test('updateStudent if admin make no changes', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
+  repo.updateById.mockResolvedValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id", role: "admin" };
+  const res = await updateStudent("fake-id2", { name: "abc", major: "CS" }, test_user);
+
+  expect(res.ok).toBe(true);
+  expect(res.value).toEqual({
+    id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
 });
 
 test('updateStudent should accept changes if that student is changing it', async () => {
@@ -184,11 +227,49 @@ test('updateStudent should accept changes if that student is changing it', async
     name: "abc",
     major: "CS",
   });
+  repo.updateById.mockResolvedValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "Math",
+  });
 
   const test_user = { id: "fake-id2", role: "student" };
   const res = await updateStudent("fake-id2", { name: "abc", major: "Math" }, test_user);
 
   expect(res.ok).toBe(true);
+  expect(res.value).toEqual({
+    id: "fake-id2",
+    name: "abc",
+    major: "Math",
+  });
+});
+
+test('updateStudent should accept changes if that student make no changes', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
+  repo.updateById.mockResolvedValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id2", role: "student" };
+  const res = await updateStudent("fake-id2", { name: "abc", major: "CS" }, test_user);
+
+  expect(res.ok).toBe(true);
+  expect(res.value).toEqual({
+    id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
 });
 
 test('updateStudent should not accept changes if that student is changing it', async () => {
@@ -202,9 +283,14 @@ test('updateStudent should not accept changes if that student is changing it', a
     name: "abc",
     major: "CS",
   });
+  repo.updateById.mockResolvedValueOnce({
+    _id: "fake-id2",
+    name: "abc",
+    major: "Math",
+  });
 
   const test_user = { id: "fake-id1", role: "student" };
-  const res = await updateStudent("fake-id2", { name: "abc", major: "CS" }, test_user);
+  const res = await updateStudent("fake-id2", { name: "abc", major: "Math" }, test_user);
 
   expect(res.ok).toBe(false);
 });

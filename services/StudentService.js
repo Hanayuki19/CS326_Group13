@@ -8,13 +8,13 @@ import {
 } from "../repositories/StudentRepository.js";
 import { toStudentDto } from "../dtos/mainDto.js";
 
-export const validateInput = ({ name, major }) => {
+const validateInput = ({ name, major }) => {
   if (!name || !major)
     return Err({ status: 400, message: "name and major are required" });
   return Ok({ name, major });
 };
 
-export const checkPermission = (currUser, targetStudentId) => {
+const checkPermission = (currUser, targetStudentId) => {
 
   if (currUser.role !== "admin" && currUser.role !== "student") {
     return Err({
@@ -59,7 +59,7 @@ export const createStudent = async (data) => {
     return Err({ status: 404, message: "Student already exists" });
   }
   const result2 = await create(data);
-  return Ok(result2);
+  return Ok(toStudentDto(result2));
 };
 
 export const updateStudent = async (id, data, currUser) => {
@@ -77,7 +77,7 @@ export const updateStudent = async (id, data, currUser) => {
     return Err({ status: 404, message: "Student already exists" });
   }
   const result2 = await updateById(id, data);
-  return Ok(result2);
+  return Ok(toStudentDto(result2));
 };
 
 export const deleteStudent = async (id, currUser) => {
@@ -102,5 +102,5 @@ export const get_student_by_id = async (id, currUser) => {
 
   const cur = await findById(id);
   if (!cur) return Err({ status: 404, message: "Student not found" });
-  return Ok(cur);
+  return Ok(toStudentDto(cur));
 };
