@@ -8,24 +8,32 @@ import {
 } from "../repositories/StudentRepository.js";
 import { toStudentDto } from "../dtos/mainDto.js";
 
-const validateInput = ({ name, major }) => {
+export const validateInput = ({ name, major }) => {
   if (!name || !major)
     return Err({ status: 400, message: "name and major are required" });
   return Ok({ name, major });
 };
 
 export const checkPermission = (currUser, targetStudentId) => {
-  if (currUser && currUser.role === "admin") {
-    return Ok(true);
-  }
-  if (currUser && currUser.id === targetStudentId) {
-    return Ok(true);
-  }
 
-  return Err({
-    status: 403,
-    message: "You do not have permission to access this profile.",
-  });
+  if (currUser.role !== "admin" && currUser.role !== "student") {
+    return Err({
+      status: 403,
+      message: "You do not have permission to access this profile.",
+    });
+  }
+  else {
+    if (currUser && currUser.role === "admin") {
+      return Ok(true);
+    }
+    else if (currUser && currUser.id === targetStudentId) {
+      return Ok(true);
+    }
+    else return Err({
+      status: 403,
+      message: "You do not have permission to access this profile.",
+    });
+  }
 };
 
 export const get_student = async (currUser) => {
@@ -65,7 +73,7 @@ export const updateStudent = async (id, data, currUser) => {
   if (!result.ok) return result;
   const students = (await getAll()).map(toStudentDto);
 
-  if (students.some((s) => s.name === result.value.name && s._id !== id)) {
+  if (students.some((s) => s.name === result.value.name && !s.id.equals(id))) {
     return Err({ status: 404, message: "Student already exists" });
   }
   const result2 = await updateById(id, data);
