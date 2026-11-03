@@ -90,6 +90,12 @@ Start the server
 
 Go to `/reviews`. The form takes a course code, a workload rating from 1 to 5, and a comment. Submitting sends a POST to `/reviews`; the service validates the fields, the repository saves the review to `reviews.json`, and the new review appears in the list below the form. If a field is missing or the rating is out of range, the server returns a 400 and the message is shown under the form.
 
+## Tailwind restyle (Sprint 3)
+
+**What changed.** The hand-written `public/style.css` is gone. Styling now lives as Tailwind utility classes directly in the markup of every view (`views/*.ejs`, `views/partials/header_auth.ejs`, `public/about.html`), and in the small class strings that `public/app.js` and `public/reviews.js` use for list items they build on the client. `src/input.css` is the Tailwind input file; `npm run build:css` compiles it into `public/style.css`, which the pages already link. `npm start` runs the build automatically first (via the `prestart` script), so a fresh clone needs no extra step. `npm run watch:css` rebuilds on save while developing.
+
+**How to see it.** Run `npm install`, then `npm start`, and open any page. At phone width (375 px) the header stacks the title above the nav links, the add forms stack their inputs vertically, and each list row stacks "View / name / Edit / Delete" top to bottom with full-width buttons. At desktop width (1280 px) the `sm:` breakpoint switches those to one row each (`sm:flex-row`, `sm:items-center`, `sm:justify-between`), and the whole page is centred in a `max-w-3xl` column. The accent colour is UMass maroon, defined once in `src/input.css` under `@theme` as `--color-maroon`.
+
 ## Sprint 2 Feature
 
 We added a Student Profile feature which allows students to access, view, and edit their profile details, such as Name and Major.
@@ -126,3 +132,4 @@ Submitting
 **One feature, implemented end-to-end (Long Tran).** I followed the layered approach taught in class and placed student validation and CRUD rules in StudentService.js. A credible alternative was to perform these checks directly in StudentControllers.js, alongside handling requests and responses. Keeping the rules in the service allows different callers, including registration, to reuse student creation without duplicating validation. Putting them in controllers would initially require fewer function calls, but would couple the rules to HTTP handling and require duplicated checks when another workflow creates a student.
 
 **Role-based access permissions (Chloe Le)** I implemented role-based permission checks directly within the service layer (`StudentService.js`). Such checks include restricting student access to their own profiles while granting admins full access to the entire student roster. The alternative option would be to handle the permission checks inline inside each controller function. We shipped the service-layer version because it keeps security logic centralized and independent of Express objects. However, it would have cost code duplication across multiple files and made access boundaries more difficult to maintain as the application grew.
+
