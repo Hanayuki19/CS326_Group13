@@ -129,16 +129,22 @@ test('getReviews should not reject review on the same course', async () => {
 
 //start of createReviews test
 
-test('createReviews should reject if course, rating, and comment is missing or invalid', async () => {
+test('createReviews should reject if course, rating, or comment is missing or invalid', async () => {
   const res = await createReview({ course: "CS326", rating: 4, comment: "" });
   const res_2 = await createReview({ course: "", rating: 4, comment: "good" });
   const res_3 = await createReview({ course: "CS326", rating: "", comment: "good" });
   const res_4 = await createReview({ course: "CS326", rating: "four", comment: "good" });
+  const res_5 = await createReview({ course: "", rating: "", comment: "good" });
+  const res_6 = await createReview({ course: "CS326", rating: "", comment: "" });
+  const res_7 = await createReview({ course: "", rating: 4, comment: "" });
 
   expect(res.ok).toBe(false);
   expect(res_2.ok).toBe(false);
   expect(res_3.ok).toBe(false);
   expect(res_4.ok).toBe(false);
+  expect(res_5.ok).toBe(false);
+  expect(res_6.ok).toBe(false);
+  expect(res_7.ok).toBe(false);
 });
 
 test("createReviews should works even with whitespace", async () => {
