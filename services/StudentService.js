@@ -14,18 +14,26 @@ const validateInput = ({ name, major }) => {
   return Ok({ name, major });
 };
 
-export const checkPermission = (currUser, targetStudentId) => {
-  if (currUser && currUser.role === "admin") {
-    return Ok(true);
-  }
-  if (currUser && currUser.id === targetStudentId) {
-    return Ok(true);
-  }
+const checkPermission = (currUser, targetStudentId) => {
 
-  return Err({
-    status: 403,
-    message: "You do not have permission to access this profile.",
-  });
+  if (currUser.role !== "admin" && currUser.role !== "student") {
+    return Err({
+      status: 403,
+      message: "You do not have permission to access this profile.",
+    });
+  }
+  else {
+    if (currUser && currUser.role === "admin") {
+      return Ok(true);
+    }
+    else if (currUser && currUser.id === targetStudentId) {
+      return Ok(true);
+    }
+    else return Err({
+      status: 403,
+      message: "You do not have permission to access this profile.",
+    });
+  }
 };
 
 export const get_student = async (currUser) => {
@@ -51,7 +59,7 @@ export const createStudent = async (data) => {
     return Err({ status: 404, message: "Student already exists" });
   }
   const result2 = await create(data);
-  return Ok(result2);
+  return Ok(toStudentDto(result2));
 };
 
 export const updateStudent = async (id, data, currUser) => {
@@ -65,11 +73,11 @@ export const updateStudent = async (id, data, currUser) => {
   if (!result.ok) return result;
   const students = (await getAll()).map(toStudentDto);
 
-  if (students.some((s) => s.name === result.value.name && s._id !== id)) {
+  if (students.some((s) => s.name === result.value.name && String(s.id) !== String(id))) {
     return Err({ status: 404, message: "Student already exists" });
   }
   const result2 = await updateById(id, data);
-  return Ok(result2);
+  return Ok(toStudentDto(result2));
 };
 
 export const deleteStudent = async (id, currUser) => {
@@ -80,7 +88,7 @@ export const deleteStudent = async (id, currUser) => {
     });
   }
 
-  const students = await getAll();
+  //const students = await getAll();
   const found = await findById(id);
   if (!found) return Err({ status: 404, message: "Student not found" });
 
@@ -94,5 +102,5 @@ export const get_student_by_id = async (id, currUser) => {
 
   const cur = await findById(id);
   if (!cur) return Err({ status: 404, message: "Student not found" });
-  return Ok(cur);
+  return Ok(toStudentDto(cur));
 };

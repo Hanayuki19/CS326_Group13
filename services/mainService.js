@@ -76,6 +76,7 @@ export const get_register = async (data) => {
   await saveCredential(all_users);
   */
   const Newuser = NewUser(await mainRepository.createCredential(full_results));
+  console.log(Newuser.id);
   return Ok(Newuser);
 };
 

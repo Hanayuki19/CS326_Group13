@@ -12,6 +12,7 @@ export const students = async (req, res) => {
 };
 export const student = async (req, res) => {
   const id = req.params.id;
+
   if (!isValidId(id)) {
     res.status(400).json({ error: "Invalid ID" });
     return;
