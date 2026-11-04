@@ -117,7 +117,7 @@ Submitting
 
 - Submitting the edit form creates a `PUT /students/:id` request with an updated Name and Major. The backend will validate the request and update `student.json`. Then, the page will update to show the new information.
 
-## Design Decisions
+## Design Decisions (Sprint 2)
 
 **Central error middleware (Mahish Mistry).** Every async route handler is wrapped in `asyncHandler`, and all failures end in one error handling middleware in `server.js` that returns JSON with a status code; controllers never catch errors themselves. The credible alternative was a try/catch in each controller function. We shipped the middleware version because `app.js` and `reviews.js` read `{ error }` from every failed response, and one middleware is the only way to guarantee that shape for errors nobody anticipated, such as malformed JSON rejected by `express.json()` or a missing data file. Per controller try/catch would have duplicated the same error to JSON code in every controller, and any controller that forgot it would crash the server on a failed `await`.
 
@@ -133,3 +133,6 @@ Submitting
 
 **Role-based access permissions (Chloe Le)** I implemented role-based permission checks directly within the service layer (`StudentService.js`). Such checks include restricting student access to their own profiles while granting admins full access to the entire student roster. The alternative option would be to handle the permission checks inline inside each controller function. We shipped the service-layer version because it keeps security logic centralized and independent of Express objects. However, it would have cost code duplication across multiple files and made access boundaries more difficult to maintain as the application grew.
 
+## Design Decisions (Sprint 3)
+
+**Trying all possible combinations on the test with mockUnstable to create temporary database (Minh Le)** I followed the sprint instruction and uses mockUnstable to create a temporary test database, and I tried all possible combinations of input that I can think of. One credible alternative is using the real MongoDB and just tried some most popular & randoms combinations. I think one downsides of calling right into the MongoDB is that it may alters the results of other person's work or make it less reproducible to catch those errors, and just trying the combinations by whatever comes to my mind risks missing out on details that users may type in. My choice will make those more reproducible & make sure that the applications are safeguarded from every possible cases of incorrect input that the system are not supposed to solve.

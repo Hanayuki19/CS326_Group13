@@ -19,3 +19,12 @@ I receive an answer that I can directly import it like any libraries. I created 
 
 I Google about the invalid authentication error code, it suggests me to go to this website to learn more: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/401".
 I learned that 401 is the code for Unauthorized, so I use that definition into the mainService layer to return 401 if the Username or Password supplies does not exists or not correct.
+
+Sprint 3:
+I gave it the code I did in the studentService.test.js pointing to my original test of updateStudent, it points out that these two lines are causing problems that making it return false instead of true that I hope.
+
+const test_user = { id: "fake-id2", role: "student" };
+const res = await updateStudent("fake-id2", { name: "abc", major: "Math" }, test_user);
+
+it tells me that there's a type mismatch here that are comparing String type to a Mongo ObjectbyId type, which causes the error.
+I tried changing the studentService.js to compare between string type so it matches my equality comparison jest test, and it still works just fine for the original application.
