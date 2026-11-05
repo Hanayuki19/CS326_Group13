@@ -1,49 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/style.css">
+    <%- include('partials/head') %>
   </head>
   <body class="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased">
     <div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-10">
-      <header class="mb-8 flex flex-col gap-3 border-b-2 border-maroon pb-4 sm:flex-row sm:items-center sm:justify-between">
-        <h1 class="text-2xl font-bold tracking-tight text-maroon sm:text-3xl"><%= title %></h1>
-        <nav class="flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium text-stone-600">
-          <a class="hover:text-maroon hover:underline" href="/">Home</a>
-          <a class="hover:text-maroon hover:underline" href="/members">Members</a>
-          <a class="hover:text-maroon hover:underline" href="/reviews">Reviews</a>
-          <a class="hover:text-maroon hover:underline" href="/login">Login</a>
-          <a class="hover:text-maroon hover:underline" href="/register">Create Account</a>
-        </nav>
-      </header>
+      <%- include('partials/header_auth') %>
       <main>
-        <form id="login-form" class="mb-6 flex flex-col gap-2 sm:flex-row">
-          <input class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1" type="text" name="name" placeholder="Name">
-          <input class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1" type="text" name="Username" placeholder="Username">
-          <button class="rounded bg-maroon px-4 py-2 text-sm font-semibold text-white hover:bg-maroon-dark disabled:opacity-50" type="submit">Add</button>
+        <form
+          id="login-form"
+          class="mb-6 flex flex-col gap-2 sm:flex-row"
+          hx-post="/members"
+          hx-target="#member-list"
+          hx-swap="beforeend"
+          hx-on::after-request="if(event.detail.successful) this.reset()"
+        >
+          <input
+            class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1"
+            type="text"
+            name="name"
+            placeholder="Name"
+          />
+          <input
+            class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1"
+            type="text"
+            name="Username"
+            placeholder="Username"
+          />
+          <button
+            class="rounded bg-maroon px-4 py-2 text-sm font-semibold text-white hover:bg-maroon-dark disabled:opacity-50"
+            type="submit"
+          >
+            Add
+          </button>
         </form>
         <div class="overflow-x-auto rounded border border-stone-200 bg-white">
           <table class="w-full border-collapse text-sm">
             <thead>
               <tr class="bg-stone-100 text-left">
-                <th class="border-b border-stone-200 px-3 py-2 font-semibold">Name</th>
-                <th class="border-b border-stone-200 px-3 py-2 font-semibold">Username</th>
+                <th class="border-b border-stone-200 px-3 py-2 font-semibold">
+                  Name
+                </th>
+                <th class="border-b border-stone-200 px-3 py-2 font-semibold">
+                  Username
+                </th>
               </tr>
             </thead>
-            <tbody>
-              <% Members.forEach(entry => { %>
-                <tr>
-                  <td class="border-b border-stone-200 px-3 py-2"><%= entry.name %></td>
-                  <td class="border-b border-stone-200 px-3 py-2"><%= entry.Username %></td>
-                </tr>
-              <% }); %>
+            <tbody id="member-list">
+              <% Members.forEach(entry => { %> <%-
+              include('partials/member_row', { entry: entry }) %> <% }); %>
             </tbody>
           </table>
         </div>
       </main>
     </div>
-    <script src="/member.js" defer></script>
   </body>
 </html>
