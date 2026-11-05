@@ -13,7 +13,7 @@
 
 - **Definition of "done" for a PR:** It is done when it has an approving review from at least one teammate and is passing the automated checks, and it should also have a clear description of what and why, and that it has no unresolved review comments. Then the author will merge after approval and deletes the branch.
 
-- **Branching and commits:** For branchs, the work happens on a feature branch named `type/short-description` (for example `feat/login-form` or `fix/readme-typo`). Nobody pushes directly to `main` and the branch protection rule makes sure of this before getting approval from the team.
+- **Branching and commits:** For branches, the work happens on a feature branch named `type/short-description` (for example `feat/login-form` or `fix/readme-typo`). Nobody pushes directly to `main` and the branch protection rule makes sure of this before getting approval from the team.
 
 - **Resolving disagreements:** We first discuss about what is the disagreement, make a list of pros and cons of why we should do or not do it and then decide with that.
 
@@ -52,6 +52,7 @@ Start the server
   Open your browser and go to "http://localhost:3000"
 
 ## Running Jest test
+
 - "npm test" (start the test)
 - You should see 3 different tests and 32 test cases with all "passed" status
 
@@ -60,10 +61,12 @@ Start the server
 ```text
 +------------------------------------+
 |          Browser (Client)          |
-|     - Submits forms & requests     |
+| - HTMX handles requests & UI swaps |
+| - Tailwind CSS styles interface    |
 +------------------------------------+
            |                 ^
-      HTTP Request     HTTP Response
+      HTTP Request     HTML Fragments &
+       (via HTMX)       HX-Redirects
            v                 |
 +------------------------------------+
 |           Routes Layer             |
@@ -73,7 +76,8 @@ Start the server
            v                 |
 +------------------------------------+
 |         Controllers Layer          |
-|  - Handles req/res & session user  |
+|  - Calls services                  |
+|  - Renders EJS partials            |
 +------------------------------------+
            |                 ^
            v                 |
@@ -87,7 +91,8 @@ Start the server
            v                 |
 +------------------------------------+
 |     Repository / Storage Layer     |
-|    - Reads/writes to JSON files    |
+| - Uses Mongoose models to read and |
+|   write directly to MongoDB        |
 +------------------------------------+
 ```
 
@@ -104,6 +109,12 @@ Go to `/reviews`. The form takes a course code, a workload rating from 1 to 5, a
 ## Sprint 2 Feature
 
 We added a Student Profile feature which allows students to access, view, and edit their profile details, such as Name and Major.
+
+## HTMX Migration
+
+**What changed:** HTML files now use HTMX attributes for handling form submissions and button clicks. The Express controllers were updated so that the server renders small HTML snippets instead of sending JSON data back to the browser. We created new partials for list rows (`student_row.ejs`, `member_row.ejs`, `review_row.ejs`) so the server can generate a single new row when needed. We also moved the navigation menu and the <head> setup into their own partials so that every page has the same layout.
+
+**How to see it:** Look at the [Getting Started](#Getting-Started) section for instructions on installation and running the application. Once you're on the application, open the browser's Network tab to watch the requests in the background. Fill out any of the forms or click a button and the expected action should occur without reloading the page.
 
 ### Exercising the Feature
 
@@ -130,7 +141,7 @@ Submitting
 
 **Storing data inside JSON instead of database (MongoDB) (Minh Le).** I and my team use .json files to store and manage data like student information and credentials. Even though storing password in plain text is not great from a security perspective, .JSON allows us to iterate, debug faster because we can easily look into these and find out the errors. One alternative would be to store it inside a database. It would be better if we have more data, but I figure that JSON allows us to iterating faster, make feature works, and migrating will take less time than putting messy work (work in progress) into a real database. We'll migrate to database when we're fully confident that all features are working as intended.
 
-**Login and Registration system (Minh Le)**. I created a login (username & password) with registration system (username, full name, password, and Major). I stored those credentials in a file and call to the existing studentService within Long's code to ensure consistency, specifically getting studentID to redirect to after login or register. One alternative would be to put all attributes within the same credential file from the start. However, that would duplicate the name validation check, and more. So my approach divides those  responsbility for each layer & introduce dependency between services for consistent experience.
+**Login and Registration system (Minh Le)**. I created a login (username & password) with registration system (username, full name, password, and Major). I stored those credentials in a file and call to the existing studentService within Long's code to ensure consistency, specifically getting studentID to redirect to after login or register. One alternative would be to put all attributes within the same credential file from the start. However, that would duplicate the name validation check, and more. So my approach divides those responsbility for each layer & introduce dependency between services for consistent experience.
 
 **Layered architecture design update (Long Tran).** After Minh Le separated our application into four layers, I organized each layer into separate modules for student profiles and team projects. A credible alternative was to keep all features together in one file per layer. That approach would have required fewer files and imports, but as we added features, we would have needed to navigate more unrelated code when making changes or debugging. As a result, I chose separate feature modules supporting instructors’ management of student profiles (One feature, implemented end-to-end) because they made the code easier to locate and maintain. This approach introduces more files and imports, but I considered that an acceptable cost for clearer organization.
 
@@ -143,3 +154,5 @@ Submitting
 **Trying all possible combinations on the test with mockUnstable to create temporary database (Minh Le)** I followed the sprint instruction and uses mockUnstable to create a temporary test database, and I tried all possible combinations of input that I can think of. One credible alternative is using the real MongoDB and just tried some most popular & randoms combinations. I think one downsides of calling right into the MongoDB is that it may alters the results of other person's work or make it less reproducible to catch those errors, and just trying the combinations by whatever comes to my mind risks missing out on details that users may type in. My choice will make those more reproducible & make sure that the applications are safeguarded from every possible cases of incorrect input that the system are not supposed to solve.
 
 **Building up MongoDB repository layer (Long Tran)** I followed the sprint 03 instruction to replace every file-based repository by MongoDB repository and updated the dto folder. The benefits for this replacement is that the methods of my repository layer are more diverse (from getAll and save to findById, updateById,...). My decision is to replace some service layers' structures by these methods. However, since some service's files use multiple repository files, I have spent a really long time struggling (traumatizing) to change the structures and debug code. Another alternative that I have come up with is to merge some unecessary repository files into one, such as merging credential schema and student schema into one. However, I did not do this because there are some methods that only use Credential model. This means that if I merge them, I have to change all the structures of layers. Thus, I decided to synchronize some information between student model and credential model. Since I worked with backend clients (Repository, Service layers), I did not interact with HTMX layers. In the repository layer, I added getAll(), delete(), and create() methods for Member MongoDB model and findById(), update(), and create() methods for Credential. i did same one for the Student MongoDB model on the Student repository as well. The schemas of Student and Credential are roughly similar, the former has name and major whereas the later has username, Fullname, password, major, and role. For the member schema, I added name and username fields.
+
+**HTMX row deletion (Chloe Le)**. For the HTMX delete button, I decided to have the server return an empty response and use `hx-target="closest li"` with `hx-swap="outerHTML"` to remove that one specific row. A credible alternative would have been having the database gather all the remaining records and return a fully re-rendered <ul> list partial to swap out the entire container. Reloading the whole list guarantees the screen matches the database, but removing just the single row is better for performance. The alternative would have made the database run an extra search query and would have wasted network data every single time someone clicks delete.
