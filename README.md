@@ -77,11 +77,11 @@ Start the server
 +------------------------------------+
            |                 ^
            v                 |
-+------------------------------------+
-|            Service Layer           |
-| - StudentService (Students & RBAC) |
-| - ReviewService (Review logic)     |
-| - MainService (Auth & Login)       |
++------------------------------------+        +--------------------------------------------+
+|           Service Layer            | <----- |         Test Suites (Jest)                 |
+| - StudentService (Students & RBAC)  |       | - Tests service rules (with behavior)      |
+| - ReviewService (Review logic)     |        | - Tests required-field business rules      |
+| - MainService (Auth & Login)       |        +--------------------------------------------+
 +------------------------------------+
            |                 ^
            v                 |
