@@ -47,6 +47,7 @@ Clone the repository
 
 Start the server
 
+- "dc-up mongo" (start the database)
 - "npm start"
   Open your browser and go to "http://localhost:3000"
 
