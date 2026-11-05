@@ -5,6 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+<<<<<<< Updated upstream
+=======
+    "prestart": "npm run build:css",
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/style.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./public/style.css --watch",
+>>>>>>> Stashed changes
     "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "repository": {
