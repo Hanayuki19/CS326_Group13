@@ -51,6 +51,10 @@ Start the server
 - "npm start"
   Open your browser and go to "http://localhost:3000"
 
+## Running Jest test
+- "npm test" (start the test)
+- You should see 3 different tests and 32 test cases with all "passed" status
+
 ## System Diagram
 
 ```text
