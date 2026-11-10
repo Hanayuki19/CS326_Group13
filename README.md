@@ -45,7 +45,7 @@ Clone the repository
 
 ## Running the Server
 
-Start the server
+Inside your Gantry docker development environment, run these in order:
 
 - "dc-up mongo" (start the database)
 - "npm start"
@@ -74,17 +74,30 @@ Start the server
 +------------------------------------+
            |                 ^
            v                 |
++------------------------------------+         +------------------------------------+
+|         Controllers Layer          |         |        EJS and partials            |
+|  - Calls services                  | ------->| - Generate pages, links,           |
+|  - Renders EJS / partials          | renders |   login/register, and              |
+                                               |   other functions for              |
++------------------------------------+         |   web rendering.                   |
+           |                 ^                 +------------------------------------+
+           |                 |
+           v                 |
 +------------------------------------+
-|         Controllers Layer          |
-|  - Calls services                  |
-|  - Renders EJS partials            |
+|                DTOs                |
+|  - Convert Mongo records into      |
+  JSON-like object for application   |
+|  - Map MongoDB _id to id           |
 +------------------------------------+
            |                 ^
            v                 |
 +------------------------------------+        +--------------------------------------------+
 |           Service Layer            | <----- |         Test Suites (Jest)                 |
-| - StudentService (Students & RBAC)  |       | - Tests service rules (with behavior)      |
-| - ReviewService (Review logic)     |        | - Tests required-field business rules      |
+| - StudentService (Students & RBAC) | run    | - Tests service rules (with behavior)      |
+| - ReviewService (Review logic)     | tests  | - Tests required-field business rules      |
+|                                    |        | - Repositories replaced with               |
+|                                    |        |    jest.unstable_mockModule                |
+|                                    |        |  - Tests never reach MongoDB               |
 | - MainService (Auth & Login)       |        +--------------------------------------------+
 +------------------------------------+
            |                 ^
@@ -94,11 +107,18 @@ Start the server
 | - Uses Mongoose models to read and |
 |   write directly to MongoDB        |
 +------------------------------------+
+           |                 ^
+           v                 |
++------------------------------------+
+|       MongoDB (main database)      |
+| - Stores members, credentials,     |
+|   students, and reviews            |
++------------------------------------+
 ```
 
 ## Course Reviews
 
-Go to `/reviews`. The form takes a course code, a workload rating from 1 to 5, and a comment. Submitting sends a POST to `/reviews`; the service validates the fields, the repository saves the review to `reviews.json`, and the new review appears in the list below the form. If a field is missing or the rating is out of range, the server returns a 400 and the message is shown under the form.
+Go to `/reviews`. The form takes a course code, a workload rating from 1 to 5, and a comment. Submitting sends a POST to `/reviews`; the service validates the fields, the repository saves the review to MongoDB Review Schema, and the new review appears in the list below the form. If a field is missing or the rating is out of range, the server returns a 400 and the message is shown under the form.
 
 ## Tailwind restyle (Sprint 3)
 
@@ -106,7 +126,7 @@ Go to `/reviews`. The form takes a course code, a workload rating from 1 to 5, a
 
 **How to see it.** Run `npm install`, then `npm start`, and open any page. At phone width (375 px) the header stacks the title above the nav links, the add forms stack their inputs vertically, and each list row stacks "View / name / Edit / Delete" top to bottom with full-width buttons. At desktop width (1280 px) the `sm:` breakpoint switches those to one row each (`sm:flex-row`, `sm:items-center`, `sm:justify-between`), and the whole page is centred in a `max-w-3xl` column. The accent colour is UMass maroon, defined once in `src/input.css` under `@theme` as `--color-maroon`.
 
-## Sprint 2 Feature
+## Sprint 3 Feature
 
 We added a Student Profile feature which allows students to access, view, and edit their profile details, such as Name and Major.
 
@@ -115,6 +135,24 @@ We added a Student Profile feature which allows students to access, view, and ed
 **What changed:** HTML files now use HTMX attributes for handling form submissions and button clicks. The Express controllers were updated so that the server renders small HTML snippets instead of sending JSON data back to the browser. We created new partials for list rows (`student_row.ejs`, `member_row.ejs`, `review_row.ejs`) so the server can generate a single new row when needed. We also moved the navigation menu and the <head> setup into their own partials so that every page has the same layout.
 
 **How to see it:** Look at the [Getting Started](#Getting-Started) section for instructions on installation and running the application. Once you're on the application, open the browser's Network tab to watch the requests in the background. Fill out any of the forms or click a button and the expected action should occur without reloading the page.
+
+## MongoDB integrated
+
+**What changed:** Our applications uses MongoDB as a database to store the data for all of the requests that are sent or to process with the queries.
+
+**Which routes and methods used it:**
+Most routes, including but not limited to:
+POST /login
+POST /register
+GET /members, POST /members, and DELETE /members/:name
+
+GET /reviews and POST /reviews
+
+GET /students
+GET /students/student/:id
+POST /students/:id
+PUT /students/:id
+DELETE /students/:id
 
 ### Exercising the Feature
 
@@ -131,7 +169,7 @@ UI
 
 Submitting
 
-- Submitting the edit form creates a `PUT /students/:id` request with an updated Name and Major. The backend will validate the request and update `student.json`. Then, the page will update to show the new information.
+- Submitting the edit form creates a `PUT /students/:id` request with an updated Name and Major. The backend will validate the request and update to MongoDB Student Schema. Then, the page will update to show the new information.
 
 ## Design Decisions (Sprint 2)
 
@@ -151,7 +189,7 @@ Submitting
 
 ## Design Decisions (Sprint 3)
 
-**Trying all possible combinations on the test with mockUnstable to create temporary database (Minh Le)** I followed the sprint instruction and uses mockUnstable to create a temporary test database, and I tried all possible combinations of input that I can think of. One credible alternative is using the real MongoDB and just tried some most popular & randoms combinations. I think one downsides of calling right into the MongoDB is that it may alters the results of other person's work or make it less reproducible to catch those errors, and just trying the combinations by whatever comes to my mind risks missing out on details that users may type in. My choice will make those more reproducible & make sure that the applications are safeguarded from every possible cases of incorrect input that the system are not supposed to solve.
+**Trying all possible combinations on the test with mockUnstable to mock repository functions with controlled test data. (Minh Le)** I followed the sprint instruction and uses mockUnstable to create a repository functions with controlled test data, and I tried all possible combinations of input that I can think of. One credible alternative is using the real MongoDB and just tried some most popular & randoms combinations. One downside of calling right into the MongoDB is that it may alters the results of other person's work or make it less reproducible to catch those errors, and just trying the combinations by whatever comes to my mind risks missing out on details that users may type in. My specific approach will make the controlled testing of business logic & validation more reliable (easily reproducible), and preventing changes to the crucial saved data on MongoDB. For example, my mocked repository functions allow me to verify admin can make almost all changes, student profile and its update function, duplicate names, profile permissions without querying the actual MongoDB, which may includes active credentials and can be affected by such tests, making it easy for me to check every kind of invalid input. One tradeoff is that I must verify my mock test data are representative of what Mongo can do, and it does not verify actual MongoDB queries or whether those change persist.
 
 **Building up MongoDB repository layer (Long Tran)** I followed the sprint 03 instruction to replace every file-based repository by MongoDB repository and updated the dto folder. The benefits for this replacement is that the methods of my repository layer are more diverse (from getAll and save to findById, updateById,...). My decision is to replace some service layers' structures by these methods. However, since some service's files use multiple repository files, I have spent a really long time struggling (traumatizing) to change the structures and debug code. Another alternative that I have come up with is to merge some unecessary repository files into one, such as merging credential schema and student schema into one. However, I did not do this because there are some methods that only use Credential model. This means that if I merge them, I have to change all the structures of layers. Thus, I decided to synchronize some information between student model and credential model. Since I worked with backend clients (Repository, Service layers), I did not interact with HTMX layers. In the repository layer, I added getAll(), delete(), and create() methods for Member MongoDB model and findById(), update(), and create() methods for Credential. i did same one for the Student MongoDB model on the Student repository as well. The schemas of Student and Credential are roughly similar, the former has name and major whereas the later has username, Fullname, password, major, and role. For the member schema, I added name and username fields.
 
