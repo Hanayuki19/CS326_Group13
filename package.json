@@ -4,9 +4,12 @@
   "description": "| Name | Github Username | | -------- | -------- | | Minh Le    | Hanayuki19     | | Long Tran Duy    | ltranduy-boop     | | Mahish Mistry    | mahishmistry     | | Chloe Le    | its-cle    |",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest"
-  },
+  "start": "node server.js",
+  "prestart": "npm run build:css",
+  "build:css": "tailwindcss -i ./src/input.css -o ./public/style.css --minify",
+  "watch:css": "tailwindcss -i ./src/input.css -o ./public/style.css --watch",
+  "test": "node --experimental-vm-modules node_modules/.bin/jest"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hanayuki19/CS326_Group13.git"
@@ -28,6 +31,8 @@
     "morgan": "^1.12.1"
   },
   "devDependencies": {
-    "jest": "^30.5.2"
+    "@tailwindcss/cli": "^4.3.4",
+    "jest": "^30.5.2",
+    "tailwindcss": "^4.3.4"
   }
 }

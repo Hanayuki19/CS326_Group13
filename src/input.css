@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Tailwind only emits classes it finds in these files. */
+@source "../views";
+@source "../public";
+
+/* UMass maroon, used as the single accent colour across the site. */
+@theme {
+  --color-maroon: #881c1c;
+  --color-maroon-dark: #6a1414;
+}
