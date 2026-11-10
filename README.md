@@ -74,17 +74,30 @@ Inside your Gantry docker development environment, run these in order:
 +------------------------------------+
            |                 ^
            v                 |
++------------------------------------+         +------------------------------------+
+|         Controllers Layer          |         |        EJS and partials            |
+|  - Calls services                  | ------->| - Generate pages, links,           |
+|  - Renders EJS / partials          | renders |   login/register, and              |
+                                               |   other functions for              |
++------------------------------------+         |   web rendering.                   |
+           |                 ^                 +------------------------------------+
+           |                 |
+           v                 |
 +------------------------------------+
-|         Controllers Layer          |
-|  - Calls services                  |
-|  - Renders EJS partials            |
+|                DTOs                |
+|  - Convert Mongo records into      |
+  JSON-like object for application   |
+|  - Map MongoDB _id to id           |
 +------------------------------------+
            |                 ^
            v                 |
 +------------------------------------+        +--------------------------------------------+
 |           Service Layer            | <----- |         Test Suites (Jest)                 |
-| - StudentService (Students & RBAC)  |       | - Tests service rules (with behavior)      |
-| - ReviewService (Review logic)     |        | - Tests required-field business rules      |
+| - StudentService (Students & RBAC) | run    | - Tests service rules (with behavior)      |
+| - ReviewService (Review logic)     | tests  | - Tests required-field business rules      |
+|                                    |        | - Repositories replaced with               |
+|                                    |        |    jest.unstable_mockModule                |
+|                                    |        |  - Tests never reach MongoDB               |
 | - MainService (Auth & Login)       |        +--------------------------------------------+
 +------------------------------------+
            |                 ^
@@ -93,6 +106,13 @@ Inside your Gantry docker development environment, run these in order:
 |     Repository / Storage Layer     |
 | - Uses Mongoose models to read and |
 |   write directly to MongoDB        |
++------------------------------------+
+           |                 ^
+           v                 |
++------------------------------------+
+|       MongoDB (main database)      |
+| - Stores members, credentials,     |
+|   students, and reviews            |
 +------------------------------------+
 ```
 
