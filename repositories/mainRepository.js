@@ -11,7 +11,7 @@ const member_schema = new mongoose.Schema(
   },
   { timestamps: true },
 );
-const Member = mongoose.model("Member", member_schema);
+export const Member = mongoose.model("Member", member_schema);
 const credential_schema = new mongoose.Schema(
   {
     Username: { type: String, required: true },
@@ -22,7 +22,7 @@ const credential_schema = new mongoose.Schema(
   },
   { timestamps: true },
 );
-const Credentials = mongoose.model("Credentials", credential_schema);
+export const Credentials = mongoose.model("Credentials", credential_schema);
 
 export const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
 
@@ -58,8 +58,7 @@ export const getAllCredential = async () =>
   */
   Credentials.find().lean();
 
-export const findCredentialById = async (id) =>
-  Credentials.findById(id).lean();
+export const findCredentialById = async (id) => Credentials.findById(id).lean();
 
 export const createCredential = async (data) =>
   (await Credentials.create(data)).toObject();
