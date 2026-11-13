@@ -10,7 +10,7 @@ const StudentSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
-const Student = mongoose.model("Student", StudentSchema);
+export const Student = mongoose.model("Student", StudentSchema);
 export const isValidId = (id) => mongoose.Types.ObjectId.isValid(id);
 export const getAll = async () => Student.find().lean();
 export const create = async (data) => (await Student.create(data)).toObject();
