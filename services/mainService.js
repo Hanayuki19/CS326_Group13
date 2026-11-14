@@ -1,7 +1,8 @@
 import { Ok, Err } from "../result.js";
+import bcrypt from 'bcrypt';
 import * as mainRepository from "../repositories/mainRepository.js";
 import { createStudent } from "./StudentService.js";
-import { toMemberDto, NewUser } from "../dtos/mainDto.js";
+import { toMemberDto, NewUser, toLoginDto } from "../dtos/mainDto.js";
 
 const validateInput_login = ({ Username, Password }) => {
   if (!Username || !Password)
@@ -23,27 +24,13 @@ export const get_login = async (data) => {
   const result = validateInput_login(data);
   if (!result.ok) return result;
 
-  const all_credentials = (await mainRepository.getAllCredential()).map(
-    NewUser,
-  );
   const { Username, Password } = result.value;
+  const user = await mainRepository.findByUsername((Username || '').trim());
+  if (!user) return Err({ status: 401, message: 'incorrect Username or password' });
+  const matches = await bcrypt.compare(Password || '', user.passwordHash);
+  if (!matches) return Err({ status: 401, message: 'incorrect Username or password' });
 
-  const cur = all_credentials.find(
-    (ele) => ele.Username === Username && ele.Password === Password,
-  );
-  if (!cur) {
-    return Err({
-      status: 401,
-      message:
-        "Incorrect username or password. Please register if you don't have an account.",
-    });
-  }
-
-  return Ok({
-    Username: cur.Username,
-    id: cur.id,
-    role: cur.role || "student",
-  });
+  return Ok(toLoginDto(user));
 };
 
 export const get_register = async (data) => {
@@ -62,21 +49,17 @@ export const get_register = async (data) => {
     major: Major,
   });
   if (!new_student.ok) return new_student;
+  const passwordHash = await bcrypt.hash(Password, 10);
 
   const full_results = {
     Username,
-    Password,
+    passwordHash,
     FullName,
     Major,
-    role: "admin",
+    role: "student",
     _id: new_student.value.id,
   };
-  /*
-  all_users.push(full_results);
-  await saveCredential(all_users);
-  */
   const Newuser = NewUser(await mainRepository.createCredential(full_results));
-  console.log(Newuser.id);
   return Ok(Newuser);
 };
 

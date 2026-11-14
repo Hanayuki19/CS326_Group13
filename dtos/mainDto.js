@@ -9,10 +9,16 @@ export const toStudentDto = (user) => ({
   id: user._id,
 });
 
+export const toLoginDto = (login) => ({
+  Username: login.Username,
+  id: login._id,
+  role: login.role || "student"
+});
+
 export const NewUser = (user) => ({
   name: user.FullName,
   Username: user.Username,
-  Password: user.Password,
+  //Password: user.Password,
   major: user.Major,
   id: user._id,
   role: user.role
