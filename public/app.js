@@ -1,6 +1,19 @@
 const form = document.querySelector("#entry-form");
 const list = document.querySelector("#entries");
 
+const ITEM_CLASSES =
+  "flex flex-col gap-2 rounded border border-stone-200 bg-white p-3 sm:flex-row sm:items-center";
+const INPUT_CLASSES =
+  "rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1";
+const PRIMARY_BTN_CLASSES =
+  "rounded bg-maroon px-4 py-2 text-sm font-semibold text-white hover:bg-maroon-dark disabled:opacity-50";
+const EDIT_BTN_CLASSES =
+  "edit-btn rounded border border-maroon px-3 py-1 text-sm text-maroon hover:bg-maroon hover:text-white disabled:opacity-50";
+const DELETE_BTN_CLASSES =
+  "delete-btn rounded border border-red-600 px-3 py-1 text-sm text-red-600 hover:bg-red-600 hover:text-white disabled:opacity-50";
+const CANCEL_BTN_CLASSES =
+  "cancel-btn rounded bg-stone-500 px-4 py-2 text-sm font-semibold text-white hover:bg-stone-600 disabled:opacity-50";
+
 // Fill an entry's display: a bold title, then the body. textContent, never
 // innerHTML: titles and bodies are user input, and innerHTML would run them as
 // markup if someone typed a <script> or <img> tag.
@@ -21,18 +34,19 @@ const makeButton = (className, label) => {
 // Build an entry's <li> the same way the server-rendered page does.
 const buildItem = (entry) => {
   const item = document.createElement("li");
+  item.className = ITEM_CLASSES;
   item.dataset.id = entry.id;
   item.dataset.title = entry.name;
   item.dataset.body = entry.major;
 
   const display = document.createElement("span");
-  display.className = "entry-display";
+  display.className = "entry-display flex-1 text-sm";
   fillDisplay(display, entry);
 
   item.append(
     display,
-    makeButton("edit-btn", "Edit"),
-    makeButton("delete-btn", "Delete"),
+    makeButton(EDIT_BTN_CLASSES, "Edit"),
+    makeButton(DELETE_BTN_CLASSES, "Delete"),
   );
   return item;
 };
@@ -44,6 +58,7 @@ const makeInput = (name, value) => {
   input.type = "text";
   input.name = name;
   input.value = value;
+  input.className = INPUT_CLASSES;
   return input;
 };
 
@@ -91,15 +106,16 @@ const startEdit = (item) => {
   const buttons = item.querySelectorAll(".edit-btn, .delete-btn");
 
   const editForm = document.createElement("form");
-  editForm.className = "edit-form";
+  editForm.className = "edit-form flex flex-1 flex-col gap-2 sm:flex-row";
   const save = document.createElement("button");
   save.type = "submit";
   save.textContent = "Save";
+  save.className = PRIMARY_BTN_CLASSES;
   editForm.append(
     makeInput("name", item.dataset.title),
     makeInput("major", item.dataset.body),
     save,
-    makeButton("cancel-btn", "Cancel"),
+    makeButton(CANCEL_BTN_CLASSES, "Cancel"),
   );
 
   display.replaceWith(editForm);

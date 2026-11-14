@@ -17,21 +17,27 @@ export const get_register = async (req, res) => {
 export const login = async (req, res) => {
   const result = await mainService.get_login(req.body);
   if (!result.ok) {
-    res.status(result.error.status).json({ error: result.error.message });
-    return;
+    return res.status(result.error.status).send(result.error.message);
   }
   req.session.user = result.value;
-  res.json({ redirect: `/students/student/${result.value.id}` });
+
+  res
+    .set("HX-Redirect", `/students/student/${result.value.id}`)
+    .status(200)
+    .end();
 };
 
 export const register = async (req, res) => {
   const result = await mainService.get_register(req.body);
   if (!result.ok) {
-    res.status(result.error.status).json({ error: result.error.message });
-    return;
+    return res.status(result.error.status).send(result.error.message);
   }
   req.session.user = result.value;
-  res.json({ redirect: `/students/student/${result.value.id}` });
+
+  res
+    .set("HX-Redirect", `/students/student/${result.value.id}`)
+    .status(200)
+    .end();
 };
 
 export const members = async (req, res) => {
@@ -41,9 +47,7 @@ export const members = async (req, res) => {
 
 export const add_member = async (req, res) => {
   if (!req.body.name?.trim() || !req.body.Username?.trim()) {
-    return res.status(400).json({
-      error: "Name and username are required.",
-    });
+    return res.status(400).send("Name and username are required.");
   }
   const result = await mainService.create_member({
     name: req.body.name.trim(),
@@ -51,24 +55,27 @@ export const add_member = async (req, res) => {
   });
 
   if (!result.ok) {
-    return res.status(result.error.status).json({
-      error: result.error.message,
-    });
+    return res.status(result.error.status).send(result.error.message);
   }
 
-  return res.status(201).json({ message: "Member added successfully." });
+  const newMember = result.value || {
+    name: req.body.name.trim(),
+    Username: req.body.Username.trim(),
+  };
+
+  res.render("partials/member_row", { entry: newMember });
 };
 
 export const delete_member = async (req, res) => {
   const name = req.params.name?.trim();
   if (!name) {
-    return res.status(400).json({ error: "Name is required." });
+    return res.status(400).send("Name is required.");
   }
   const deleted = await deleteMember(name);
 
   if (!deleted) {
-    return res.status(404).json({ error: "Member not found." });
+    return res.status(404).send("Member not found.");
   }
 
-  return res.status(204).send();
+  return res.status(200).send("");
 };

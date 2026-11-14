@@ -1,23 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/style.css">
+    <%- include('partials/head') %>
   </head>
-  <body>
-    <main>
-      <h1 id="welcome"> Register </h1>
-      <%- include('partials/header_auth') %> <!-- to be replaced -->
-      <form id="login-form">
-        <input type="text" name="Username" placeholder="Username">
-        <input type="password" name="Password" placeholder="Password">
-        <input type="text" name="FullName" placeholder="Full Name">
-        <input type="text" name="Major" placeholder="Major">
-        <button type="submit"> Register </button>
+  <body class="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased">
+    <main class="mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-10">
+      <%- include('partials/header_auth') %>
+
+      <form
+        id="login-form"
+        class="mb-2 flex w-full max-w-sm flex-col gap-3"
+        hx-post="/register"
+        hx-target="#auth-error"
+      >
+        <input
+          class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none"
+          type="text"
+          name="Username"
+          placeholder="Username"
+        />
+        <input
+          class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none"
+          type="password"
+          name="Password"
+          placeholder="Password"
+        />
+        <input
+          class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none"
+          type="text"
+          name="FullName"
+          placeholder="Full Name"
+        />
+        <input
+          class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none"
+          type="text"
+          name="Major"
+          placeholder="Major"
+        />
+        <button
+          class="rounded bg-maroon px-4 py-2 text-sm font-semibold text-white hover:bg-maroon-dark disabled:opacity-50"
+          type="submit"
+        >
+          Register
+        </button>
       </form>
-      <h3> Already have an account? Please <a href="/login"> login </a> </h3>
+      <p
+        id="auth-error"
+        class="mb-4 min-h-5 text-sm text-red-600"
+        role="alert"
+      ></p>
+      <p class="text-sm text-stone-600">
+        Already have an account?
+        <a class="font-medium text-maroon hover:underline" href="/login"
+          >Log in</a
+        >
+      </p>
     </main>
-    <script src="/register.js" defer></script>
   </body>
 </html>

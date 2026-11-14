@@ -1,0 +1,31 @@
+<li
+  class="flex flex-col gap-2 rounded border border-stone-200 bg-white p-3 sm:flex-row sm:items-center"
+  data-id="<%= entry.id %>"
+  data-title="<%= entry.name %>"
+  data-body="<%= entry.major %>"
+>
+  <nav class="text-sm">
+    <a
+      class="font-medium text-maroon hover:underline"
+      href="/students/student/<%= entry.id %>"
+      >View</a
+    >
+  </nav>
+  <span class="entry-display flex-1 text-sm"
+    ><strong><%= entry.name %>:</strong> <%= entry.major %></span
+  >
+  <button
+    class="edit-btn rounded border border-maroon px-3 py-1 text-sm text-maroon hover:bg-maroon hover:text-white disabled:opacity-50"
+    type="button"
+  >
+    Edit
+  </button>
+  <button
+    class="delete-btn rounded border border-red-600 px-3 py-1 text-sm text-red-600 hover:bg-red-600 hover:text-white disabled:opacity-50"
+    hx-delete="/students/<%= entry.id %>"
+    hx-target="closest li"
+    hx-swap="outerHTML"
+  >
+    Delete
+  </button>
+</li>

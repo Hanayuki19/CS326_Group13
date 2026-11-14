@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import bcrypt from 'bcrypt';
 import { readFile, writeFile } from "node:fs/promises";
 import { Member, Credentials } from "./repositories/mainRepository.js";
 import { Student } from "./repositories/StudentRepository.js";
@@ -16,7 +15,7 @@ const students = JSON.parse(raw_students);
 const run = async () => {
   await mongoose.connect(
     process.env.MONGODB_URI ||
-    "mongodb://dev:devpassword@mongo:27017/devdb?authSource=admin",
+      "mongodb://dev:devpassword@mongo:27017/devdb?authSource=admin",
   );
 
   await Member.deleteMany({});
@@ -32,18 +31,7 @@ const run = async () => {
     const id = new mongoose.Types.ObjectId();
 
     if (i < credentials.length) {
-      const { Username, Password, FullName, Major, role } = credentials[i];
-      const passwordHash = await bcrypt.hash(Password, 10);
-      const new_credential = {
-        Username,
-        passwordHash,
-        FullName,
-        Major,
-        role,
-        _id: id
-      };
-      // await Credentials.create({ ...credentials[i], _id: id });
-      await Credentials.create(new_credential);
+      await Credentials.create({ ...credentials[i], _id: id });
     }
     if (i < students.length) {
       await Student.create({ ...students[i], _id: id });

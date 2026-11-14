@@ -120,6 +120,11 @@ test("get_login accepts its client", async () => {
   expect(result.value.role).toBe("student");
 });
 
+test("get_login reject null", async () => {
+  const result = await get_login(null);
+  expect(result.ok).toBe(false);
+});
+
 test("get_login rejects the wrong username or wrong password", async () => {
   const result1 = await get_login({ Username: "cba", Password: "xyz" });
   const result2 = await get_login({ Username: "abc", Password: "zy" });

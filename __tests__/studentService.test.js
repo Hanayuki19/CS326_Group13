@@ -294,6 +294,82 @@ test('updateStudent should not accept changes if that student is changing it', a
 
   expect(res.ok).toBe(false);
 });
+
+test('updateStudent should reject if invalid ID is entered even with admin changing it', async () => {
+  repo.getAll.mockReturnValueOnce(null);
+  repo.findById.mockResolvedValueOnce(null);
+
+  const test_user = { id: "fake-id", role: "admin" };
+  const res = await updateStudent("fake-id2", { name: "abc", major: "CS" }, test_user);
+  expect(res.ok).toBe(false);
+  expect(res.error.message).toBe("Student ID not found");
+});
+
+test('updateStudent should not work with missing field', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValue({
+    _id: "fake-id2",
+    name: "abc",
+    major: "CS",
+  });
+  repo.updateById.mockResolvedValue({
+    _id: "fake-id2",
+    name: "abc",
+    major: "Math",
+  });
+
+  const test_user = { id: "fake-id", role: "admin" };
+  const res = await updateStudent("fake-id2", { name: "abc" }, test_user);
+  const res_2 = await updateStudent("fake-id2", { major: "Math" }, test_user);
+
+  expect(res.ok).toBe(false);
+  expect(res_2.ok).toBe(false);
+});
+
+test('updateStudent should reject duplicate name', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id",
+    name: "abc",
+    major: "CS",
+  },
+  {
+    _id: "fake-id2",
+    name: "def",
+    major: "CS",
+  }
+  ]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id", role: "admin" };
+  const res = await updateStudent("fake-id", { name: "def", major: "Math" }, test_user);
+  expect(res.ok).toBe(false);
+});
+
+test('updateStudent should reject when role is neither admin nor student', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id2", role: "other" };
+  const res = await updateStudent("fake-id", { name: "def", major: "Math" }, test_user);
+  expect(res.ok).toBe(false);
+});
+
 //end of test for updateStudent
 
 //start of deleteStudent test
@@ -335,6 +411,21 @@ test('deleteStudent accept delete from the same student', async () => {
   expect(res.ok).toBe(false);
   expect(res_1.ok).toBe(false);
 });
+
+test('deleteStudent should reject if invalid student id is input', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce(null);
+
+  const test_user = { id: "fake-id1", role: "admin" };
+  const res = await deleteStudent("fake-id1", test_user);
+
+  expect(res.ok).toBe(false);
+});
+
 //end of deleteStudent test
 
 //start of get_student_by_id test

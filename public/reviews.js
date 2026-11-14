@@ -4,6 +4,7 @@ const errorBox = document.querySelector("#form-error");
 
 const buildItem = (entry) => {
   const item = document.createElement("li");
+  item.className = "rounded border border-stone-200 bg-white p-3 text-sm";
   item.dataset.id = entry.id;
   const display = document.createElement("span");
   display.className = "entry-display";
