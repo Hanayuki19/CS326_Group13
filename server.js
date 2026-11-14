@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import process from 'node:process';
 import session from "express-session";
 import morgan from "morgan";
 import mainRouter from "./routes/main.js";
@@ -20,6 +21,10 @@ app.set("views", "views");
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.get("/health", (req, res) => {
+  res.json({ "status": "ok", "uptime": process.uptime() });
+});
 
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
