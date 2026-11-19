@@ -15,24 +15,21 @@ const validateInput = ({ name, major }) => {
 };
 
 const checkPermission = (currUser, targetStudentId) => {
-
-  if (currUser.role !== "admin" && currUser.role !== "student") {
+  if (!currUser || (currUser.role !== "admin" && currUser.role !== "student")) {
     return Err({
       status: 403,
       message: "You do not have permission to access this profile.",
     });
-  }
-  else {
+  } else {
     if (currUser && currUser.role === "admin") {
       return Ok(true);
-    }
-    else if (currUser && currUser.id === targetStudentId) {
+    } else if (currUser && String(currUser.id) === String(targetStudentId)) {
       return Ok(true);
-    }
-    else return Err({
-      status: 403,
-      message: "You do not have permission to access this profile.",
-    });
+    } else
+      return Err({
+        status: 403,
+        message: "You do not have permission to access this profile.",
+      });
   }
 };
 
@@ -73,7 +70,11 @@ export const updateStudent = async (id, data, currUser) => {
   if (!result.ok) return result;
   const students = (await getAll()).map(toStudentDto);
 
-  if (students.some((s) => s.name === result.value.name && String(s.id) !== String(id))) {
+  if (
+    students.some(
+      (s) => s.name === result.value.name && String(s.id) !== String(id)
+    )
+  ) {
     return Err({ status: 404, message: "Student already exists" });
   }
   const result2 = await updateById(id, data);
