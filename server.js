@@ -13,10 +13,13 @@ import { attachUser } from "./middleware/attachUser.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-await mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://dev:devpassword@mongo:27017/devdb?authSource=admin"
-);
+
+const CONNECT_MONGO = process.env.MONGODB_URI;
+if (!CONNECT_MONGO) {
+  console.log("MONGO_URI is missing.");
+}
+
+await mongoose.connect(CONNECT_MONGO);
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -41,8 +44,7 @@ app.use(
     saveUninitialized: false,
     store: MongoStore.create({
       mongoUrl:
-        process.env.MONGODB_URI ||
-        "mongodb://dev:devpassword@mongo:27017/devdb?authSource=admin",
+        CONNECT_MONGO
     }),
     cookie: {
       httpOnly: true,
