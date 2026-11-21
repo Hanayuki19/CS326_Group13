@@ -1,0 +1,58 @@
+<li
+  id="student-<%= entry.id %>"
+  class="rounded border border-stone-200 bg-white p-3"
+  data-id="<%= entry.id %>"
+>
+  <%# Ids carry the student id so a label can never point at another row. %>
+  <form
+    class="edit-form flex flex-col gap-2 sm:flex-row sm:items-center"
+    hx-put="/students/<%= entry.id %>"
+    hx-target="closest li"
+    hx-swap="outerHTML"
+  >
+    <label class="sr-only" for="edit-name-<%= entry.id %>"
+      >Name for <%= entry.name %></label
+    >
+    <input
+      id="edit-name-<%= entry.id %>"
+      class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1"
+      type="text"
+      name="name"
+      value="<%= entry.name %>"
+      data-focus-after="edit-<%= entry.id %>"
+      autofocus
+    />
+    <label class="sr-only" for="edit-major-<%= entry.id %>"
+      >Major for <%= entry.name %></label
+    >
+    <input
+      id="edit-major-<%= entry.id %>"
+      class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1"
+      type="text"
+      name="major"
+      value="<%= entry.major %>"
+      data-focus-after="edit-<%= entry.id %>"
+    />
+    <button
+      id="save-<%= entry.id %>"
+      class="rounded bg-maroon px-4 py-2 text-sm font-semibold text-white hover:bg-maroon-dark disabled:opacity-50"
+      type="submit"
+      aria-label="Save <%= entry.name %>"
+      data-focus-after="edit-<%= entry.id %>"
+    >
+      Save
+    </button>
+    <button
+      id="cancel-<%= entry.id %>"
+      class="cancel-btn rounded bg-stone-600 px-4 py-2 text-sm font-semibold text-white hover:bg-stone-700 disabled:opacity-50"
+      type="button"
+      aria-label="Cancel editing <%= entry.name %>"
+      hx-get="/students/<%= entry.id %>/row"
+      hx-target="closest li"
+      hx-swap="outerHTML"
+      data-focus-after="edit-<%= entry.id %>"
+    >
+      Cancel
+    </button>
+  </form>
+</li>

@@ -11,44 +11,52 @@
         id="login-form"
         class="mb-2 flex w-full max-w-sm flex-col gap-3"
         hx-post="/register"
-        hx-target="#auth-error"
+        hx-target="#status"
       >
+        <label class="sr-only" for="register-username">Username</label>
         <input
+          id="register-username"
+          autocomplete="username"
           class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none"
           type="text"
           name="Username"
           placeholder="Username"
         />
+        <label class="sr-only" for="register-password">Password</label>
         <input
+          id="register-password"
+          autocomplete="new-password"
           class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none"
           type="password"
           name="Password"
           placeholder="Password"
         />
+        <label class="sr-only" for="register-fullname">Full name</label>
         <input
+          id="register-fullname"
+          autocomplete="name"
           class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none"
           type="text"
           name="FullName"
           placeholder="Full Name"
         />
+        <label class="sr-only" for="register-major">Major</label>
         <input
+          id="register-major"
           class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none"
           type="text"
           name="Major"
           placeholder="Major"
         />
         <button
+          id="register-btn"
           class="rounded bg-maroon px-4 py-2 text-sm font-semibold text-white hover:bg-maroon-dark disabled:opacity-50"
           type="submit"
         >
           Register
         </button>
       </form>
-      <p
-        id="auth-error"
-        class="mb-4 min-h-5 text-sm text-red-600"
-        role="alert"
-      ></p>
+      <%- include('partials/status') %>
       <p class="text-sm text-stone-600">
         Already have an account?
         <a class="font-medium text-maroon hover:underline" href="/login"

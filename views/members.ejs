@@ -9,31 +9,37 @@
       <main>
         <form
           id="login-form"
-          class="mb-6 flex flex-col gap-2 sm:flex-row"
+          class="mb-2 flex flex-col gap-2 sm:flex-row"
           hx-post="/members"
           hx-target="#member-list"
           hx-swap="beforeend"
           hx-on::after-request="if(event.detail.successful) this.reset()"
         >
+          <label class="sr-only" for="member-name">Name</label>
           <input
+            id="member-name"
             class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1"
             type="text"
             name="name"
             placeholder="Name"
           />
+          <label class="sr-only" for="member-username">Username</label>
           <input
+            id="member-username"
             class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1"
             type="text"
             name="Username"
             placeholder="Username"
           />
           <button
+            id="add-member-btn"
             class="rounded bg-maroon px-4 py-2 text-sm font-semibold text-white hover:bg-maroon-dark disabled:opacity-50"
             type="submit"
           >
             Add
           </button>
         </form>
+        <%- include('partials/status') %>
         <div class="overflow-x-auto rounded border border-stone-200 bg-white">
           <table class="w-full border-collapse text-sm">
             <thead>

@@ -13,15 +13,19 @@
           hx-post="/reviews"
           hx-target="#entries"
           hx-swap="beforeend"
-          hx-on::after-request="if(event.detail.successful) { this.reset(); document.getElementById('form-error').textContent = ''; }"
+          hx-on::after-request="if(event.detail.successful) this.reset()"
         >
+          <label class="sr-only" for="review-course">Course code</label>
           <input
+            id="review-course"
             class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1"
             type="text"
             name="course"
             placeholder="Course (e.g. CS326)"
           />
+          <label class="sr-only" for="review-rating">Workload rating, 1 to 5</label>
           <input
+            id="review-rating"
             class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:w-36"
             type="number"
             name="rating"
@@ -29,25 +33,29 @@
             max="5"
             placeholder="Workload 1-5"
           />
+          <label class="sr-only" for="review-comment">Comment</label>
           <input
+            id="review-comment"
             class="rounded border border-stone-300 bg-white px-3 py-2 text-sm focus:border-maroon focus:ring-2 focus:ring-maroon/30 focus:outline-none sm:flex-1"
             type="text"
             name="comment"
             placeholder="Comment"
           />
           <button
+            id="add-review-btn"
             class="rounded bg-maroon px-4 py-2 text-sm font-semibold text-white hover:bg-maroon-dark disabled:opacity-50"
             type="submit"
           >
             Add review
           </button>
         </form>
-        <p
-          id="form-error"
-          class="mb-4 min-h-5 text-sm text-red-600"
-          role="alert"
-        ></p>
-        <ul id="entries" class="flex flex-col gap-3">
+        <%- include('partials/status') %>
+        <ul
+          id="entries"
+          class="flex flex-col gap-3"
+          tabindex="-1"
+          aria-label="Reviews"
+        >
           <% Reviews.forEach((entry) => { %> <%- include('partials/review_row',
           { entry: entry }) %> <% }); %>
         </ul>
