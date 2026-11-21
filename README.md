@@ -39,9 +39,9 @@ Clone the repository
   Install dependencies
 - "npm install"
   Configure Environment Variables
+- Follow instruction from .env.example file
 - "touch .env"
-- Open the .env file and add your session key.
-- ` SECRET_SESSION="your-session-key"`
+- Open the .env file and configs using instruction from .env.example
 
 ## Running the Server
 
@@ -54,7 +54,7 @@ Inside your Gantry docker development environment, run these in order:
 ## Running Jest test
 
 - "npm test" (start the test)
-- You should see 3 different tests and 32 test cases with all "passed" status
+- You should see 3 different tests and 28 test cases with all "passed" status
 
 ## System Diagram
 

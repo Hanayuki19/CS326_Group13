@@ -1,9 +1,11 @@
+import "dotenv/config";
 import mongoose from "mongoose";
 import { readFile, writeFile } from "node:fs/promises";
 import bcrypt from "bcrypt";
 import { Member } from "./repositories/mainRepository.js";
 import Credentials from "./models/credentialModel.js";
 import { Student } from "./repositories/StudentRepository.js";
+// import { None } from "./result.js";
 
 const raw_members = await readFile("./member.json", "utf8");
 const members = JSON.parse(raw_members);
@@ -15,9 +17,13 @@ const raw_students = await readFile("./student.json", "utf8");
 const students = JSON.parse(raw_students);
 
 const run = async () => {
+  const CONNECT_MONGO = process.env.MONGODB_URI;
+  if (!CONNECT_MONGO) {
+    console.log("MONGO_URI is missing.");
+  }
+
   await mongoose.connect(
-    process.env.MONGODB_URI ||
-      "mongodb://dev:devpassword@mongo:27017/devdb?authSource=admin"
+    CONNECT_MONGO
   );
 
   await Member.deleteMany({});
@@ -33,7 +39,10 @@ const run = async () => {
     const id = new mongoose.Types.ObjectId();
 
     if (i < credentials.length) {
-      const { Username, Password, FullName, Major, role } = credentials[i];
+      const { Username, FullName, Major, role } = credentials[i];
+      let Password;
+      if (role === "admin") Password = process.env.Admin_password;
+      else Password = process.env.Student_password;
       const passwordHash = await bcrypt.hash(Password, 10);
       const new_credential = {
         Username,
