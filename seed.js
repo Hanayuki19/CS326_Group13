@@ -1,8 +1,9 @@
 import "dotenv/config";
 import mongoose from "mongoose";
 import { readFile, writeFile } from "node:fs/promises";
-import bcrypt from 'bcrypt';
-import { Member, Credentials } from "./repositories/mainRepository.js";
+import bcrypt from "bcrypt";
+import { Member } from "./repositories/mainRepository.js";
+import Credentials from "./models/credentialModel.js";
 import { Student } from "./repositories/StudentRepository.js";
 // import { None } from "./result.js";
 
@@ -22,12 +23,7 @@ const run = async () => {
   }
 
   await mongoose.connect(
-<<<<<<< Updated upstream
-    process.env.MONGODB_URI ||
-    "mongodb://dev:devpassword@mongo:27017/devdb?authSource=admin",
-=======
     CONNECT_MONGO
->>>>>>> Stashed changes
   );
 
   await Member.deleteMany({});
@@ -54,7 +50,7 @@ const run = async () => {
         FullName,
         Major,
         role,
-        _id: id
+        _id: id,
       };
 
       await Credentials.create(new_credential);
@@ -63,14 +59,7 @@ const run = async () => {
       await Student.create({ ...students[i], _id: id });
     }
   }
-<<<<<<< Updated upstream
-  console.log(
-    `Seeded ${count} credentials and students.`,
-  );
-=======
-
   console.log(`Seeded ${count} credentials and students.`);
->>>>>>> Stashed changes
   await mongoose.disconnect();
 };
 

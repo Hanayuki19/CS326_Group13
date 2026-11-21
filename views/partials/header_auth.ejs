@@ -11,9 +11,23 @@
     <a class="hover:text-maroon hover:underline" href="/members">Members</a>
     <a class="hover:text-maroon hover:underline" href="/students">Students</a>
     <a class="hover:text-maroon hover:underline" href="/reviews">Reviews</a>
+    <% if (locals.user) { %>
+    <span class="text-stone-500"
+      >Signed in as <%= locals.user.Username %>
+    </span>
+    <form method="POST" action="/logout" class="inline">
+      <button
+        type="submit"
+        class="cursor-pointer font-medium text-maroon hover:underline"
+      >
+        Log out
+      </button>
+    </form>
+    <% } else { %>
     <a class="hover:text-maroon hover:underline" href="/login">Login</a>
     <a class="hover:text-maroon hover:underline" href="/register"
       >Create Account</a
     >
+    <% } %>
   </nav>
 </header>

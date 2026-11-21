@@ -3,7 +3,7 @@ import { isValidId } from "../repositories/StudentRepository.js";
 import { join } from "path";
 
 export const students = async (req, res) => {
-  const result = await mainService.get_student(req.session?.user);
+  const result = await mainService.get_student(req.user);
   if (!result.ok) {
     return res.status(result.error.status).send(result.error.message);
   }
@@ -16,7 +16,7 @@ export const student = async (req, res) => {
   if (!isValidId(id)) {
     return res.status(400).send("Invalid ID");
   }
-  const result = await mainService.get_student_by_id(id, req.session?.user);
+  const result = await mainService.get_student_by_id(id, req.user);
   if (!result.ok) {
     return res.status(result.error.status).send(result.error.message);
   }
@@ -36,11 +36,7 @@ export const update = async (req, res) => {
   if (!isValidId(id)) {
     return res.status(400).send("Invalid ID");
   }
-  const result = await mainService.updateStudent(
-    id,
-    req.body,
-    req.session?.user
-  );
+  const result = await mainService.updateStudent(id, req.body, req.user);
   if (!result.ok) {
     return res.status(result.error.status).send(result.error.message);
   }
@@ -52,7 +48,7 @@ export const deleteStudent = async (req, res) => {
   if (!isValidId(id)) {
     return res.status(400).send("Invalid ID");
   }
-  const result = await mainService.deleteStudent(id, req.session?.user);
+  const result = await mainService.deleteStudent(id, req.user);
   if (!result.ok) {
     return res.status(result.error.status).send(result.error.message);
   }
