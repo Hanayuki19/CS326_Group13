@@ -46,10 +46,6 @@ app.use(
       mongoUrl:
         CONNECT_MONGO
     }),
-    store: MongoStore.create({
-      mongoUrl:
-        CONNECT_MONGO
-    }),
     cookie: {
       httpOnly: true,
       sameSite: "lax",
