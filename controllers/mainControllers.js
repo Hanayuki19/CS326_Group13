@@ -3,41 +3,7 @@ import { join } from "path";
 import { create, deleteMember } from "../repositories/mainRepository.js";
 
 export const main = async (req, res) => {
-  res.sendFile(join(import.meta.dirname, "../public", "about.html"));
-};
-
-export const get_login = async (req, res) => {
-  res.render("login", { title: "Login" });
-};
-
-export const get_register = async (req, res) => {
-  res.render("register", { title: "Register" });
-};
-
-export const login = async (req, res) => {
-  const result = await mainService.get_login(req.body);
-  if (!result.ok) {
-    return res.status(result.error.status).send(result.error.message);
-  }
-  req.session.user = result.value;
-
-  res
-    .set("HX-Redirect", `/students/student/${result.value.id}`)
-    .status(200)
-    .end();
-};
-
-export const register = async (req, res) => {
-  const result = await mainService.get_register(req.body);
-  if (!result.ok) {
-    return res.status(result.error.status).send(result.error.message);
-  }
-  req.session.user = result.value;
-
-  res
-    .set("HX-Redirect", `/students/student/${result.value.id}`)
-    .status(200)
-    .end();
+  res.render("about", { title: "Home" });
 };
 
 export const members = async (req, res) => {
@@ -63,7 +29,7 @@ export const add_member = async (req, res) => {
     Username: req.body.Username.trim(),
   };
 
-  res.render("partials/member_row", { entry: newMember });
+  res.render("partials/members_row", { entry: newMember });
 };
 
 export const delete_member = async (req, res) => {

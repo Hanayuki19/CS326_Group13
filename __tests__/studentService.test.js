@@ -19,71 +19,6 @@ afterEach(() => {
   repo.updateById.mockReset();
 });
 
-// //start of test validateInput
-// test('validateInput accepts those with name and major', async () => {
-//   const result = await validateInput({ name: 'A', major: 'something' });
-//   expect(result.ok).toBe(true);
-//   //expect(result.error.status).toBe(400);
-// });
-
-// test('validateInput rejects those with only major', async () => {
-//   const result = await validateInput({ name: '', major: 'something' });
-//   expect(result.error.status).toBe(400);
-// });
-
-// test('validateInput rejects those with only name', async () => {
-//   const result = await validateInput({ name: 'B', major: '' });
-//   expect(result.error.status).toBe(400);
-// });
-
-// test('validateInput rejects those with no input name and major', async () => {
-//   const result = await validateInput({ name: '', major: '' });
-//   expect(result.error.status).toBe(400);
-// });
-
-// //end of test ValidateInput
-
-// //start of test checkPermission
-// test('checkPermission accepts all admins', async () => {
-//   const result = await checkPermission({ id: 10, role: 'admin' }, 10);
-//   const result_2 = await checkPermission({ id: 11, role: 'admin' }, 11);
-//   const result_3 = await checkPermission({ id: 12, role: 'admin' }, 12);
-//   const result_4 = await checkPermission({ id: "abc123", role: 'admin' }, "cde456");
-
-//   expect(result.ok).toBe(true);
-//   expect(result_2.ok).toBe(true);
-//   expect(result_3.ok).toBe(true);
-//   expect(result_4.ok).toBe(true);
-// });
-
-// test('checkPermission only accepts students with valid id', async () => {
-//   const res = await checkPermission({ id: 10, role: 'student' }, 10);
-//   const res_2 = await checkPermission({ id: 1000000, role: 'student' }, 1000000);
-//   const res_3 = await checkPermission({ id: "abc456", role: 'student' }, "abc456");
-//   const res_4 = await checkPermission({ id: "cde.456_", role: 'student' }, "cde.456_");
-
-//   expect(res.ok).toBe(true);
-//   expect(res_2.ok).toBe(true);
-//   expect(res_3.ok).toBe(true);
-//   expect(res_4.ok).toBe(true);
-// });
-
-// test('checkPermission rejects students without valid id', async () => {
-//   const res = await checkPermission({ id: 10, role: 'student' }, "10");
-//   const res_2 = await checkPermission({ id: 1000000, role: 'student' }, 100000);
-//   const res_3 = await checkPermission({ id: "abc456", role: 'student' }, "abc456 ");
-//   const res_4 = await checkPermission({ id: "cde__456", role: 'student' }, "cde.456_");
-//   const res_5 = await checkPermission({ id: "cde__456", role: 'a' }, "cde__456");
-
-//   expect(res.ok).toBe(false);
-//   expect(res_2.ok).toBe(false);
-//   expect(res_3.ok).toBe(false);
-//   expect(res_4.ok).toBe(false);
-//   expect(res_5.ok).toBe(false);
-// });
-
-//end of check Permission
-
 //start of get_student test
 test('get_student should be available for those with admin', async () => {
   const result = await get_student({ id: "abc", role: 'admin' }, "abc");
@@ -272,7 +207,7 @@ test('updateStudent should accept changes if that student make no changes', asyn
   });
 });
 
-test('updateStudent should not accept changes if that student is changing it', async () => {
+test('updateStudent should not accept changes if other student is changing it', async () => {
   repo.getAll.mockReturnValueOnce([{
     _id: "fake-id2",
     name: "abc",
@@ -293,6 +228,7 @@ test('updateStudent should not accept changes if that student is changing it', a
   const res = await updateStudent("fake-id2", { name: "abc", major: "Math" }, test_user);
 
   expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(403);
 });
 
 test('updateStudent should reject if invalid ID is entered even with admin changing it', async () => {
