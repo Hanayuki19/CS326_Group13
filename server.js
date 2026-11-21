@@ -10,10 +10,20 @@ import mongoose from "mongoose";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+<<<<<<< Updated upstream
 await mongoose.connect(
   process.env.MONGODB_URI ||
   "mongodb://dev:devpassword@mongo:27017/devdb?authSource=admin",
 );
+=======
+
+const CONNECT_MONGO = process.env.MONGODB_URI;
+if (!CONNECT_MONGO) {
+  console.log("MONGO_URI is missing.");
+}
+
+await mongoose.connect(CONNECT_MONGO);
+>>>>>>> Stashed changes
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -36,6 +46,13 @@ app.use(
     secret: process.env.SESSION_SECRET || 'local-dev-secret',
     resave: false,
     saveUninitialized: false,
+<<<<<<< Updated upstream
+=======
+    store: MongoStore.create({
+      mongoUrl:
+        CONNECT_MONGO
+    }),
+>>>>>>> Stashed changes
     cookie: {
       secure: false, // Set to true if using HTTPS in production
       maxAge: 1000 * 60 * 60 * 24, // Session expires in 1 day

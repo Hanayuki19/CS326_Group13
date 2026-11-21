@@ -63,11 +63,11 @@ export const createStudent = async (data) => {
 };
 
 export const updateStudent = async (id, data, currUser) => {
-  const permission = checkPermission(currUser, id);
-  if (!permission.ok) return permission;
-
   const found = await findById(id);
   if (!found) return Err({ status: 404, message: "Student ID not found" });
+
+  const permission = checkPermission(currUser, id);
+  if (!permission.ok) return permission;
 
   const result = validateInput(data);
   if (!result.ok) return result;
