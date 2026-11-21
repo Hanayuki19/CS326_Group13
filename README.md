@@ -39,7 +39,7 @@ Clone the repository
   Install dependencies
 - "npm install"
   Configure Environment Variables
-- Follow instruction from .env.example file
+- Follow instruction from .env.example file and make sure MONGO_URI, SESSION_SECRET, Admin_password, and Student_password are configured
 - "touch .env"
 - Open the .env file and configs using instruction from .env.example
 
@@ -50,6 +50,9 @@ Inside your Gantry docker development environment, run these in order:
 - "dc-up mongo" (start the database)
 - "npm start"
   Open your browser and go to "http://localhost:3000"
+
+To verify that the server is responding:
+Open your browser and go to "http://localhost:3000/health"
 
 ## Running Jest test
 
@@ -78,7 +81,8 @@ Inside your Gantry docker development environment, run these in order:
 |         Controllers Layer          |         |        EJS and partials            |
 |  - Calls services                  | ------->| - Generate pages, links,           |
 |  - Renders EJS / partials          | renders |   login/register, and              |
-                                               |   other functions for              |
+|  - Start/end sessions cookies      |
+|  created                           |         |   other functions for              |
 +------------------------------------+         |   web rendering.                   |
            |                 ^                 +------------------------------------+
            |                 |
@@ -98,12 +102,15 @@ Inside your Gantry docker development environment, run these in order:
 |                                    |        | - Repositories replaced with               |
 |                                    |        |    jest.unstable_mockModule                |
 |                                    |        |  - Tests never reach MongoDB               |
-| - MainService (Auth & Login)       |        +--------------------------------------------+
+| - AuthService (Auth & Login)       |        +--------------------------------------------+
+| Hashing & create credentials       |
+| - MainService (Create members page)|
 +------------------------------------+
            |                 ^
            v                 |
 +------------------------------------+
-|     Repository / Storage Layer     |
+|   Repository / Credentials models  |
+|    / Storage Layer                 |
 | - Uses Mongoose models to read and |
 |   write directly to MongoDB        |
 +------------------------------------+
@@ -196,3 +203,8 @@ Submitting
 **HTMX row deletion (Chloe Le)**. For the HTMX delete button, I decided to have the server return an empty response and use `hx-target="closest li"` with `hx-swap="outerHTML"` to remove that one specific row. A credible alternative would have been having the database gather all the remaining records and return a fully re-rendered <ul> list partial to swap out the entire container. Reloading the whole list guarantees the screen matches the database, but removing just the single row is better for performance. The alternative would have made the database run an extra search query and would have wasted network data every single time someone clicks delete.
 
 **Tailwind utility classes in the markup instead of a stylesheet (Mahish Mistry).** For the restyle I put Tailwind utility classes directly on the elements in every view, and the same class strings in `app.js` and `reviews.js` for the rows they build on the client. The credible alternative was to keep a hand-written `public/style.css` (or Tailwind `@apply` component classes like `.btn` and `.row`) and give elements short class names. I shipped the utility version because the same student row is now produced in three places in this app: server-rendered in `students.ejs`, built by `app.js` after an add, and returned as the `student_row.ejs` partial after an HTMX request. With utilities, each of those carries its own complete styling, so a row looks identical whichever path made it, and the `sm:flex-row` breakpoint that stacks rows at 375 px and lines them up at 1280 px lives on the element it affects. The stylesheet alternative would have cost us a fourth place to keep in sync: a class name typo in `app.js` or `student_row.ejs` would silently produce an unstyled row, the responsive layout would need hand-written media queries, and every teammate touching a view would have to know which rules in `style.css` applied to it.
+
+## Design Decisions (Sprint 4)
+**Using Password Hashing for login/signup and initialize secrets in .env (Minh Le)**. I followed the instruction from Sprint 4 to add password hashing to login/signup layer with bcrypt instead of comparing stored plaintext passwords in MongoDB. I also moved some of the hard-coded configuration like MONGO_URI, session secret, and seed passwords from server.js and seed.js into environment variables .env, also requiring those to be initialized in .env before allowing the application to run. I then added password hashing to Long's seed.js to respect my decision of using Password Hashing in all layers. One credible alternative is to provide shared configurations defaults through environment variables .env.
+One advantages of this approach is that it making fresh clone from Git faster to run and initialize. However, it's a nightmare from a security standpoint because "attacker" can just try those defaults and login into other server as a admin (and making tweaks that the admins didn't want) if we were to deploy this in production.
+Also, the hashed password means that other people who obtain database record can't just try to login as other users.
