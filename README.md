@@ -57,7 +57,7 @@ Open your browser and go to "http://localhost:3000/health"
 ## Running Jest test
 
 - "npm test" (start the test)
-- You should see 3 different tests and 28 test cases with all "passed" status
+- You should see 3 different tests and 39 test cases with all "passed" status
 
 ## System Diagram
 

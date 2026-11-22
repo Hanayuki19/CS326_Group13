@@ -36,10 +36,15 @@ test('get_student should not be available for those without admin', async () => 
   const result_5 = await get_student({ id: "abc", role: 'admi' }, "abc");
 
   expect(result.ok).toBe(false);
+  expect(result.error.status).toBe(403);
   expect(result_2.ok).toBe(false);
+  expect(result_2.error.status).toBe(403);
   expect(result_3.ok).toBe(false);
+  expect(result_3.error.status).toBe(403);
   expect(result_4.ok).toBe(false);
+  expect(result_4.error.status).toBe(403);
   expect(result_5.ok).toBe(false);
+  expect(result_5.error.status).toBe(403);
 });
 //end of get_student
 //start of createStudent test
@@ -50,8 +55,11 @@ test('createStudent should reject if the input is invalid', async () => {
   const result_3 = await createStudent({ name: '', major: '' });
 
   expect(result_1.ok).toBe(false);
+  expect(result_1.error.status).toBe(400);
   expect(result_2.ok).toBe(false);
+  expect(result_2.error.status).toBe(400);
   expect(result_3.ok).toBe(false);
+  expect(result_3.error.status).toBe(400);
 });
 
 test('createStudent should reject if there is a duplicate name', async () => {
@@ -64,6 +72,7 @@ test('createStudent should reject if there is a duplicate name', async () => {
   const test_a = await createStudent({ name: 'abc', major: 'CS' });
 
   expect(test_a.ok).toBe(false);
+  expect(test_a.error.status).toBe(409);
 });
 
 test('createStudent should accept if the input is valid', async () => {
@@ -238,6 +247,7 @@ test('updateStudent should reject if invalid ID is entered even with admin chang
   const test_user = { id: "fake-id", role: "admin" };
   const res = await updateStudent("fake-id2", { name: "abc", major: "CS" }, test_user);
   expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(404);
   expect(res.error.message).toBe("Student ID not found");
 });
 
@@ -263,7 +273,9 @@ test('updateStudent should not work with missing field', async () => {
   const res_2 = await updateStudent("fake-id2", { major: "Math" }, test_user);
 
   expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(400);
   expect(res_2.ok).toBe(false);
+  expect(res_2.error.status).toBe(400);
 });
 
 test('updateStudent should reject duplicate name', async () => {
@@ -287,6 +299,7 @@ test('updateStudent should reject duplicate name', async () => {
   const test_user = { id: "fake-id", role: "admin" };
   const res = await updateStudent("fake-id", { name: "def", major: "Math" }, test_user);
   expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(409);
 });
 
 test('updateStudent should reject when role is neither admin nor student', async () => {
@@ -304,6 +317,7 @@ test('updateStudent should reject when role is neither admin nor student', async
   const test_user = { id: "fake-id2", role: "other" };
   const res = await updateStudent("fake-id", { name: "def", major: "Math" }, test_user);
   expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(403);
 });
 
 //end of test for updateStudent
@@ -328,7 +342,7 @@ test('deleteStudent accept delete from admin', async () => {
   expect(res.ok).toBe(true);
 });
 
-test('deleteStudent accept delete from the same student', async () => {
+test('deleteStudent should not accept delete from the same student', async () => {
   repo.getAll.mockReturnValueOnce([{
     _id: "fake-id1",
     name: "abc",
@@ -345,7 +359,9 @@ test('deleteStudent accept delete from the same student', async () => {
   const res_1 = await deleteStudent("fake-id2", test_user);
 
   expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(403);
   expect(res_1.ok).toBe(false);
+  expect(res_1.error.status).toBe(403);
 });
 
 test('deleteStudent should reject if invalid student id is input', async () => {
@@ -360,6 +376,7 @@ test('deleteStudent should reject if invalid student id is input', async () => {
   const res = await deleteStudent("fake-id1", test_user);
 
   expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(404);
 });
 
 //end of deleteStudent test
@@ -396,6 +413,7 @@ test('get_student_by_id should return false even if id exists when logged as a d
   const test_user = { id: "fake-id2", role: "student" };
   const res = await get_student_by_id("fake-id1", test_user);
   expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(403);
 });
 
 test('get_student_by_id should return true if they existed & being an admin', async () => {
@@ -424,6 +442,7 @@ test('get_student_by_id should return false if they do not exist & being an admi
   const test_user = { id: "fake-id", role: "admin" };
   const res = await get_student_by_id("fake-id2", test_user);
   expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(404);
 });
 
 //end of get_student_by_id test
