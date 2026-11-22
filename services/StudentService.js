@@ -53,7 +53,7 @@ export const createStudent = async (data) => {
 
   const students = (await getAll()).map(toStudentDto);
   if (students.some((s) => s.name === result.value.name)) {
-    return Err({ status: 404, message: "Student already exists" });
+    return Err({ status: 409, message: "Student already exists" });
   }
   const result2 = await create(data);
   return Ok(toStudentDto(result2));
@@ -75,7 +75,7 @@ export const updateStudent = async (id, data, currUser) => {
       (s) => s.name === result.value.name && String(s.id) !== String(id)
     )
   ) {
-    return Err({ status: 404, message: "Student already exists" });
+    return Err({ status: 409, message: "Student already exists" });
   }
   const result2 = await updateById(id, data);
   return Ok(toStudentDto(result2));
