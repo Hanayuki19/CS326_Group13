@@ -54,10 +54,25 @@ Inside your Gantry docker development environment, run these in order:
 To verify that the server is responding:
 Open your browser and go to "http://localhost:3000/health"
 
+- To fill in our sample, first, create ".env" file with the directory "./CS326_Group13/.env".
+- Inside the file, add values for MONGODB_URI, SESSION_SECRET, Admin_password, Student_password. Check our .env.example file for more details.
+Here is an example of .env:
+```text
+MONGODB_URI = "mongodb://dev:devpassword@mongo:27017/devdb?authSource=admin"
+SESSION_SECRET = "abc"
+Admin_password = "1234"
+Student_password = "1234"
+```
+
+- Then, "npm run seed" to insert our sample of accounts
+- There are only two main accounts with different roles.
+To login as a student, we have "Username: remi, Password: 1234"
+To login as an admin, we have "Username: Administrator, Password: 1234"
+
 ## Running Jest test
 
 - "npm test" (start the test)
-- You should see 3 different tests and 28 test cases with all "passed" status
+- You should see 4 different tests and 39 test cases with all "passed" status
 
 ## System Diagram
 
