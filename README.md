@@ -38,6 +38,7 @@ Clone the repository
 - "git clone https://github.com/Hanayuki19/CS326_Group13.git"
   Install dependencies
 - "npm install"
+- "npm install bcrypt"
   Configure Environment Variables
 - Follow instruction from .env.example file and make sure MONGO_URI, SESSION_SECRET, Admin_password, and Student_password are configured
 - "touch .env"
