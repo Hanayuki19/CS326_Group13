@@ -29,7 +29,10 @@ export const add_member = async (req, res) => {
     Username: req.body.Username.trim(),
   };
 
-  res.render("partials/members_row", { entry: newMember });
+  res.render("partials/members_row", {
+    entry: newMember,
+    status: "Member added.",
+  });
 };
 
 export const delete_member = async (req, res) => {

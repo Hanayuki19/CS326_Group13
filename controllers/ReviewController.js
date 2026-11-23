@@ -8,12 +8,12 @@ export const list = async (req, res) => {
 export const create = async (req, res) => {
   const result = await reviewService.createReview(req.body);
   if (!result.ok) {
-    return res.status(result.error.status).send(`
-      <p id="form-error" hx-swap-oob="true" class="mb-4 min-h-5 text-sm text-red-600" role="alert">
-        ${result.error.message}
-      </p>
-    `);
+    // htmx routes 4xx bodies into #status (see partials/head.ejs).
+    return res.status(result.error.status).send(result.error.message);
   }
 
-  res.render("partials/review_row", { entry: result.value });
+  res.render("partials/review_row", {
+    entry: result.value,
+    status: "Review added.",
+  });
 };
