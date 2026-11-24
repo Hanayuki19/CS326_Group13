@@ -379,6 +379,26 @@ test('deleteStudent should reject if invalid student id is input', async () => {
   expect(res.error.status).toBe(404);
 });
 
+test('deleteStudent should reject if admin is deleting their own record', async () => {
+  repo.getAll.mockReturnValueOnce([{
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  }]);
+  repo.findById.mockReturnValueOnce({
+    _id: "fake-id1",
+    name: "abc",
+    major: "CS",
+  });
+
+  const test_user = { id: "fake-id1", role: "admin" };
+  const res = await deleteStudent("fake-id1", test_user);
+
+  expect(res.ok).toBe(false);
+  expect(res.error.status).toBe(403);
+  expect(res.error.message).toBe("Admin record cannot be deleted.");
+});
+
 //end of deleteStudent test
 
 //start of get_student_by_id test
