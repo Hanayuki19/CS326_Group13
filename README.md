@@ -74,7 +74,7 @@ Student_password = "1234"
 ## Running Jest test
 
 - "npm test" (start the test)
-- You should see 4 different tests and 39 test cases with all "passed" status
+- You should see 4 different tests and 40 test cases with all "passed" status
 
 ## System Diagram
 

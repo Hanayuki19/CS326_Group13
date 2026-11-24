@@ -40,13 +40,7 @@ export const get_student = async (currUser) => {
   const students = (await getAll()).map(toStudentDto);
   return Ok(students);
 };
-/*
-const findStudentByID = async (id) => {
-  const students = await getAll();
-  const entry = students.find((s) => s.id === id);
-  return entry ? Some(entry) : None;
-};
-*/
+
 export const createStudent = async (data) => {
   const result = validateInput(data);
   if (!result.ok) return result;
@@ -92,6 +86,9 @@ export const deleteStudent = async (id, currUser) => {
   //const students = await getAll();
   const found = await findById(id);
   if (!found) return Err({ status: 404, message: "Student not found" });
+
+  //block admin from deleting their own account
+  if (currUser.id === String(found._id)) return Err({ status: 403, message: "Admin record cannot be deleted." });
 
   const result2 = await removeById(id);
   return Ok(result2);
