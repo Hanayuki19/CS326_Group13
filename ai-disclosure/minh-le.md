@@ -29,5 +29,6 @@ const res = await updateStudent("fake-id2", { name: "abc", major: "Math" }, test
 it tells me that there's a type mismatch here that are comparing String type to a Mongo ObjectbyId type, which causes the error.
 I tried changing the studentService.js to compare between string type so it matches my equality comparison jest test, and it still works just fine for the original application.
 
-Sprint 4:
+## Sprint 4:
+
 I didn't use AI for Sprint 4.
