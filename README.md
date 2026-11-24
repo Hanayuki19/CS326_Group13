@@ -89,20 +89,42 @@ Student_password = "1234"
        (via HTMX)       HX-Redirects
            v                 |
 +------------------------------------+
-|           Routes Layer             |
-|  - Maps URL paths to controllers   |
+|             server.js              |
+| - Configures Express and EJS       |
+| - Connects Mongoose to MongoDB     |
+| - Serves static files, parses body |
+| - Mounts routers and error handler |
 +------------------------------------+
-           |                 ^
-           v                 |
-+------------------------------------+         +------------------------------------+
-|         Controllers Layer          |         |        EJS and partials            |
-|  - Calls services                  | ------->| - Generate pages, links,           |
-|  - Renders EJS / partials          | renders |   login/register, and              |
-|  - Start/end sessions cookies      |
-|  created                           |         |   other functions for              |
-+------------------------------------+         |   web rendering.                   |
-           |                 ^                 +------------------------------------+
-           |                 |
+           |
+           v
++------------------------------------+       +------------------------------------+
+|          Middleware Layer          |       |           Session Store            |
+| - express-session in server.js     |<----->| - connect-mongo in server.js       |
+|   loads and saves req.session      |       | - Stores sessions in MongoDB       |
+| - middleware/attachUser.js         |       | - Uses the same MONGODB_URI        |
+|   reads session.userId, loads user  |       +------------------------------------+
+|   through authRepository.js, then  |
+|   sets req.user / res.locals.user  |
++------------------------------------+
+           |
+           v
++------------------------------------+       +------------------------------------+
+|           Routes Layer             |       |       Route Middleware             |
+| - Maps URL paths to controllers    |------>| - middleware/requireLogin.js       |
+|                                    |       | - Checks req.user on protected     |
++------------------------------------+       |   routes; redirects or sends 401   |
+           |                                +------------------------------------+
+           | Public routes                             | If logged in
+           v                                           v
++------------------------------------+         +------------------------------------+            
+|         Controllers Layer          |         |        EJS and partials            |            
+|  - Calls services                  | ------->| - Generate pages, links,           |            
+|  - Renders EJS / partials          | renders |   login/register, and              |            
+|  - Start/end sessions cookies      |         |                                    |            
+|  created                           |         |   other functions for              |            
++------------------------------------+         |   web rendering.                   |            
+           |                 ^                 +------------------------------------+            
+           |                 |                                                                   
            v                 |
 +------------------------------------+
 |                DTOs                |
