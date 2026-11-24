@@ -11,6 +11,8 @@ router.get(
   requireLogin,
   asyncHandler(studentController.student)
 );
+router.get("/:id/edit", requireLogin, asyncHandler(studentController.editForm));
+router.get("/:id/row", requireLogin, asyncHandler(studentController.row));
 router.post("/:id", requireLogin, asyncHandler(studentController.create));
 router.put("/:id", requireLogin, asyncHandler(studentController.update));
 router.delete(

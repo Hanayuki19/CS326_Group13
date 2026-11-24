@@ -75,21 +75,28 @@ app.use("/students", studentRouter);
 
 app.use("/reviews", reviewRouter);
 
+// htmx puts the body of a failed request into the #status live region, so
+// htmx requests get the message as plain text instead of JSON.
+const sendError = (req, res, status, message) => {
+  if (req.get("HX-Request")) {
+    return res.status(status).type("text/plain").send(message);
+  }
+  res.status(status).json({ error: message });
+};
+
 app.use((req, res) => {
-  res
-    .status(404)
-    .json({ error: `No route for ${req.method} ${req.originalUrl}` });
+  sendError(req, res, 404, `No route for ${req.method} ${req.originalUrl}`);
 });
 
 app.use((err, req, res, next) => {
   console.error(err);
   if (err.type === "entity.parse.failed") {
-    return res.status(400).json({ error: "Request body is not valid JSON" });
+    return sendError(req, res, 400, "Request body is not valid JSON");
   }
   const status = err.status || err.statusCode || 500;
   const message =
     status < 500 ? err.message : "Something went wrong on the server";
-  res.status(status).json({ error: message });
+  sendError(req, res, status, message);
 });
 
 app.listen(PORT, () => {
