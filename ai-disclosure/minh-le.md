@@ -32,3 +32,5 @@ I tried changing the studentService.js to compare between string type so it matc
 ## Sprint 4:
 
 I didn't use AI for Sprint 4.
+
+I refer to https://nodejs.org/api/process.html#processexitcode (process exit code to know how to stop my application if expected setting within .env environment is missing: MONGODB_URI, or SESSION_SECRET) and apply that to server.js and seed.js to requires those for the application to run, or else alert MONGODB_URI or SESSION_SECRET secret is missing and therefore not allowing the application to run

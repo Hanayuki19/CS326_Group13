@@ -16,7 +16,15 @@ const PORT = process.env.PORT || 3000;
 
 const CONNECT_MONGO = process.env.MONGODB_URI;
 if (!CONNECT_MONGO) {
-  console.log("MONGO_URI is missing.");
+  console.log("MONGODB_URI is missing.");
+  process.exit(1);
+}
+
+const USE_SESSION_SECRET = process.env.SESSION_SECRET;
+
+if (!USE_SESSION_SECRET) {
+  console.log("SESSION_SECRET is missing.");
+  process.exit(1);
 }
 
 await mongoose.connect(CONNECT_MONGO);
@@ -39,7 +47,7 @@ app.use((req, res, next) => {
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "local-dev-secret",
+    secret: USE_SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
