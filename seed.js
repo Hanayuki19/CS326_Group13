@@ -20,6 +20,7 @@ const run = async () => {
   const CONNECT_MONGO = process.env.MONGODB_URI;
   if (!CONNECT_MONGO) {
     console.log("MONGO_URI is missing.");
+    process.exit(1);
   }
 
   await mongoose.connect(
