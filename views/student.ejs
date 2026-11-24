@@ -7,7 +7,13 @@
     <div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-10">
       <%- include('partials/header_auth') %>
       <main>
-        <ul id="entries" class="flex flex-col gap-3">
+        <%- include('partials/status') %>
+        <ul
+          id="entries"
+          class="flex flex-col gap-3"
+          tabindex="-1"
+          aria-label="Profile"
+        >
           <%- include('partials/student_row', { entry: student }) %>
         </ul>
       </main>

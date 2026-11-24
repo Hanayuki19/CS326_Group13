@@ -9,3 +9,19 @@
   --color-maroon: #881c1c;
   --color-maroon-dark: #6a1414;
 }
+
+@layer base {
+  /* Tailwind's default placeholder is the text colour at 50% opacity, about
+     3.3:1 on white. stone-600 is 7.6:1, above the WCAG AA 4.5:1 minimum. */
+  ::placeholder {
+    color: var(--color-stone-600);
+    opacity: 1;
+  }
+
+  /* One clear focus ring for links, buttons, and the list that focus.js
+     moves focus to after a delete. Inputs keep their own maroon ring. */
+  :where(a, button, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-maroon);
+    outline-offset: 2px;
+  }
+}

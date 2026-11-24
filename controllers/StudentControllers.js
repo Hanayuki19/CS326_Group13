@@ -28,7 +28,10 @@ export const create = async (req, res) => {
   if (!result.ok) {
     return res.status(result.error.status).send(result.error.message);
   }
-  res.render("partials/student_row", { entry: result.value });
+  res.render("partials/student_row", {
+    entry: result.value,
+    status: "Student added.",
+  });
 };
 
 export const update = async (req, res) => {
@@ -40,7 +43,39 @@ export const update = async (req, res) => {
   if (!result.ok) {
     return res.status(result.error.status).send(result.error.message);
   }
-  res.render("partials/student_row", { entry: result.value });
+  res.render("partials/student_row", {
+    entry: result.value,
+    status: "Student saved.",
+  });
+};
+
+// The edit form for one row. Edit swaps it in where the row was.
+export const editForm = async (req, res) => {
+  const id = req.params.id;
+  if (!isValidId(id)) {
+    return res.status(400).send("Invalid ID");
+  }
+  const result = await mainService.get_student_by_id(id, req.user);
+  if (!result.ok) {
+    return res.status(result.error.status).send(result.error.message);
+  }
+  res.render("partials/student_edit", { entry: result.value });
+};
+
+// The plain row again. Cancel swaps it back in where the edit form was.
+export const row = async (req, res) => {
+  const id = req.params.id;
+  if (!isValidId(id)) {
+    return res.status(400).send("Invalid ID");
+  }
+  const result = await mainService.get_student_by_id(id, req.user);
+  if (!result.ok) {
+    return res.status(result.error.status).send(result.error.message);
+  }
+  res.render("partials/student_row", {
+    entry: result.value,
+    status: "Edit cancelled.",
+  });
 };
 
 export const deleteStudent = async (req, res) => {
@@ -52,5 +87,6 @@ export const deleteStudent = async (req, res) => {
   if (!result.ok) {
     return res.status(result.error.status).send(result.error.message);
   }
-  res.status(200).send("");
+  // Nothing replaces the row; the body is only the out-of-band status text.
+  res.render("partials/status_oob", { status: "Student deleted." });
 };
